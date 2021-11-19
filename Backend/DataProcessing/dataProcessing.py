@@ -16,7 +16,8 @@ pd.set_option('display.width', 1000)
 
 class DataProcessing:
     def __init__(self, dataset):
-        self.dataset = dataset
+        print("Processing the dataset")
+        self.dataset = pd.DataFrame(dataset)
         self.df = pd.DataFrame(self.dataset)
         self.comorbiditati = None
 
@@ -55,12 +56,15 @@ class DataProcessing:
 
             self.df.to_csv(filename_dataset, header=True)
 
+    def getDataset(self):
+        return self.df
+
     def changeMedicatie(self):
         """
         One Hot Encoding for the "Medicatie" column.
         :return:
         """
-        d = {}
+        dm = {}
         indx = 0
         for record in self.df.Medicatie:
             med_list = str(record).split("||")
@@ -72,9 +76,9 @@ class DataProcessing:
                     self.df[med] = np.zeros(self.df.shape[0], dtype=int)
                     self.df[med][indx] = 1
                     pd.to_numeric(self.df[med])
-                d[med] = 1
+                dm[med] = 1
             indx += 1
-        for key, value in d.items():
+        for key, value in dm.items():
             if self.df[key].sum() <= self.df.shape[0] * 0.2:
                 self.df.drop([key], inplace=True, axis='columns')
         self.df.drop(['Medicatie'], inplace=True, axis='columns')
@@ -84,7 +88,7 @@ class DataProcessing:
         One Hot Encoding for the "Analize_prim_set" column.
         :return:
         """
-        d = {}
+        dan = {}
         indx = 0
         for record in self.df.Analize_prim_set:
             if record is not np.NAN:
@@ -97,7 +101,7 @@ class DataProcessing:
                     analiza_name = analiza_name.replace(" ", "")
                     try:
                         result_int = float(result)
-                        d[analiza_name] = 1
+                        dan[analiza_name] = 1
                         try:
                             self.df[analiza_name][indx] = result_int
                         except:
@@ -107,7 +111,7 @@ class DataProcessing:
                     except:
                         pass
             indx += 1
-        for key, value in d.items():
+        for key, value in dan.items():
             if self.df[key].sum() <= self.df.shape[0] * 0.2:
                 self.df.drop([key], inplace=True, axis='columns')
         self.df.drop(['Analize_prim_set'], inplace=True, axis='columns')
@@ -118,7 +122,7 @@ class DataProcessing:
         :returns: Dictionary[illness code: weight]
         """
         self.boala = pd.DataFrame()
-        self.boala = self.boala_dataset()
+        self.boala = self.boalaDataset()
 
         weight = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0}
 
@@ -199,34 +203,37 @@ class DataProcessing:
         Creates a dictionary with every illness and how many people had each type of severity.
         :returns: DataFrame
         """
-        self.com_ext = self.df[["Comorbiditati", "stare_externare"]]
-        d = {}
-        g = open("text-comorbiditati.txt", "r")
-        r = csv.reader(g)
-        for row in r:
-            # count, vindecat, ameliorat, stationar, agravat, decedat
-            ds = row[0].split(" ", 1)[0]
-            d[ds] = [0, 0, 0, 0, 0, 0]
-            for cr, ext in self.com_ext.itertuples(index=False):
-                if type(cr) is str and row[0] in cr:
-                    d[ds][0] = d[ds][0] + 1
-                    d[ds][int(ext) + 1] = d[ds][int(ext) + 1] + 1
-        dictr = {}
-        for key, value in d.items():
-            dis = key.split(" ", 1)
-            dictr[dis[0]] = value[5]
-        g.close()
+        try:
+            self.com_ext = self.df[["Comorbiditati", "stare_externare"]]
+            db = {}
+            g = open("../DataAnalysis/text-comorbiditati.txt", "r")
+            r = csv.reader(g)
+            for row in r:
+                # count, vindecat, ameliorat, stationar, agravat, decedat
+                ds = row[0].split(" ", 1)[0]
+                db[ds] = [0, 0, 0, 0, 0, 0]
+                for cr, ext in self.com_ext.itertuples(index=False):
+                    if type(cr) is str and row[0] in cr:
+                        db[ds][0] = db[ds][0] + 1
+                        db[ds][int(ext) + 1] = db[ds][int(ext) + 1] + 1
+            dictr = {}
+            for key, value in db.items():
+                dis = key.split(" ", 1)
+                dictr[dis[0]] = value[5]
+            g.close()
 
-        self.boala = pd.DataFrame(d)
-        self.boala = self.boala.transpose()
-        self.boala.rename(
-            columns={0: 'Count', 1: 'Vindecat', 2: 'Ameliorat', 3: 'Stationar', 4: 'Agravat', 5: 'Decedat'},
-            inplace=True, errors="raise")
+            self.boala = pd.DataFrame(db)
+            self.boala = self.boala.transpose()
+            self.boala.rename(
+                columns={0: 'Count', 1: 'Vindecat', 2: 'Ameliorat', 3: 'Stationar', 4: 'Agravat', 5: 'Decedat'},
+                inplace=True, errors="raise")
+        except IOError:
+            self.boala = pd.DataFrame()
+
         return self.boala
 
-    
+
 if __name__ == '__main__':
-    print("Analyzing the dataset")
     d = da.DataAnalysis("../TrainingData/dataset.csv")
-    d.describe()
-    # d.pltReleaseState()
+    pr = DataProcessing(d.getDataset())
+    print(pr.getDataset().head())

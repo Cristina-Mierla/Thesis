@@ -15,10 +15,11 @@ pd.set_option('display.width', 1000)
 
 class DataAnalysis:
     def __init__(self, file):
+        print("Analyzing the dataset")
         try:
             dataset = pd.read_csv(file)
             self.df = pd.DataFrame(dataset)
-            print(self.df.head())
+            # print(self.df.head())
             self.replaceColumns()
         except IOError:
             print("The file does not exist")
@@ -54,7 +55,7 @@ class DataAnalysis:
         Making categorical data numerical.
         :return:
         """
-        print("\nDrop the columns that we are not going to use for the model")
+        # print("\nDrop the columns that we are not going to use for the model")
         self.df.drop(["AN", "precod", "FO", "Data_Examinare_Radiologie", "Radiologie", "rezultat_radiologie", "Proceduri", "Proceduri_Radiologie", "tip_externare", "unde_pleaca"], inplace=True, axis='columns')
 
         self.df.replace("NULL", np.NAN, inplace=True)
@@ -69,6 +70,9 @@ class DataAnalysis:
         self.df.forma_boala.replace(('1.USOARA', '2. MODERATA', '3.SEVERA', 'PERICLITAT TRANSFUZIONAL'), (1, 2, 3, np.NaN), inplace=True)
 
         self.df.forma_boala = self.df.forma_boala.fillna(self.df.forma_boala.median())
+
+    def getDataset(self):
+        return self.df
 
     def pltColumnDistribution(self):
         sns.set_palette("Purples_r")
@@ -236,7 +240,6 @@ class DataAnalysis:
 
 
 if __name__ == '__main__':
-    print("Analyzing the dataset")
     d = DataAnalysis("../TrainingData/dataset.csv")
     d.describe()
     # d.pltReleaseState()
