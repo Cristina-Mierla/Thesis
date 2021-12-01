@@ -1,13 +1,7 @@
-from Backend.DataAnalysis import dataAnalysis as da
+from Backend import dataAnalysis as da
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-import seaborn as sns
-from scipy.stats import pearsonr, spearmanr
-from sklearn.preprocessing import LabelEncoder
 import csv
-import pickle
 
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
@@ -17,12 +11,12 @@ pd.set_option('display.width', 1000)
 class DataProcessing:
     def __init__(self, dataset):
         print("Processing the dataset")
-        self.dataset = pd.DataFrame(dataset)
+        self.dataset = pd.DataFrame()
         self.df = pd.DataFrame(self.dataset)
         self.comorbiditati = None
 
-        filename_dataset = "dataset_processed.csv"
-        filename_comorb = "comorb_weight.csv"
+        filename_dataset = "csv_processedDataset.csv"
+        filename_comorb = "csv_comorb_weight.csv"
 
         try:
             with open(filename_dataset, mode='r') as infile:
@@ -35,17 +29,18 @@ class DataProcessing:
                 reader = csv.reader(infile)
                 self.comorbiditati = {rows[0]: rows[1] for rows in reader}
 
-        except IOError:
+        except IOError and FileNotFoundError:
             print("Files " + filename_dataset + " " + filename_comorb + " not found")
             self.dataset = dataset
             self.df = pd.DataFrame(self.dataset)
 
             self.boala = None
 
-            self.changeMedicatie()
-            self.changeAnalize()
             self.comorbiditati = self.changeComorbiditati()
             self.changeDiagnos()
+            self.featureCross()
+            self.changeMedicatie()
+            self.changeAnalize()
 
             self.comorb = self.df["Comorbiditati"]
             self.exetern = self.df["stare_externare"]
@@ -159,7 +154,7 @@ class DataProcessing:
 
         self.df["Comorbiditati"] = self.df["Comorbiditati"].astype(float)
 
-        csv_file = "comorb_weight.csv"
+        csv_file = "csv_comorb_weight.csv"
         try:
             with open(csv_file, 'w') as f:
                 for key in d.keys():
@@ -206,7 +201,7 @@ class DataProcessing:
         try:
             self.com_ext = self.df[["Comorbiditati", "stare_externare"]]
             db = {}
-            g = open("../DataAnalysis/text-comorbiditati.txt", "r")
+            g = open("text-comorbiditati.txt", "r")
             r = csv.reader(g)
             for row in r:
                 # count, vindecat, ameliorat, stationar, agravat, decedat
@@ -232,8 +227,16 @@ class DataProcessing:
 
         return self.boala
 
+    def featureCross(self):
+        '''
+        Including new columns to give bonus meaning to important and relevant features.
+        :return:
+        '''
+        self.df["DiagExt-Int"] = self.df["Diag_pr_ext"] - self.df["Diag_pr_int"]
+        self.df["ZileMed"] = self.df["zile_ATI"]/self.df["Zile_spitalizare"]
+
 
 if __name__ == '__main__':
-    d = da.DataAnalysis("../TrainingData/dataset.csv")
+    d = da.DataAnalysis("csv_dataset.csv")
     pr = DataProcessing(d.getDataset())
     print(pr.getDataset().head())

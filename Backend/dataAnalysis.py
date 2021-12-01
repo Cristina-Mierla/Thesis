@@ -16,6 +16,7 @@ pd.set_option('display.width', 1000)
 class DataAnalysis:
     def __init__(self, file):
         print("Analyzing the dataset")
+        self.df = pd.DataFrame()
         try:
             dataset = pd.read_csv(file)
             self.df = pd.DataFrame(dataset)
@@ -240,6 +241,6 @@ class DataAnalysis:
 
 
 if __name__ == '__main__':
-    d = DataAnalysis("../TrainingData/dataset.csv")
+    d = DataAnalysis("csv_dataset.csv")
     d.describe()
     # d.pltReleaseState()

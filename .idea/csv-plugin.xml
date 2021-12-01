@@ -3,31 +3,10 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\Backend\DataAnalysis\data-comorbiditati_coloane.csv">
+        <entry key="\Backend\csv_processedDataset.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Backend\DataProcessing\comorb_weight.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Backend\DataProcessing\dataset_processed.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\Backend\TrainingData\dataset.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="|" />
             </Attribute>
           </value>
         </entry>
