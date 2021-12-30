@@ -9,12 +9,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PatientFormComponent } from './patient-form/patient-form.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PatientListComponent,
-    PatientFormComponent
+    PatientFormComponent,
+    PatientDetailsComponent
   ],
   imports: [
     BrowserModule,

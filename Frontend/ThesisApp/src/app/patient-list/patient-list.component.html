@@ -5,7 +5,7 @@
   </h3>
   <ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" list-group ">
     <li class="list-group-item d-flex justify-content-between">
-      {{patient.Name}}
+      Patient Id:{{patient.Id}} {{patient.Details}}
       <span></span>
       <span></span>
       <span class="badge rounded-pill bg-primary {{colorMap[patient.Outcome]}}">{{release[patient.Outcome]}}</span>

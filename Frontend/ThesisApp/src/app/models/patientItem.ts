@@ -1,4 +1,5 @@
 export interface PatientItem {
-  Name: string,
+  Id: number,
+  Details: string,
   Outcome: number
 }

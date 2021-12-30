@@ -14,9 +14,15 @@ class DataProcessing:
         self.dataset = pd.DataFrame()
         self.df = pd.DataFrame(self.dataset)
         self.comorbiditati = None
+        self.medicatie = None
+        self.analize = None
+        self.comorb = None
 
         filename_dataset = "csv_processedDataset.csv"
         filename_comorb = "csv_comorb_weight.csv"
+        filename_comrb = "csv_comorbiditati.csv"
+        filename_analize = "csv_analize.csv"
+        filename_medicatie = "csv_medicatie.csv"
 
         try:
             with open(filename_dataset, mode='r') as infile:
@@ -29,6 +35,22 @@ class DataProcessing:
                 reader = csv.reader(infile)
                 self.comorbiditati = {rows[0]: rows[1] for rows in reader}
 
+            with open(filename_comrb, mode='r') as infile:
+                print("Dictionary saved from file " + filename_comrb)
+                reader = csv.reader(infile)
+                self.comorb = {rows[0]: rows[1] for rows in reader}
+
+            with open(filename_analize, mode='r') as infile:
+                print("Dictionary saved from file " + filename_analize)
+                reader = csv.reader(infile)
+                self.analize = {rows[0]: rows[1] for rows in reader}
+
+            with open(filename_medicatie, mode='r') as infile:
+                print("Dictionary saved from file " + filename_medicatie)
+                reader = csv.reader(infile)
+                self.medicatie = {rows[0]: rows[1] for rows in reader}
+
+
         except IOError and FileNotFoundError:
             print("Files " + filename_dataset + " " + filename_comorb + " not found")
             self.dataset = dataset
@@ -39,8 +61,8 @@ class DataProcessing:
             self.comorbiditati = self.changeComorbiditati()
             self.changeDiagnos()
             self.featureCross()
-            self.changeMedicatie()
-            self.changeAnalize()
+            self.medicatie = self.changeMedicatie()
+            self.analize = self.changeAnalize()
 
             self.comorb = self.df["Comorbiditati"]
             self.exetern = self.df["stare_externare"]
@@ -54,6 +76,15 @@ class DataProcessing:
     def getDataset(self):
         return self.df
 
+    def getMedicatie(self):
+        return self.medicatie
+
+    def getAnalize(self):
+        return self.analize
+
+    def getComorbiditati(self):
+        return self.comorbiditati
+
     def changeMedicatie(self):
         """
         One Hot Encoding for the "Medicatie" column.
@@ -61,8 +92,11 @@ class DataProcessing:
         """
         dm = {}
         indx = 0
+        self.medicatie = dict()
         for record in self.df.Medicatie:
             med_list = str(record).split("||")
+            medi = med_list
+            self.medicatie[indx] = medi
             for med in med_list:
                 med = med.replace(" ", "")
                 try:
@@ -77,6 +111,14 @@ class DataProcessing:
             if self.df[key].sum() <= self.df.shape[0] * 0.2:
                 self.df.drop([key], inplace=True, axis='columns')
         self.df.drop(['Medicatie'], inplace=True, axis='columns')
+        csv_file = "csv_medicatie.csv"
+        try:
+            with open(csv_file, 'w') as f:
+                for key in self.medicatie.keys():
+                    f.write("%s,%s\n" % (key, self.medicatie[key]))
+        except IOError:
+            print("I/O error")
+        return self.medicatie
 
     def changeAnalize(self):
         """
@@ -85,10 +127,15 @@ class DataProcessing:
         """
         dan = {}
         indx = 0
+        self.analize = dict()
         for record in self.df.Analize_prim_set:
+            analz = record
+            self.analize[indx] = analz
             if record is not np.NAN:
                 record = record.replace("- HS * ", "")
                 analize_list = record.split(" || ")
+                analz = analize_list
+                self.analize[indx] = analz
                 for analiza in analize_list:
                     analiza_name, rest = analiza.split(" - ", 1)
                     result, ignore = rest.split(" ", 1)
@@ -110,6 +157,14 @@ class DataProcessing:
             if self.df[key].sum() <= self.df.shape[0] * 0.2:
                 self.df.drop([key], inplace=True, axis='columns')
         self.df.drop(['Analize_prim_set'], inplace=True, axis='columns')
+        csv_file = "csv_analize.csv"
+        try:
+            with open(csv_file, 'w') as f:
+                for key in self.analize.keys():
+                    f.write("%s,%s\n" % (key, self.analize[key]))
+        except IOError:
+            print("I/O error")
+        return self.analize
 
     def changeComorbiditati(self):
         """
@@ -136,10 +191,12 @@ class DataProcessing:
                 d[names] += self.boala[forma[i]][names] * weight[i]
 
         indx = 0
+        self.comorb = dict()
         for row in self.df.Comorbiditati:
             if row is not np.NaN:
                 comb_list = row.split(",")
                 comb_weight = 0
+                self.comorb[indx] = comb_list
                 for comb in comb_list:
                     comb = comb.split(" ", 1)[0]
                     if comb in d:
@@ -161,7 +218,13 @@ class DataProcessing:
                     f.write("%s,%s\n" % (key, d[key]))
         except IOError:
             print("I/O error")
-
+        csv_filecm = "csv_comorbiditati.csv"
+        try:
+            with open(csv_filecm, 'w') as f:
+                for key in self.comorb.keys():
+                    f.write("%s,%s\n" % (key, self.comorb[key]))
+        except IOError:
+            print("I/O error")
         return d
 
     def changeDiagnos(self):
