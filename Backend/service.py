@@ -21,7 +21,7 @@ class Service:
             releaseState = str(record.iloc[18, 0])
             gender = record.iloc[7, 0]
             age = record.iloc[8, 0]
-            name = str(pid) + " age:" + str(age) + " gender:" + str(gender)
+            name = "Pacient id:" + str(pid) + " Age:" + str(age) + " Gender:" + str(gender)
             patient = {"Name": name, "Outcome": releaseState}
             array.append(patient)
         return array

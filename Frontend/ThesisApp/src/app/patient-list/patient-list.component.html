@@ -1,11 +1,16 @@
-<div class="container">
-<ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 8, currentPage: p }" class=" list-group ">
-  <li class="list-group-item d-flex justify-content-between">
-    {{patient.Name}}
-    <span class="badge rounded-pill bg-primary {{colorMap[patient.Outcome]}}">{{release[patient.Outcome]}}</span>
-    <span class="badge rounded-pill bg-primary bg-secondary">view</span>
-  </li>
-</ul>
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
-
+<div class="container ">
+  <h3>
+    List of admited patients
+    <small class="text-muted">Covid-19 departament</small>
+  </h3>
+  <ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" list-group ">
+    <li class="list-group-item d-flex justify-content-between">
+      {{patient.Name}}
+      <span></span>
+      <span></span>
+      <span class="badge rounded-pill bg-primary {{colorMap[patient.Outcome]}}">{{release[patient.Outcome]}}</span>
+      <span type="button" class="btn badge rounded-pill bg-secondary">view</span>
+    </li>
+  </ul>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

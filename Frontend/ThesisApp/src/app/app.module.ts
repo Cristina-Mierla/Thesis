@@ -8,11 +8,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PatientFormComponent } from './patient-form/patient-form.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    PatientListComponent
+    PatientListComponent,
+    PatientFormComponent
   ],
   imports: [
     BrowserModule,
