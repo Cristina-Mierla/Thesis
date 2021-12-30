@@ -76,7 +76,7 @@ class PredictionModel:
         normalize(self.X)
 
         oversample = SMOTE()
-        # self.X, self.Y = oversample.fit_resample(self.X, self.Y)
+        self.X, self.Y = oversample.fit_resample(self.X, self.Y)
 
         rus = RandomUnderSampler(random_state=0)
         rus.fit(self.X, self.Y)
@@ -90,7 +90,6 @@ class PredictionModel:
 
         ds = tf.data.Dataset.from_tensor_slices((dict(self.X), self.X))
         ds = ds.shuffle(buffer_size=len(self.X))
-        #print(ds)
 
         feature_columns = []
         for column in self.X:
@@ -99,9 +98,12 @@ class PredictionModel:
             feature_bound = tf.feature_column.numeric_column(key=column, dtype=tf.float64)
             feature_columns.append(feature_bound)
 
+        print(feature_columns)
+
         self.my_feature_layer = tf.keras.layers.DenseFeatures(feature_columns)
 
-        self.testANNModel()
+        # self.testSimpleModels()
+        self.createANNModel()
 
     def getFeatures(self):
         return self.X
@@ -127,11 +129,11 @@ class PredictionModel:
 
         for name, model in models:
             kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=90210)
-            cv_results = cross_validate(model, self.X_train, self.y_train, cv=kfold, scoring=scoring)
-            clf = model.fit(self.X_train, self.y_train)
+            cv_results = cross_validate(model, self.X_train, self.Y_train, cv=kfold, scoring=scoring)
+            clf = model.fit(self.X_train, self.Y_train)
             y_pred = clf.predict(self.X_test)
             print(name)
-            print(classification_report(self.y_valid, y_pred, target_names=target_names))
+            print(classification_report(self.Y_valid, y_pred, target_names=target_names))
 
             results.append(cv_results)
             names.append(name)
@@ -142,10 +144,23 @@ class PredictionModel:
 
         final = pd.concat(dfs, ignore_index=True)
 
-    def createANNModel(self, my_learning_rate):
+    def createANNModel(self):
         """Create and compile a simple linear regression model."""
+        # The following variables are the hyperparameters.
+        learning_rate = 0.01
+        epochs = 15
+        batch_size = 100
+
         # Most simple tf.keras models are sequential.
         model = tf.keras.models.Sequential()
+
+        # define 10-fold cross validation test harness
+        # kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
+        # cvscores = []
+        # testno = 0
+        # for train, test in kfold.split(self.X_train, self.Y_train):
+        # testno += 1
+        # model = tf.keras.models.Sequential()
 
         # Add the layer containing the feature columns to the model.
         model.add(self.my_feature_layer)
@@ -159,12 +174,13 @@ class PredictionModel:
         # Define the first hidden layer with 20 nodes.
         model.add(tf.keras.layers.Dense(units=20,
                                         activation='relu',
+                                        kernel_initializer='he_normal',
                                         kernel_regularizer=tf.keras.regularizers.l2(0.04),
                                         name='Hidden1'))
 
         # Define the second hidden layer with 12 nodes.
         model.add(tf.keras.layers.Dense(units=12,
-                                        activation='relu',
+                                        activation='sigmoid',
                                         kernel_regularizer=tf.keras.regularizers.l2(l=0.01),
                                         name='Hidden2'))
 
@@ -172,9 +188,39 @@ class PredictionModel:
         model.add(tf.keras.layers.Dense(units=1,
                                         name='Output'))
 
-        model.compile(optimizer=tf.keras.optimizers.Adam(lr=my_learning_rate),
+        # model.compile(loss='binary_crossentropy',
+        # optimizer='adam', metrics=['accuracy'])
+        model.compile(optimizer=tf.keras.optimizers.Adam(lr=learning_rate),
                       loss="mean_squared_error",
-                      metrics=[tf.keras.metrics.MeanSquaredError()])
+                      metrics=[tf.keras.metrics.MeanSquaredError(), tf.keras.metrics.BinaryAccuracy(),
+                               tf.keras.metrics.Precision()])
+
+        # Split the dataset into features and label.
+        features = {name: np.array(value) for name, value in self.X_train.items()}
+        label = np.array(self.Y_train)
+        history = model.fit(x=features, y=label,
+                            batch_size=batch_size,
+                            epochs=epochs)
+
+        # Get details that will be useful for plotting the loss curve.
+        epochs = history.epoch
+        hist = pd.DataFrame(history.history)
+        rmse = hist["mean_squared_error"]
+        # Plot the number of epoch and the mean squared error.
+        plot_the_loss_curve(epochs, rmse)
+
+        # Evaluate the model using the test data.
+        sc_X = MinMaxScaler()
+        print("\n Evaluate the linear regression model against the test set:")
+        features_test = {name: np.array(value) for name, value in self.X_test.items()}
+        label_test = np.array(self.Y_test)
+        score = model.evaluate(x=features_test, y=label_test,
+                               batch_size=batch_size, verbose=0)
+        for i in range(0, 4):
+            print("%s: %.2f%%" % (model.metrics_names[i], score[i] * 100))
+        # cvscores.append(score[1] * 100)
+
+        # print("%.2f%% (+/- %.2f%%)" % (np.float(np.mean(cvscores)), np.float(np.std(cvscores))))
 
         return model
 
@@ -184,7 +230,8 @@ class PredictionModel:
         # Split the dataset into features and label.
         features = {name: np.array(value) for name, value in self.X_train.items()}
         label = np.array(self.Y_train)
-        history = model.fit(x=features,  y=label, batch_size=batch_size, epochs=epochs)
+        history = model.fit(x=features,  y=label,
+                            validation_data=(self.X_test, self.Y_test), batch_size=batch_size, epochs=epochs)
 
         # Get details that will be useful for plotting the loss curve.
         epochs = history.epoch
@@ -200,7 +247,7 @@ class PredictionModel:
         batch_size = 100
 
         # Establish the model's topography.
-        my_model = self.createANNModel(learning_rate)
+        my_model = self.createANNModel()
 
         # Train the model on the normalized training set.
         epochs, mse = self.trainANNModel(my_model, epochs, batch_size)
@@ -213,11 +260,11 @@ class PredictionModel:
         my_model.evaluate(x=features_test, y=label_test, batch_size=batch_size)
 
         validation = {name: np.array(value) for name, value in self.X_valid.items()}
-        validation_labels = np.array(self.Y_valid)
+        validation_labels = np.array(self.Y_valid).transpose()
         prediction = my_model.predict(validation)
         predicted_vals = np.array(prediction)
-        print(predicted_vals, '\n', validation_labels)
-        print(validation)
+        # print(predicted_vals, '\n', validation_labels)
+        # print(validation)
         visualize_data(validation, validation_labels, validation, predicted_vals)
 
 
