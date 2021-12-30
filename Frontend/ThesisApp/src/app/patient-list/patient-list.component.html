@@ -1,0 +1,11 @@
+<div class="container">
+<ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 8, currentPage: p }" class=" list-group ">
+  <li class="list-group-item d-flex justify-content-between">
+    {{patient.Name}}
+    <span class="badge rounded-pill bg-primary {{colorMap[patient.Outcome]}}">{{release[patient.Outcome]}}</span>
+    <span class="badge rounded-pill bg-primary bg-secondary">view</span>
+  </li>
+</ul>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
