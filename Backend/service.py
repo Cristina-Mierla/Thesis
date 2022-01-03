@@ -10,6 +10,25 @@ class Service:
             self.df.stare_externare.replace(
                 ("Vindecat", "Ameliorat", "Stationar", "AGRAVAT                                           ", "Decedat"),
                 (0, 1, 2, 3, 4), inplace=True)
+
+            filename_comrb = "csv_comorbiditati.csv"
+            filename_analize = "csv_analize.csv"
+            filename_medicatie = "csv_medicatie.csv"
+
+            with open(filename_comrb, mode='r') as infile:
+                print("Dictionary saved from file " + filename_comrb)
+                reader = csv.reader(infile)
+                self.comorb = {rows[0]: rows[1:] for rows in reader}
+
+            with open(filename_analize, mode='r') as infile:
+                print("Dictionary saved from file " + filename_analize)
+                reader = csv.reader(infile)
+                self.analize = {rows[0]: rows[1:] for rows in reader}
+
+            with open(filename_medicatie, mode='r') as infile:
+                print("Dictionary saved from file " + filename_medicatie)
+                reader = csv.reader(infile)
+                self.medicatie = {rows[0]: rows[1:] for rows in reader}
         except IOError:
             print("The file does not exist")
 
@@ -27,24 +46,44 @@ class Service:
         return array
 
     def getPatientById(self, id):
+        result = None
         patient = None
+        ok = False
         indx = 0
         for line in self.df.values:
             record = pd.DataFrame(line)
             if record.iloc[1, 0] == id:
                 patient = record
+                ok = True
                 break
             indx += indx
-        zspit = patient.iloc[5, 0]
-        zicu = patient.iloc[6, 0]
-        gender = patient.iloc[7, 0]
-        age = patient.iloc[8, 0]
-        comorb = patient.iloc[9, 0]
-        med = patient.iloc[10, 0]
-        analz = patient.iloc[11, 0]
-        release = patient.iloc[18, 0]
+        if ok:
+            pid = patient.iloc[1, 0]
+            zspit = patient.iloc[5, 0]
+            zicu = patient.iloc[6, 0]
+            gender = patient.iloc[7, 0]
+            age = patient.iloc[8, 0]
+            comorb = self.comorb[str(indx)]
+            comorb = [x for x in comorb if x != '']
+            med = self.medicatie[str(indx)]
+            med = [x for x in med if x != '']
+            analz = self.analize[str(indx)]
+            analz = [x for x in analz if x != '']
+            release = patient.iloc[18, 0]
 
-        print(patient)
+            result = {
+                'Id': pid,
+                'Age': age,
+                'Gender': gender,
+                'Hosp': zspit,
+                'Icu': zicu,
+                'Comb': comorb,
+                'Med': med,
+                'Anlz': analz,
+                'Release': release
+            }
+
+        return result
 
 
 if __name__ == '__main__':

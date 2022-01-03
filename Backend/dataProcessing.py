@@ -2,6 +2,7 @@ from Backend import dataAnalysis as da
 import numpy as np
 import pandas as pd
 import csv
+import re
 
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
@@ -94,9 +95,8 @@ class DataProcessing:
         indx = 0
         self.medicatie = dict()
         for record in self.df.Medicatie:
-            med_list = str(record).split("||")
-            medi = med_list
-            self.medicatie[indx] = medi
+            med_list = str(record).split("|| ")
+            self.medicatie[indx] = med_list
             for med in med_list:
                 med = med.replace(" ", "")
                 try:
@@ -194,9 +194,12 @@ class DataProcessing:
         self.comorb = dict()
         for row in self.df.Comorbiditati:
             if row is not np.NaN:
-                comb_list = row.split(",")
+                comb_list = row.split(',')
+                regspt = re.sub(r'(,)([A-Z])', r'@\2', row)
+                regspt = re.sub(', ', ' ', regspt)
+                regspt = re.split('@', regspt)
                 comb_weight = 0
-                self.comorb[indx] = comb_list
+                self.comorb[indx] = regspt
                 for comb in comb_list:
                     comb = comb.split(" ", 1)[0]
                     if comb in d:
@@ -296,7 +299,7 @@ class DataProcessing:
         :return:
         '''
         self.df["DiagExt-Int"] = self.df["Diag_pr_ext"] - self.df["Diag_pr_int"]
-        self.df["ZileMed"] = self.df["zile_ATI"]/self.df["Zile_spitalizare"]
+        self.df["ZileMed"] = self.df["zile_ATI"] / self.df["Zile_spitalizare"]
 
 
 if __name__ == '__main__':

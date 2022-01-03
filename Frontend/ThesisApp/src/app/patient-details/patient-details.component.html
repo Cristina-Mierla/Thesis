@@ -1,1 +1,57 @@
-<p>patient-details works!</p>
+<div class="container col-sm-8">
+  <form>
+    <div class="col order-1 p-4"></div>
+    <fieldset disabled>
+      <div class="mb-3">
+        <h5 for="idLabel">Patient Id: {{ patient.Id }}</h5>
+        <small id="idHelp" class="form-text text-muted">This is the unique identifier of the patient.</small>
+      </div>
+    </fieldset>
+    <div>
+      <div class="container">
+        <div class="row align-items-center form-group">
+          <div class="col">
+            <h5 for="ageLabel">Age: {{ patient.Age }}</h5>
+          </div>
+          <div class="col"></div>
+          <div class="col">
+            <h5 for="genderLabel">Gender: {{ patient.Gender }}</h5>
+          </div>
+        </div>
+        <div class="p-1"></div>
+        <div class="row align-items-center form-group">
+          <div class="col">
+            <h5 for="hospLabel">Days spent in hospitalization: {{ patient.Hosp }}</h5>
+          </div>
+          <div class="col"></div>
+          <div class="col">
+            <h5 for="icuLabel">Days spent in ICU: {{ patient.Icu }}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="p-4"></div>
+        <h5 for="combLabel">Comorbidities list:</h5>
+        <ul *ngFor="let comorb of patient.Comb" class="list-group">
+          <li class="list-group-item text-muted">
+            {{ comorb }}
+          </li>
+        </ul>
+        <div class="p-4"></div>
+        <h5 for="anlzLabel">Test run during their stay:</h5>
+        <ul *ngFor="let anlz of patient.Anlz" class="list-group">
+          <li class="list-group-item text-muted">
+            {{ anlz }}
+          </li>
+        </ul>
+        <div class="p-4"></div>
+        <h5 for="medLabel">Medication they received during their stay:</h5>
+        <ul *ngFor="let med of patient.Med" class="list-group">
+          <li class="list-group-item text-muted">
+            {{ med }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </form>
+</div>

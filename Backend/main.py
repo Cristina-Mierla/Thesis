@@ -21,6 +21,18 @@ def getPatients():
         return "Invalid request", 400
 
 
+@app.route('/patientId', methods=['GET'])
+def getPatientById():
+    if request:
+        patientId = int(request.args.get("patient_id"))
+        patientList = service.getPatientById(patientId)
+        result = json.dumps(patientList)
+
+        return result, 200
+    else:
+        return "Invalid request", 400
+
+
 if __name__ == '__main__':
     # run app in debug mode on port 5000
     app.run(debug=True, port=5000)

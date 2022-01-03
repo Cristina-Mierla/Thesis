@@ -4,6 +4,7 @@ import { GlobalConstants } from '../constants/constants';
 import { ReleaseState } from '../enums/releaseState';
 import { ReleaseStateColorMap } from '../enums/releaseStateColorMap';
 import { PatientItem } from '../models/patientItem';
+import { PatientFormComponent } from '../patient-form/patient-form.component';
 import { PatientsService } from '../services/patients.service';
 
 
@@ -27,6 +28,10 @@ export class PatientListComponent implements OnInit {
 
   async loadPatients(){
     this.patientList = await this.patientsService.getPatients();
+  }
+
+  async loadPatientId(id: number){
+    this.patientsService.setPatientIdData(id);
   }
 
  }
