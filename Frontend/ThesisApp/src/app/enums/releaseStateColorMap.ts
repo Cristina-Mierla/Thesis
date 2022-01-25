@@ -1,7 +1,7 @@
 export enum ReleaseStateColorMap {
-  'bg-success',
-  'bg-primary',
-  'bg-warning text-dark',
-  'bg-danger',
-  'bg-dark',
+  'outcome-cured',
+  'outcome-improved',
+  'outcome-stationary',
+  'outcome-worsened',
+  'outcome-deceased'
 }

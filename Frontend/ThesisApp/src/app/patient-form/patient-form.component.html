@@ -4,7 +4,7 @@
   <fieldset disabled>
     <div class="mb-3">
       <label for="idLabel">Patient Id</label>
-      <input type="id" class="form-control" id="idInput" aria-describedby="id" placeholder="Id">
+      <input type="id" class="form-control custom-input disabled-input" id="idInput" aria-describedby="id" placeholder="Id">
       <small id="idHelp" class="form-text text-muted">This is the unique identifier of the patient.</small>
     </div>
   </fieldset>
@@ -13,38 +13,30 @@
       <div class="row align-items-center form-group">
         <div class="col">
           <label for="ageLabel">Age</label>
-          <input type="age" class="form-control" id="ageInput" aria-describedby="age" placeholder="Age">
+          <input type="age" class="form-control custom-input" id="ageInput" aria-describedby="age" placeholder="Age">
         </div>
         <div class="col">
         </div>
         <div class="col">
           <label for="genderLabel">Gender</label>
-          <input type="gender" class="form-control" id="genderInput" aria-describedby="gender" placeholder="Gender">
+          <input type="gender" class="form-control custom-input" id="genderInput" aria-describedby="gender" placeholder="Gender">
         </div>
       </div>
       <div class="row align-items-center form-group">
         <div class="col">
           <label for="hospLabel">Days spent in hospitalization</label>
-          <input type="hosp" class="form-control" id="hospInput" aria-describedby="hosp" placeholder="Hospitalization">
+          <input type="hosp" class="form-control custom-input" id="hospInput" aria-describedby="hosp" placeholder="Hospitalization">
         </div>
         <div class="col">
         </div>
         <div class="col">
           <label for="icuLabel">Days spent in ICU</label>
-          <input type="icu" class="form-control" id="icuInput" aria-describedby="icu" placeholder="ICU">
-        </div>
-      </div>
-      <div class="row align-items-center">
-        <div>
-          <ul class="list-group list-group-flush ">
-            <li class="list-group-item">
-            </li>
-          </ul>
+          <input type="icu" class="form-control custom-input" id="icuInput" aria-describedby="icu" placeholder="ICU">
         </div>
       </div>
     </div>
   </div>
   <div class="col order-1 p-4"></div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary custom-button">Submit</button>
 </form>
 </div>

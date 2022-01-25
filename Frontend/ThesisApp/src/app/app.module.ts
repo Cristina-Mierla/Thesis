@@ -10,6 +10,11 @@ import { PatientListComponent } from './patient-list/patient-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PatientFormComponent } from './patient-form/patient-form.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';                //api3import { MatPaginatorModule } from '@angular/material';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,11 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

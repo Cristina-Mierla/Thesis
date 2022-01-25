@@ -1,3 +1,19 @@
 .listMargin{
   margin : 5px;
 }
+
+table {
+  width: 100%;
+}
+
+.custom-button {
+  border-radius: 0px 20px 20px 0px;
+}
+
+.custom-input {
+  border-radius: 20px 0px 0px 20px;
+}
+
+::ng-deep ul > li.current {
+  background-color: var(--button-theme) !important;
+}

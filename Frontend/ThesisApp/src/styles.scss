@@ -3,3 +3,77 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+
+:root{
+  --nav-background: #2D080A;
+  --outcome-cured: #A8C686;
+  --outcome-improved: #F4A261;
+  --outcome-stationary: #669BBC;
+  --outcome-worsened: #CF4D6F;
+  --outcome-deceased: #454955;
+  --button-theme: #723D46;
+  --button-font: #F0F7EE;
+  --button-focus: rgb(216 178 172);
+  --button-font2: #130303;
+  --input-background: #d5d0cd;
+}
+
+.outcome-cured {
+  background-color: var(--outcome-cured);
+  color: #1a1d1a
+}
+
+.outcome-improved {
+  background-color: var(--outcome-improved);
+  color: #1a1d1a
+}
+
+.outcome-stationary {
+  background-color: var(--outcome-stationary);
+  color: #1a1d1a
+}
+
+.outcome-worsened {
+  background-color: var(--outcome-worsened);
+  color: #1a1d1a
+}
+
+.outcome-deceased {
+  background-color: var(--outcome-deceased);
+  color: #f9f9ed;
+}
+
+.custom-button {
+  margin: 0px;
+  border-radius: 8px 8px 8px 8px;
+  border-color: var(--button-theme);
+  background-color: var(--button-theme);
+  color: var(--button-font);
+}
+
+.custom-button:focus{
+  box-shadow: 0 0 0 0.15rem var(--button-focus);
+  border-color: var(--button-focus);
+  background-color: var(--button-focus);
+  color: var(--button-font2);
+}
+
+.custom-button:hover {
+  border-color: var(--button-focus);
+  background-color: var(--button-focus);
+  color: var(--button-font2);
+}
+
+.custom-input {
+  margin: 0px;
+  border-radius: 8px 8px 8px 8px;
+  border-color: var(--button-theme);
+}
+
+.custom-input:focus {
+  box-shadow: 0 0 0 0.15rem var(--button-focus);
+  border-color: var(--button-focus);
+}
