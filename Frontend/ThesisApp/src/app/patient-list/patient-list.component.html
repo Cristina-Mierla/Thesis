@@ -2,10 +2,10 @@
   <div class="p-4"></div>
   <div class="row align-items-center">
     <div class="col-sm-9">
-      <h3>
+      <h2>
         List of admited patients
         <small class="text-muted">Covid-19 departament</small>
-      </h3>
+      </h2>
     </div>
     <div class="col-3">
       <form class="d-flex">
@@ -16,7 +16,7 @@
   </div>
   <div class="p-2"></div>
   <ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" list-group ">
-    <li class="list-group-item d-flex justify-content-between">
+    <li class="list-group-item d-flex justify-content-between custom-font">
       Patient Id:{{patient.Id}} {{patient.Details}}
       <span></span>
       <span></span>

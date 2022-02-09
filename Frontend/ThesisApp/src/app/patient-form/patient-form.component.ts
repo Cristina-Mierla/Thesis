@@ -1,8 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Patient } from '../models/patient';
 import { PatientsService } from '../services/patients.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { map, startWith } from 'rxjs/operators';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { GlobalConstants } from '../constants/constants';
+import { comorbiditiList } from '../constants/constants';
 @Component({
   selector: 'app-patient-form',
   templateUrl: './patient-form.component.html',
@@ -10,9 +17,62 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PatientFormComponent implements OnInit {
 
-  constructor(private patientsService: PatientsService, private route: ActivatedRoute) { }
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  comorbiditiesCtrl = new FormControl();
+  filteredComorbidities: Observable<string[]>;
+  chosenComorbidities: string[] = [];
+  allComorbidities: string[] = comorbiditiList;
+
+  @ViewChild('comorbInput') comorbInput!: ElementRef<HTMLInputElement>;
+
+  constructor(private patientsService: PatientsService, private route: ActivatedRoute) {
+    this.filteredComorbidities = this.comorbiditiesCtrl.valueChanges.pipe(
+      startWith(null),
+      map((comorb: string | null) => (comorb ? this._filter(comorb) : this.allComorbidities.slice())),
+    );
+   }
 
   ngOnInit(): void {
+  }
+
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Add new comorbiditie
+    if (value && this.chosenComorbidities.indexOf(value) == -1) {
+      this.chosenComorbidities.push(value);
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+
+    this.comorbiditiesCtrl.setValue(null);
+  }
+
+  remove(comorb: string): void {
+    const index = this.chosenComorbidities.indexOf(comorb);
+
+    if (index >= 0) {
+      this.chosenComorbidities.splice(index, 1);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    const value = (event.option.viewValue || '').trim();
+
+    if (value && this.chosenComorbidities.indexOf(value) == -1) {
+      this.chosenComorbidities.push(event.option.viewValue);
+    }
+
+    //this.fruits.push(event.option.viewValue);
+    this.comorbInput.nativeElement.value = '';
+    this.comorbiditiesCtrl.setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.allComorbidities.filter(comorb => comorb.toLowerCase().includes(filterValue));
   }
 
 }

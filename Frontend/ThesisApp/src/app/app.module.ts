@@ -15,6 +15,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
+import { OverlayModule } from '@angular/cdk/overlay';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +40,15 @@ import { MatListModule } from '@angular/material/list';
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatIconModule,
+    OverlayModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

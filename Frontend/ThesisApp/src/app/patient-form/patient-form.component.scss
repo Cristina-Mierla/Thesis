@@ -1,3 +1,39 @@
 .disabled-input {
   background-color: var(--input-background);
 }
+
+.example-chip-list {
+  width: 100%;
+}
+
+.auto-width{
+  .mat-form-field {
+      width: auto !important;
+  }
+  .mat-select-value {
+      max-width: 100%;
+      width: auto;
+  }
+}
+
+.custom-margin {
+  margin-top: 1rem;
+}
+
+::ng-deep{
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: var(--input-background);
+  }
+
+  .mat-input-element {
+    caret-color: var(--nav-background);
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: var(--nav-background);
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: var(--nav-background);
+  }
+}
