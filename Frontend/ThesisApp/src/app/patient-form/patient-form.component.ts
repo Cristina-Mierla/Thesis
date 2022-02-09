@@ -8,7 +8,6 @@ import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { GlobalConstants } from '../constants/constants';
 import { comorbiditiList } from '../constants/constants';
 @Component({
   selector: 'app-patient-form',
