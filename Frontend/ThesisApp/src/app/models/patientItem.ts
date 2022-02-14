@@ -1,5 +1,7 @@
 export interface PatientItem {
   Id: number,
-  Details: string,
+  //Details: string,
+  Age: number,
+  Gender: number,
   Outcome: number
 }

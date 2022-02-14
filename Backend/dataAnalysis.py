@@ -23,10 +23,10 @@ class DataAnalysis:
             # print(self.df.head())
             self.replaceColumns()
         except IOError:
-            print("The file does not exist")
+            print("The file: " + file + " - requested in DataAnalysis does not exist")
 
     def setDataset(self, dataset):
-        print("Setting the dataset")
+        print("Setting the dataset in DataAnalysis")
         self.df = dataset
 
     def describe(self):
@@ -61,7 +61,7 @@ class DataAnalysis:
         :return:
         """
         # print("\nDrop the columns that we are not going to use for the model")
-        self.df.drop(["AN", "precod", "FO", "Data_Examinare_Radiologie", "Radiologie", "rezultat_radiologie", "Proceduri", "Proceduri_Radiologie", "tip_externare", "unde_pleaca"], inplace=True, axis='columns')
+        self.df.drop(["AN", "precod", "Data_Examinare_Radiologie", "Radiologie", "rezultat_radiologie", "Proceduri", "Proceduri_Radiologie", "tip_externare", "unde_pleaca"], inplace=True, axis='columns')
 
         self.df.replace("NULL", np.NAN, inplace=True)
         self.df.replace("", np.NAN, inplace=True)

@@ -17,7 +17,7 @@
   <div class="p-2"></div>
   <ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" list-group ">
     <li class="list-group-item d-flex justify-content-between custom-font">
-      Patient Id:{{patient.Id}} {{patient.Details}}
+      Patient Id:{{patient.Id}} Age: {{patient.Age}} Gender: {{genderMap[patient.Gender]}}
       <span></span>
       <span></span>
       <span class="badge rounded-pill {{colorMap[patient.Outcome]}}" style="font-family: Arial, Helvetica, sans-serif;">{{release[patient.Outcome]}}</span>

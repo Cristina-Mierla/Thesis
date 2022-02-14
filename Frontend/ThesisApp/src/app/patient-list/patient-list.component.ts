@@ -8,6 +8,7 @@ import { PatientFormComponent } from '../patient-form/patient-form.component';
 import { PatientsService } from '../services/patients.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Gender } from '../enums/gender';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class PatientListComponent implements OnInit {
 
   colorMap = ReleaseStateColorMap;
+  genderMap = Gender;
   release = ReleaseState;
   patientList: PatientItem[] = [];
   p: number = 1;

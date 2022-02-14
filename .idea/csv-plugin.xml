@@ -3,10 +3,24 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\Backend\back-up\csv_comorbiditati.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\Backend\csv_analize.csv">
           <value>
             <Attribute>
               <option name="separator" value="|" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Backend\csv_comorb_weight.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
@@ -21,6 +35,13 @@
           <value>
             <Attribute>
               <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\Backend\csv_dataset.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="|" />
             </Attribute>
           </value>
         </entry>

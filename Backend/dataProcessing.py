@@ -4,16 +4,19 @@ import pandas as pd
 import csv
 import re
 
+from Backend.dataAnalysis import DataAnalysis
+
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
 
 
 class DataProcessing:
-    def __init__(self, dataset):
+    def __init__(self):
         print("Processing the dataset")
         self.dataset = pd.DataFrame()
-        self.df = pd.DataFrame(self.dataset)
+        # self.df = pd.DataFrame(self.dataset)
+        self.df = pd.DataFrame()
         self.comorbiditati = None
         self.medicatie = None
         self.analize = None
@@ -25,36 +28,47 @@ class DataProcessing:
         filename_analize = "csv_analize.csv"
         filename_medicatie = "csv_medicatie.csv"
 
-        try:
-            with open(filename_dataset, mode='r') as infile:
-                print("Dataset saved from file " + filename_dataset)
-                self.dataset = pd.read_csv(filename_dataset, parse_dates=True)
-                self.df = pd.DataFrame(self.dataset)
+        self.file_comorb_opened = False
+        self.file_comrb_opened = False
+        self.file_analize_opened = False
+        self.file_medicatie_opened = False
+        self.file_dataset_opened = False
 
+        try:
             with open(filename_comorb, mode='r') as infile:
-                print("Dictionary saved from file " + filename_comorb)
+                print("Dictionary saved from file " + filename_comorb + " in DataProcessing")
                 reader = csv.reader(infile)
                 self.comorbiditati = {rows[0]: rows[1] for rows in reader}
+                self.file_comorb_opened = True
 
             with open(filename_comrb, mode='r') as infile:
-                print("Dictionary saved from file " + filename_comrb)
+                print("Dictionary saved from file " + filename_comrb + " in DataProcessing")
                 reader = csv.reader(infile)
-                self.comorb = {rows[0]: rows[1] for rows in reader}
+                self.comorb = {rows[0]: rows[1:] for rows in reader}
+                self.file_comrb_opened = True
 
             with open(filename_analize, mode='r') as infile:
-                print("Dictionary saved from file " + filename_analize)
+                print("Dictionary saved from file " + filename_analize + " in DataProcessing")
                 reader = csv.reader(infile)
-                self.analize = {rows[0]: rows[1] for rows in reader}
+                self.analize = {rows[0]: rows[1:] for rows in reader}
+                self.file_analize_opened = True
 
             with open(filename_medicatie, mode='r') as infile:
-                print("Dictionary saved from file " + filename_medicatie)
+                print("Dictionary saved from file " + filename_medicatie + " in DataProcessing")
                 reader = csv.reader(infile)
-                self.medicatie = {rows[0]: rows[1] for rows in reader}
+                self.medicatie = {rows[0]: rows[1:] for rows in reader}
+                self.file_medicatie_opened = True
 
+            with open(filename_dataset, mode='r') as infile:
+                print("Dataset saved from file " + filename_dataset + " in DataProcessing")
+                self.dataset = pd.read_csv(filename_dataset, parse_dates=True)
+                self.df = pd.DataFrame(self.dataset)
+                self.file_dataset_opened = True
 
         except IOError and FileNotFoundError:
-            print("Files " + filename_dataset + " " + filename_comorb + " not found")
-            self.dataset = dataset
+            print("Files " + filename_dataset + " " + filename_comorb + " not found from request in DataProcessing")
+            data = DataAnalysis("csv_dataset.csv")
+            self.dataset = data.getDataset()
             self.df = pd.DataFrame(self.dataset)
 
             self.comorbidityCounts = None
@@ -77,6 +91,9 @@ class DataProcessing:
     def getDataset(self):
         return self.df
 
+    def setDataset(self, dataset):
+        self.df = dataset
+
     def getMedicatie(self):
         return self.medicatie
 
@@ -85,6 +102,9 @@ class DataProcessing:
 
     def getComorbiditati(self):
         return self.comorbiditati
+
+    def getReadComorbiditati(self):
+        return self.comorb
 
     def changeMedicatie(self):
         """
@@ -111,13 +131,14 @@ class DataProcessing:
             if self.df[key].sum() <= self.df.shape[0] * 0.2:
                 self.df.drop([key], inplace=True, axis='columns')
         self.df.drop(['Medicatie'], inplace=True, axis='columns')
-        csv_file = "csv_medicatie.csv"
-        try:
-            with open(csv_file, 'w') as f:
-                for key in self.medicatie.keys():
-                    f.write("%s,%s\n" % (key, self.medicatie[key]))
-        except IOError:
-            print("I/O error")
+        if not self.file_medicatie_opened:
+            csv_file = "csv_medicatie.csv"
+            try:
+                with open(csv_file, 'w') as f:
+                    for key in self.medicatie.keys():
+                        f.write("%s,%s\n" % (key, self.medicatie[key]))
+            except IOError:
+                print("I/O error")
         return self.medicatie
 
     def changeAnalize(self):
@@ -157,13 +178,14 @@ class DataProcessing:
             if self.df[key].sum() <= self.df.shape[0] * 0.2:
                 self.df.drop([key], inplace=True, axis='columns')
         self.df.drop(['Analize_prim_set'], inplace=True, axis='columns')
-        csv_file = "csv_analize.csv"
-        try:
-            with open(csv_file, 'w') as f:
-                for key in self.analize.keys():
-                    f.write("%s,%s\n" % (key, self.analize[key]))
-        except IOError:
-            print("I/O error")
+        if not self.file_analize_opened:
+            csv_file = "csv_analize.csv"
+            try:
+                with open(csv_file, 'w') as f:
+                    for key in self.analize.keys():
+                        f.write("%s,%s\n" % (key, self.analize[key]))
+            except IOError:
+                print("I/O error")
         return self.analize
 
     def changeComorbiditati(self):
@@ -213,21 +235,22 @@ class DataProcessing:
         self.df["Comorbiditati"] = self.df["Comorbiditati"].astype(float).interpolate(method='polynomial', order=2)
 
         self.df["Comorbiditati"] = self.df["Comorbiditati"].astype(float)
-
-        csv_file = "csv_comorb_weight.csv"
-        try:
-            with open(csv_file, 'w') as f:
-                for key in comorbidityWeights.keys():
-                    f.write("%s,%s\n" % (key, comorbidityWeights[key]))
-        except IOError:
-            print("I/O error")
-        csv_filecm = "csv_comorbiditati.csv"
-        try:
-            with open(csv_filecm, 'w') as f:
-                for key in self.comorb.keys():
-                    f.write("%s,%s\n" % (key, self.comorb[key]))
-        except IOError:
-            print("I/O error")
+        if not self.file_comorb_opened:
+            csv_file = "csv_comorb_weight.csv"
+            try:
+                with open(csv_file, 'w') as f:
+                    for key in comorbidityWeights.keys():
+                        f.write("%s,%s\n" % (key, comorbidityWeights[key]))
+            except IOError:
+                print("I/O error")
+        if not self.file_comrb_opened:
+            csv_filecm = "csv_comorbiditati.csv"
+            try:
+                with open(csv_filecm, 'w') as f:
+                    for key in self.comorb.keys():
+                        f.write("%s,%s\n" % (key, self.comorb[key]))
+            except IOError:
+                print("I/O error")
         return comorbidityWeights
 
     def changeDiagnos(self):

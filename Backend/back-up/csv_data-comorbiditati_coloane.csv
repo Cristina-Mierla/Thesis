@@ -1,0 +1,1346 @@
+Boala, Count, Vindecat, Ameliorat, Stationar, Agravat, Decedat
+I05.0 Stenoza mitrala,6,0,3,0,0,3 50.0 %
+I10 Hipertensiunea esentiala (primara),1010,69,743,25,6,167 16.53 %
+I25.9 Cardiopatie ischemica cronica,247,14,159,7,1,66 26.72 %
+I34.0 Insuficienta mitrala (valva),204,15,139,3,1,46 22.55 %
+I35.1 Insuficienta (valva) aortica,62,4,41,1,0,16 25.81 %
+I48 Fibrilatia atriala si flutter,220,14,137,6,0,63 28.64 %
+I50.0 Insuficienta cardiaca congestiva,119,5,79,5,0,30 25.21 %
+K44.9 Hernia diafragmatica fara obstructie sau gangrena,95,9,69,2,0,15 15.79 %
+K76.0 Degenerescenta grasoasa a ficatului,274,17,225,4,1,27 9.85 %
+M47.99 Spondiloza,6,0,5,0,0,1 16.67 %
+U07.1 COVID-19 cu virus identificat,1589,101,1212,52,6,218 13.72 %
+E11.9 Diabet mellitus tip 2 fara complicatii,231,13,181,7,2,28 12.12 %
+E66.0 Obezitate datorita unui exces caloric,227,12,174,4,0,37 16.3 %
+J96.0 Insuficienta respiratorie acuta,566,35,368,14,5,144 25.44 %
+E87.6 Hipopotasemie,73,11,55,0,0,7 9.59 %
+F01.9 Dementa vasculara,11,0,3,1,0,7 63.64 %
+H91.9 Pierderea auzului,3,1,2,0,0,0 0.0 %
+I49.8 Alte aritmii cardiace specificate,11,2,7,0,0,2 18.18 %
+M47.95 Spondiloza,70,11,53,3,0,3 4.29 %
+E11.65 Diabet mellitus tip 2 cu control slab,44,3,33,1,0,7 15.91 %
+E78.2 Hiperlipidemie mixta,80,4,63,2,0,11 13.75 %
+E87.5 Hiperpotasemie,59,6,35,2,1,15 25.42 %
+G20 Boala Parkinson,20,2,14,1,0,3 15.0 %
+I63.8 Alte infarcte cerebrale,16,3,9,0,0,4 25.0 %
+N17.9 Insuficienta renala acuta,49,4,24,2,1,18 36.73 %
+R74.8 Nivele anormale ale altor enzime serice,25,4,20,0,0,1 4.0 %
+E11.8 Diabet mellitus tip 2 cu complicatii nespecificate,47,5,33,2,0,7 14.89 %
+I67.8 Alte boli cerebrovasculare,25,0,17,0,0,8 32.0 %
+K12.1 Alte forme de stomatite,1,0,1,0,0,0 0.0 %
+N40 Hiperplazia prostatei,89,8,65,4,0,12 13.48 %
+R94.5 Rezultate anormale ale explorarilor functionale hepatice,5,0,4,0,0,1 20.0 %
+D69.6 Trombocitopenia,48,1,35,0,0,12 25.0 %
+I74.9 Embolia si tromboza unor artere nespecificate,2,0,1,0,0,1 50.0 %
+J43.9 Emfizem,12,0,7,1,0,4 33.33 %
+B97.2 Coronavirusi,982,50,797,28,4,103 10.49 %
+D64.9 Anemia,109,6,74,5,0,24 22.02 %
+D69.5 Trombocitopenia secundara,10,0,9,0,0,1 10.0 %
+E03.9 Hipotiroidia,55,5,39,5,0,6 10.91 %
+F33.9 Tulburare depresiva recurenta,15,3,11,0,0,1 6.67 %
+I11.9 Cardiopatia hipertensiva fara insuficienta (congestiva) a inimii,26,3,18,0,1,4 15.38 %
+I25.8 Alte forme de cardiopatie ischemica cronica,43,6,26,2,0,9 20.93 %
+I27.2 Alte hipertensiuni pulmonare secundare,64,4,38,2,0,20 31.25 %
+I36.1 Insuficienta nereumatismala (valva) tricuspida,37,1,27,1,0,8 21.62 %
+I50.9 Insuficienta cardiaca,39,1,23,1,0,14 35.9 %
+N18.8 Alta insuficienta renala cronica,70,6,41,1,0,22 31.43 %
+E86 Hipovolemia,20,4,9,1,0,6 30.0 %
+I70.8 Ateroscleroza altor artere,56,5,36,1,0,14 25.0 %
+M47.90 Spondiloza,32,0,28,1,0,3 9.38 %
+R09.1 Pleurezie,62,4,40,3,0,15 24.19 %
+I25.11 Cardiopatia aterosclerotica a arterei coronariene native,10,0,8,0,0,2 20.0 %
+J18.9 Pneumonie,28,0,11,1,1,15 53.57 %
+R09.2 Stop respirator,122,0,0,0,0,122 100.0 %
+D51.8 Alte anemii prin carenta de vitamana B12,2,1,1,0,0,0 0.0 %
+E06.3 Tiroidita autoimuna,19,3,11,0,0,5 26.32 %
+M06.90 Artrita reumatoida,3,1,2,0,0,0 0.0 %
+E66.9 Obezitate,90,2,72,1,0,15 16.67 %
+F92.0 Tulburare de conduita depresiva,5,0,4,1,0,0 0.0 %
+C76.1 Tumora maligna torace,1,0,1,0,0,0 0.0 %
+C90.00 Mielom multiplu,1,0,1,0,0,0 0.0 %
+F41.9 Tulburare anxioasa,24,5,19,0,0,0 0.0 %
+I49.3 Depolarizare ventriculara prematura,5,0,5,0,0,0 0.0 %
+I82.8 Embolia si tromboza altor vene specificate,9,0,7,1,0,1 11.11 %
+B34.0 Infectia adenovirala,1,0,1,0,0,0 0.0 %
+B34.2 Infectia coronavirala,54,4,38,4,0,8 14.81 %
+D46.7 Alte sidroame mielodisplazice,1,0,0,0,0,1 100.0 %
+I46.9 Stop cardiac,138,0,0,0,0,138 100.0 %
+I44.7 Bloc al ramurii stangi,26,2,13,3,0,8 30.77 %
+A41.9 Sepsis,37,1,8,1,0,27 72.97 %
+E87.2 Acidoza,26,1,6,1,0,18 69.23 %
+F03 Dementa nespecificata,34,1,20,1,1,11 32.35 %
+I44.0 Bloc atrio-ventricular,10,0,8,0,0,2 20.0 %
+I45.1 Alte blocuri ale ramurii drepte a fascicolului si nespecificate,11,1,5,0,0,5 45.45 %
+J12.8 Alte pneumonii virale,61,2,7,2,1,49 80.33 %
+J69.8 Pneumopatii datorite inhalatiei altor substante solide si lichide,3,0,0,0,0,3 100.0 %
+M05.39+ Artrita reumatoida cu implicarea altor organe sau sisteme,1,0,0,0,0,1 100.0 %
+R40.2 Coma,14,1,0,1,1,11 78.57 %
+E11.69 Diabet mellitus tip 2 cu alte complicatii specificate,30,1,15,2,0,12 40.0 %
+E78.4 Alte hiperlipidemii,20,2,15,0,0,3 15.0 %
+E78.1 Hipergliceridemia esentiala,12,0,11,1,0,0 0.0 %
+G51.8 Alte afectiuni ale nervului facial,2,0,2,0,0,0 0.0 %
+G81.0 Hemiplegia flasca,2,0,1,0,0,1 50.0 %
+R73 Nivel ridicat al glucozei in sange,40,1,35,1,0,3 7.5 %
+I25.5 Cardiomiopatie ischemica,26,3,17,0,0,6 23.08 %
+K21.9 Boala refluxului gastro-esofagian fara esofagita,20,1,16,1,0,2 10.0 %
+N18.90 Insuficienta renala cronica nespecificata,49,2,33,1,0,13 26.53 %
+Z90.5 Absenta dobandita a rinichiului,14,1,11,0,0,2 14.29 %
+A09 Diareea si gastro-enterita probabil infectioase,7,0,5,0,0,2 28.57 %
+I47.1 Tahicardia supraventriculara,13,0,11,0,0,2 15.38 %
+K75.2 Hepatita reactiva nespecifica,4,0,4,0,0,0 0.0 %
+L89 Ulceratia de decubitus,22,4,9,0,1,8 36.36 %
+I20.0 Angina instabila,5,1,2,0,0,2 40.0 %
+I25.2 Infarct miocardic vechi,53,1,42,1,0,9 16.98 %
+J44.9 Boala pulmonara obstructiva cronica,72,5,51,3,0,13 18.06 %
+Z44.9 Amplasarea si ajustarea unui dispozitiv prostetic extern nespecificat,2,0,2,0,0,0 0.0 %
+I70.9 Ateroscleroza generalizata si nespecificata,31,3,22,0,0,6 19.35 %
+K57.30 Diverticuloza intestinului gros fara perforatie sau abces si fara mentionarea hemoragiei,25,3,15,1,0,6 24.0 %
+K80.20 Calcul al vezicii biliare fara colecistita,61,5,42,3,0,11 18.03 %
+R74.0 Crestere a nivelelor transaminazei si dehidrogeneza acidului lactic [LDH],121,7,107,3,0,4 3.31 %
+D68.3 Tulburari hemoragice datorita anticoagulantelor circulante,7,0,7,0,0,0 0.0 %
+Z92.4 Istoric personal de interventii chirurgicale majore,16,4,12,0,0,0 0.0 %
+D18.08 Hemangiom,20,2,17,0,0,1 5.0 %
+Z72.1 Consumul de alcool,9,3,6,0,0,0 0.0 %
+E87.0 Hiperosmolaritate si hipernatremie,14,2,7,0,1,4 28.57 %
+F01.3 Dementa vasculara mixta,8,1,6,0,0,1 12.5 %
+F05.9 Delir nespecificat,3,0,1,0,0,2 66.67 %
+I50.1 Insuficienta ventriculara stanga,50,3,31,1,0,15 30.0 %
+J96.1 Insuficienta respiratorie cronica,31,4,20,0,0,7 22.58 %
+K80.11 Calcul al vezicii biliare cu o alta forma de colecistita,4,0,3,0,0,1 25.0 %
+R00.0 Tahicardie,12,2,10,0,0,0 0.0 %
+Z63.6 Dependenta de nevoia de ingrijiri acasa,7,2,4,0,0,1 14.29 %
+B37.9 Candidiaza,3,0,1,0,0,2 66.67 %
+F06.7 Tulburari cognitive usoare,21,3,11,0,0,7 33.33 %
+F41.1 Tulburare de anxietate generalizata,6,1,3,0,0,2 33.33 %
+G45.8 Alte atacuri ischemice cerebrale tranzitorii si sindroame inrudite,3,0,1,0,0,2 66.67 %
+I07.1 Insuficienta tricuspida,80,10,50,1,0,19 23.75 %
+I20.9 Angina pectorala,17,2,14,0,0,1 5.88 %
+I24.8 Alte forme de cardiopatie ischemica acuta,3,1,0,0,0,2 66.67 %
+I72.0 Anevrismul arterei carodite,1,0,0,0,0,1 100.0 %
+J44.0 Boala pulmonara obstructiva cronica cu infectie acuta a cailor respiratorii inferioare,12,2,5,0,0,5 41.67 %
+J47 Bronsiectazia,13,1,6,0,0,6 46.15 %
+J84.1 Alte boli pulmonare interstitiale cu fibroza,22,0,12,1,0,9 40.91 %
+N39.0 Infectia tractului urinar,88,14,56,1,1,16 18.18 %
+D29.1 Tumora benigna prostata,15,3,9,1,0,2 13.33 %
+D64.8 Alte anemii specificate,35,3,28,0,0,4 11.43 %
+I44.4 Bloc fascicular anterior stang,2,0,2,0,0,0 0.0 %
+I64 Ictus,3,0,2,0,0,1 33.33 %
+R52.2 Alt tip de durere cronica,3,1,2,0,0,0 0.0 %
+B18.1 Hepatita virala cronica B fara agent Delta,5,0,4,0,0,1 20.0 %
+M41.84 Alte forme de scolioza,3,0,2,0,0,1 33.33 %
+R16.1 Splenomegalie,10,0,10,0,0,0 0.0 %
+E14.9 Diabet mellitus nespecificat fara complicatii,10,1,9,0,0,0 0.0 %
+I15.8 Alte hipertensiuni secundare,3,1,2,0,0,0 0.0 %
+J18.0 Bronhopneumonie,21,0,8,2,0,11 52.38 %
+M06.98 Artrita reumatoida,1,0,0,0,0,1 100.0 %
+I35.0 Stenoza (valva) aortica,28,2,19,1,1,5 17.86 %
+J12.9 Pneumonia virala,31,1,12,1,1,16 51.61 %
+B90.9 Sechelele tuberculozei respiratorii si nespecificate,3,0,2,0,0,1 33.33 %
+I26.9 Embolia vaselor pulmonare fara mentiunea cordului pulmonar acut,23,0,15,2,0,6 26.09 %
+Y44.2 Anticoagulante,2,0,2,0,0,0 0.0 %
+I84.9 Hemoroizi nespecificati fara complicatii,3,0,1,0,0,2 66.67 %
+I87.2 Insuficienta venoasa (cronica) (periferica),69,9,49,2,0,9 13.04 %
+K63.50 Polip al colonului,2,0,1,0,0,1 50.0 %
+M10.99 Guta,5,0,4,0,0,1 20.0 %
+N20.9 Litiaza urinara,13,1,10,1,0,1 7.69 %
+Z86.6 Istoric personal de boli ale sistemului nervos si organelor de simt,3,0,2,0,1,0 0.0 %
+J18.1 Pneumonia lobara,1,0,1,0,0,0 0.0 %
+K59.1 Diareea functionala,3,2,1,0,0,0 0.0 %
+J45.9 Astm,34,1,28,1,0,4 11.76 %
+B67.0 Infectia ficatului cu Echinococcus granulosus,1,0,1,0,0,0 0.0 %
+K26.7 Ulcerul duodenal,3,0,3,0,0,0 0.0 %
+K40.90 Hernia inghinala unilaterala sau nespecificata,11,2,5,0,0,4 36.36 %
+R06.6 Sughit,1,0,1,0,0,0 0.0 %
+I06.1 Insuficienta aortica reumatismala,6,0,5,0,0,1 16.67 %
+E10.9 Diabet mellitus tip 1 fara complicatii,3,0,3,0,0,0 0.0 %
+I27.0 Hipertensiunea pulmonara primara,16,1,10,1,0,4 25.0 %
+Z92.1 Istoric personal de utilizare (actuala) pe termen lung de anticoagulante,6,1,5,0,0,0 0.0 %
+Z95.1 Prezenta unei grefe de bypass aorto-coronarian,9,0,6,0,0,3 33.33 %
+Z95.2 Prezenta unei prosteze de valva a inimii,5,0,2,0,0,3 60.0 %
+Z45.0 Ajustarea si intretinerea unui stimulator cardiac,1,0,1,0,0,0 0.0 %
+K85 Pancreatita acuta,11,2,7,0,0,2 18.18 %
+M41.59 Alta scolioza secundara,1,0,1,0,0,0 0.0 %
+N21.0 Litiaza vezicala,6,1,5,0,0,0 0.0 %
+E10.65 Diabet mellitus tip 1 cu control slab,1,1,0,0,0,0 0.0 %
+E78.5 Hiperlipidemia,23,2,20,0,0,1 4.35 %
+I47.2 Tahicardia ventriculara,4,1,1,0,0,2 50.0 %
+I49.5 Sindromul de boala sinusala,10,1,6,0,1,2 20.0 %
+I51.9 Cardiopatia,12,3,5,2,0,2 16.67 %
+M16.9 Coxartroza,12,3,8,0,0,1 8.33 %
+M17.9 Gonartroza,14,4,9,0,0,1 7.14 %
+M47.89 Alte spondiloze,5,2,3,0,0,0 0.0 %
+R41.8 Alte simptome si semne referitoare la functiile cognitive si constienta si nespecificate,7,1,4,1,0,1 14.29 %
+R79.8 Alte rezultate anormale specificate ale chimiei sangelui,4,0,4,0,0,0 0.0 %
+D63.8* Anemia in cursul altor boli cronice clasificate altundeva,25,3,16,1,0,5 20.0 %
+E46 Malnutritia proteino-energetica nespecificata,11,2,5,1,0,3 27.27 %
+I46.0 Stop cardiac cu resuscitare reusita,10,1,3,0,0,6 60.0 %
+J18.8 Alte pneumonii,2,0,0,0,0,2 100.0 %
+N18.0 Boala renala in stadiul final,47,3,29,2,0,13 27.66 %
+Z99.2 Dependenta de dializa renala,33,3,19,1,0,10 30.3 %
+E87.1 Hipo-osmolaritate si hiponatremie,36,4,25,2,0,5 13.89 %
+J43.8 Alte emfizeme,11,1,6,0,0,4 36.36 %
+J98.5 Bolile mediastinului,10,0,6,0,0,4 40.0 %
+N21.8 Alte litiaze [calculi] ale cailor urinare inferioare,1,0,1,0,0,0 0.0 %
+N28.1 Chistul rinichiului,64,5,50,1,0,8 12.5 %
+I69.3 Sechelele infarctului cerebral,76,5,46,1,0,24 31.58 %
+Q50.12 Chist ovarian in dezvoltare,1,0,1,0,0,0 0.0 %
+Z90.7 Absenta dobandita a organului(lor) genital(e),11,0,8,1,0,2 18.18 %
+I70.22 Ateroscleroza arterelor extremitatilor cu durere la repaos,2,0,0,0,1,1 50.0 %
+I73.8 Alte boli vasculare periferice,3,0,1,0,1,1 33.33 %
+K82.8 Alte boli specificate ale vezicii biliare,5,0,3,1,0,1 20.0 %
+M47.94 Spondiloza,43,4,38,0,0,1 2.33 %
+M51.3 Alta deteriorare a unui alt disc intervertebral specificat,2,0,2,0,0,0 0.0 %
+D52.8 Alte anemii prin carenta de acid folic,11,0,11,0,0,0 0.0 %
+E21.1 Hiperparatiroidism secundar,31,1,20,0,0,10 32.26 %
+I45.0 Bloc fascicular drept,17,1,13,0,0,3 17.65 %
+I77.1 Stenoza arterelor,5,0,3,1,0,1 20.0 %
+K58.9 Sindromul intestinului iritabil fara diaree,5,3,2,0,0,0 0.0 %
+L50.8 Alte forme de urticarie,1,0,1,0,0,0 0.0 %
+M16.0 Coxartroza primara,6,0,4,1,0,1 16.67 %
+M46.80 Alte spondilopatii inflamatorii specificate,1,0,1,0,0,0 0.0 %
+M77.5 Alte entezopatii ale piciorului,1,0,1,0,0,0 0.0 %
+M89.81 Alte boli specificate ale oaselor,1,0,1,0,0,0 0.0 %
+Q25.3 Stenoza aortei,2,0,1,0,0,1 50.0 %
+Y84.1 Dializa renala,13,0,8,0,0,5 38.46 %
+I42.0 Cardiomiopatia cu dilatatie,15,0,12,1,0,2 13.33 %
+G35 Scleroza multipla,6,2,4,0,0,0 0.0 %
+I80.2 Flebita si tromboflebita altor vase profunde ale extremitatilor inferioare,9,0,6,0,0,3 33.33 %
+D62 Anemia post-hemoragica acuta,5,2,3,0,0,0 0.0 %
+E11.22 Diabet mellitus tip 2 cu nefropatie diabetica stabilita,12,1,9,0,0,2 16.67 %
+J41.0 Bronsita cronica simpla,10,0,8,1,0,1 10.0 %
+K25.0 Ulcerul gastric,3,0,1,1,0,1 33.33 %
+Y84.6 Sondaj urinar,15,3,10,0,0,2 13.33 %
+Z86.5 Istoric personal al altor tulburari mentale si de comportament,2,0,2,0,0,0 0.0 %
+Z86.7 Istoric personal de boli ale aparatului circulator,18,4,12,0,0,2 11.11 %
+D12.5 Tumora benigna colon sigmoid,1,0,1,0,0,0 0.0 %
+E04.2 Gusa multinodulara netoxica,18,2,13,0,0,3 16.67 %
+G31.9 Afectiuni degenerative ale sistemului nervos,6,0,5,0,0,1 16.67 %
+S06.02 Pierdere a cunostintei pe o durata scurta [mai putin de 30 minute],3,0,3,0,0,0 0.0 %
+K25.9 Ulcerul gastric,3,0,2,0,0,1 33.33 %
+D52.9 Anemia prin carenta de acid folic,8,1,7,0,0,0 0.0 %
+S22.40 Fracturi multiple de coaste,8,0,5,0,0,3 37.5 %
+Z86.11 Istoric personal de tuberculoza,2,0,2,0,0,0 0.0 %
+D50.8 Alte anemii prin carenta de fier,6,0,6,0,0,0 0.0 %
+M48.24 Artroza interspinoasa,2,0,1,0,0,1 50.0 %
+E21.2 Alte hiperparatiroidisme,6,2,4,0,0,0 0.0 %
+E83.3 Tulburari de metabolism al fosforului,5,2,3,0,0,0 0.0 %
+E83.5 Tulburari de metabolism al calciului,14,2,10,2,0,0 0.0 %
+Q61.3 Rinichi polichistic,5,1,2,0,0,2 40.0 %
+M10.90 Guta,4,0,3,0,0,1 25.0 %
+E07.8 Alte afectiuni specificate ale tiroidei,5,0,4,0,0,1 20.0 %
+E66.2 Obezitate extrema cu hipoventilatie alveolara,1,0,1,0,0,0 0.0 %
+E87.3 Alcaloza,48,0,44,0,0,4 8.33 %
+K52.9 Gastroenterita si colita neinfectioase,1,0,1,0,0,0 0.0 %
+L30.9 Dermatita,1,0,1,0,0,0 0.0 %
+I83.9 Vene varicoase ale extremitatilor inferioare fara ulceratie sau inflamatie,8,2,5,0,0,1 12.5 %
+I31.3 Efuziune pericardica (neinflamatorie),25,0,20,1,0,4 16.0 %
+R06.0 Dispnee,2,0,2,0,0,0 0.0 %
+R11 Greata si voma,2,0,2,0,0,0 0.0 %
+R51 Cefalee,6,0,6,0,0,0 0.0 %
+R57.8 Alt tip de soc,11,0,0,1,0,10 90.91 %
+I70.0 Ateroscleroza aortei,91,8,71,1,0,11 12.09 %
+K86.2 Chistul pancreasului,4,0,3,1,0,0 0.0 %
+K86.9 Boala pancreasului,2,1,1,0,0,0 0.0 %
+M41.95 Scolioza,2,0,2,0,0,0 0.0 %
+D75.2 Trombocitoza esentiala,7,0,7,0,0,0 0.0 %
+I49.1 Depolarizare atriala prematura,7,0,7,0,0,0 0.0 %
+L40.9 Psoriazis,7,1,6,0,0,0 0.0 %
+M47.84 Alte spondiloze,15,1,13,0,0,1 6.67 %
+D46.4 Anemie refractara,27,5,17,0,0,5 18.52 %
+E83.4 Tulburari de metabolism al magneziului,20,1,19,0,0,0 0.0 %
+M10.00 Guta idiopatica,6,1,4,0,0,1 16.67 %
+J80 Sindrom de suferinta respiratorie la adult,19,0,6,0,0,13 68.42 %
+K81.0 Colecistita acuta,1,0,0,0,0,1 100.0 %
+T79.7 Emfizem subcutanat traumatic,1,0,0,0,0,1 100.0 %
+E58 Carenta alimentara de calciu,19,6,11,1,0,1 5.26 %
+E61.2 Carenta de magneziu,44,3,35,2,0,4 9.09 %
+Z88.8 Istoric personal de alergie la alte droguri,22,4,16,0,0,2 9.09 %
+G46.7* Alte sindroame lacunare (I60-I67+),24,1,14,1,1,7 29.17 %
+S15.00 Leziune a carotidei,1,0,0,1,0,0 0.0 %
+T50.9 Alte droguri,1,0,0,1,0,0 0.0 %
+Z95.9 Prezenta de implante si de grefe cardiace si vasculare,2,0,1,1,0,0 0.0 %
+Z85.5 Istoric personal de tumora maligna a tractului urinar,5,1,4,0,0,0 0.0 %
+C34.9 Tumora maligna bronhii si pulmon ,7,0,4,0,1,2 28.57 %
+J90 Revarsare pleurala,31,7,11,1,0,12 38.71 %
+I11.0 Cardiopatia hipertensiva cu insuficienta (congestiva) a inimii,34,3,24,0,0,7 20.59 %
+L50.1 Urticaria idiopatica,1,0,1,0,0,0 0.0 %
+M81.50 Osteoporoza idiopatica,1,0,1,0,0,0 0.0 %
+E88.9 Tulburari metabolice,4,1,3,0,0,0 0.0 %
+F51.0 Insomnie neorganica,5,0,5,0,0,0 0.0 %
+F60.6 Tulburare de personalitate anxioasa [evitanta],1,0,1,0,0,0 0.0 %
+I20.8 Alte forme de angina pectorala,17,0,13,0,0,4 23.53 %
+K42.9 Hernia ombilicala fara obstructie sau gangrena,7,1,5,0,0,1 14.29 %
+M43.04 Spondiloliza,10,0,9,1,0,0 0.0 %
+M48.26 Artroza interspinoasa,2,0,2,0,0,0 0.0 %
+N83.2 Alte chisturi ale ovarului si nespecificate,4,1,3,0,0,0 0.0 %
+Z85.6 Istoric personal de leucemie,1,0,0,0,0,1 100.0 %
+N60.9 Displazia mamara benigna,1,0,1,0,0,0 0.0 %
+R77.8 Alte anormalitati specificate ale proteinelor plasmatice,7,1,6,0,0,0 0.0 %
+M10.09 Guta idiopatica,4,0,4,0,0,0 0.0 %
+M41.94 Scolioza,8,0,8,0,0,0 0.0 %
+A46 Erizipelul,2,0,0,0,0,2 100.0 %
+E03.2 Hipotiroidia datorita unor medicamente si altor substante exogene,1,0,0,0,0,1 100.0 %
+E66.8 Alte obezitati,5,0,4,0,0,1 20.0 %
+G47.32 Sindromul apneei de somn obstructive,4,0,3,0,0,1 25.0 %
+I31.8 Alte boli specificate ale pericardului,17,2,12,0,0,3 17.65 %
+I83.0 Vene varicoase cu ulceratie ale extremitatilor inferioare,3,0,2,0,0,1 33.33 %
+K20 Esofagita,2,0,1,0,0,1 50.0 %
+K29.7 Gastrita,12,0,9,0,0,3 25.0 %
+K70.9 Boala alcoolica a ficatului,2,0,0,0,0,2 100.0 %
+K74.0 Fibroza hepatica,1,0,0,0,0,1 100.0 %
+K86.1 Alte pancreatite cronice,2,0,1,0,0,1 50.0 %
+M84.28 Intarziere in consolidarea unei fracturi,2,0,0,0,0,2 100.0 %
+Z87.2 Istoric personal de boli ale pielii si tesutului celular subcutanat,1,0,0,0,0,1 100.0 %
+Z87.4 Istoric personal de boli ale aparatului genito-urinar,6,0,4,0,0,2 33.33 %
+Z95.0 Prezenta unui stimulator cardiac,15,0,8,1,0,6 40.0 %
+I70.21 Ateroscleroza arterelor extremitatilor cu claudicatie intermitenta,12,1,5,0,0,6 50.0 %
+Z97.8 Prezenta altor dispozitive specificate,2,0,0,0,0,2 100.0 %
+D52.0 Anemia prin carenta alimentara de acid folic,11,3,8,0,0,0 0.0 %
+F44.7 Tulburari disociative [de conversie] mixte,1,0,1,0,0,0 0.0 %
+G25.9 Tulburari extrapiramidale si de motricitate,5,0,5,0,0,0 0.0 %
+G64 Alte tulburari ale sistemului nervos periferic,1,0,1,0,0,0 0.0 %
+H54.0 Cetitatea ambilor ochi,4,0,3,0,0,1 25.0 %
+J37.0 Laringita cronica,2,0,2,0,0,0 0.0 %
+K29.3 Gastrita superficiala cronica,2,0,2,0,0,0 0.0 %
+K30 Dispepsia,11,1,10,0,0,0 0.0 %
+N26 Rinichi scleros nespecificat,1,0,1,0,0,0 0.0 %
+E44.1 Malnutritia proteino-energetica usoara,6,0,6,0,0,0 0.0 %
+I25.6 Ischemie silentioasa a miocardului,11,1,9,0,0,1 9.09 %
+I79.8* Alte boli ale arterelor,2,0,1,0,0,1 50.0 %
+N13.2 Hidronefroza cu obstructie calculoasa renala si ureterala,6,0,6,0,0,0 0.0 %
+N20.1 Litiaza ureterului,4,0,3,0,0,1 25.0 %
+N23 Colica nefritica nespecificata,4,1,3,0,0,0 0.0 %
+C61 Tumora maligna a prostatei,8,0,6,0,0,2 25.0 %
+C67.9 Tumora maligna vezica urinara,7,0,5,0,0,2 28.57 %
+I73.9 Boala vasculara periferica,2,0,2,0,0,0 0.0 %
+N13.8 Alta uropatie obstructiva si cu reflux,2,0,2,0,0,0 0.0 %
+Y83.5  Amputatia de membru(e),7,0,4,0,0,3 42.86 %
+E78.0 Hipercolesterolemie esentiala,21,0,18,2,0,1 4.76 %
+F33.0 Tulburare depresiva recurenta,1,0,1,0,0,0 0.0 %
+K57.32 Diverticulita intestinului gros fara perforatie sau abces si fara mentionarea hemoragiei,4,0,3,0,0,1 25.0 %
+K58.0 Sindromul intestinului iritabil cu diaree,7,0,6,0,0,1 14.29 %
+T88.7 Efect advers nespecificat al unui drog sau medicament,4,0,4,0,0,0 0.0 %
+Z88.1 Istoric personal de alergie la alte antibiotice,10,2,7,0,0,1 10.0 %
+D35.0 Tumora benigna suprarenala,26,1,23,0,0,2 7.69 %
+K59.0 Constipatia,12,2,10,0,0,0 0.0 %
+M45.04 Spondilita anchilozanta,1,0,1,0,0,0 0.0 %
+N31.0 Vezica urinara neuropatica neinhibata,1,0,1,0,0,0 0.0 %
+D25.9 Leiomiom al uterului,3,0,3,0,0,0 0.0 %
+E79.0 Hiperuricemia fara semne de artrita inflamatorie sau de boala tofacee,48,3,37,0,0,8 16.67 %
+F41.0 Tulburare de panica [anxietate episodica paroxistica],3,1,1,0,0,1 33.33 %
+K26.3 Ulcerul duodenal,2,0,1,0,0,1 50.0 %
+K40.20 Hernia inghinala bilaterala,8,1,7,0,0,0 0.0 %
+K71.0 Boala toxica a ficatului cu colestaza,5,1,4,0,0,0 0.0 %
+Z95.5 Prezenta de implant si grefa de angioplastie coronariana,9,0,6,0,0,3 33.33 %
+I63.9 Infarctul cerebral,23,1,12,2,1,7 30.43 %
+M81.99 Osteoporoza,7,1,6,0,0,0 0.0 %
+H91.3 Surdo-mutitate,2,0,2,0,0,0 0.0 %
+I49.0 Fibrilatia ventriculara si flutter,1,0,1,0,0,0 0.0 %
+I51.7 Cardiomegalia,8,0,4,0,0,4 50.0 %
+M47.93 Spondiloza,1,0,1,0,0,0 0.0 %
+R59.9 Ganglioni limfatici mariti,1,0,1,0,0,0 0.0 %
+R05 Tuse,2,0,2,0,0,0 0.0 %
+Z85.3 Istoric personal de tumora maligna a sanului,9,0,7,1,0,1 11.11 %
+Z90.1 Absenta dobandita a sinului(lor),2,0,2,0,0,0 0.0 %
+B96.1 Klebsiella pneumoniae [K. pneumoniae],5,0,5,0,0,0 0.0 %
+D18.03 Hemangiom,5,0,5,0,0,0 0.0 %
+N11.1 Pielonefrita obstructiva cronica,2,0,1,0,0,1 50.0 %
+N27.0 Rinichi mic,2,0,1,0,0,1 50.0 %
+Z85.4 Istoric personal de tumora maligna a organelor genitale,8,2,6,0,0,0 0.0 %
+C34.2 Tumora maligna lobul mijlociu,1,1,0,0,0,0 0.0 %
+C78.7 Tumora maligna secundara a ficatului,3,1,1,0,0,1 33.33 %
+C79.7 Tumora maligna secundara a glandei suprarenale,2,1,0,0,0,1 50.0 %
+D63.0* Anemia in bolile neoplazice,3,2,1,0,0,0 0.0 %
+E04.1 Nodul tiroidian unic,11,1,10,0,0,0 0.0 %
+I31.1 Pericardita cronica constrictiva,2,1,1,0,0,0 0.0 %
+I69.4 Sechelele ictusului,7,1,3,0,0,3 42.86 %
+M41.05 Scolioza idiopatica infantila,1,1,0,0,0,0 0.0 %
+Q85.0 Neurofibromatoza (nemaligna),1,1,0,0,0,0 0.0 %
+T78.8 Alte efecte adverse,4,1,3,0,0,0 0.0 %
+I95.9 Hipotensiune,2,0,0,0,0,2 100.0 %
+A04.7 Enterocolita prin Clostridium difficile,28,5,16,0,0,7 25.0 %
+E11.23 Diabet mellitus tip 2 cu boala renala stadiu final [ESRD],7,0,6,0,0,1 14.29 %
+G40.90 Epilepsia,3,0,2,0,0,1 33.33 %
+G81.1 Hemiplegia spastica,5,0,3,1,0,1 20.0 %
+I63.3 Infarctul cerebral datorita trombozei arterelor cerebrale,12,0,7,0,0,5 41.67 %
+R00.1 Bradicardie,16,0,13,0,0,3 18.75 %
+C50.9 Tumora maligna san,7,0,4,0,0,3 42.86 %
+D53.9 Anemia nutritionala,5,0,3,0,0,2 40.0 %
+E10.52 Diabet mellitus tip 1 cu angiopatie periferica,2,0,2,0,0,0 0.0 %
+B18.9 Hepatita virala cronica,1,0,1,0,0,0 0.0 %
+R12 Pirozis,1,0,1,0,0,0 0.0 %
+F45.1 Tulburare somatoforma nediferentiata,1,0,1,0,0,0 0.0 %
+I41.1* Miocardita in bolile virale,4,1,3,0,0,0 0.0 %
+E87.4 Tulburari mixte ale echilibrului acido-bazic,1,1,0,0,0,0 0.0 %
+F69 Tulburare nespecificata de personalitate si de comportament la adult,1,1,0,0,0,0 0.0 %
+I74.2 Embolia si tromboza arterelor extremitatilor superioare,4,2,1,0,0,1 25.0 %
+N13.3 Hidronefroza,16,3,11,0,0,2 12.5 %
+N18.91 Deficienta renala cronica,2,1,1,0,0,0 0.0 %
+N81.1 Cistocel,2,1,1,0,0,0 0.0 %
+N81.8 Alt prolaps genital la femeie,1,1,0,0,0,0 0.0 %
+R31 Hematuria nespecificata,3,1,1,0,0,1 33.33 %
+R57.1 Soc hipovolemic,2,1,1,0,0,0 0.0 %
+M06.49 Poliatropatia inflamatorie,3,1,2,0,0,0 0.0 %
+I13.2 Cardio-nefropatia  hipertensiva cu insuficienta cardiaca (congestiva) si renala,1,0,0,0,0,1 100.0 %
+N20.0 Calculii rinichiului,26,2,16,2,0,6 23.08 %
+R50.9 Febra,2,0,1,0,0,1 50.0 %
+H28.2* Cataracta in alte boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+H36* Afectiuni retiniene in boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+I32.1* Pericardita in alte boli infectioase si parazitare clasificata altundeva,2,0,2,0,0,0 0.0 %
+Z87.18 Istoric personal de alte boli ale aparatului digestiv,11,1,9,0,0,1 9.09 %
+E20.9 Hipoparatiroidism,2,0,1,0,0,1 50.0 %
+K76.9 Boala ficatului,8,0,7,0,0,1 12.5 %
+B18.2 Hepatita virala cronica C,15,3,9,0,0,3 20.0 %
+E13.65 Alte forme specificate de diabet mellitus cu control slab,1,0,0,0,0,1 100.0 %
+N17.8 Alta insuficienta renala acuta,34,2,7,3,0,22 64.71 %
+J45.0 Astmul cu predominenta alergica,10,2,6,2,0,0 0.0 %
+G93.4 Encefalopatia,5,0,2,0,0,3 60.0 %
+I98.20* Varice esofagiene in boli clasificate altundeva fara sangerare,1,0,1,0,0,0 0.0 %
+K74.6 Alta ciroza a ficatului si nespecificata,7,0,6,0,0,1 14.29 %
+R18 Ascita,22,2,12,0,0,8 36.36 %
+J98.4 Alte modificari pulmonare,8,2,5,0,0,1 12.5 %
+M47.92 Spondiloza,7,1,6,0,0,0 0.0 %
+I45.5 Alte blocuri cardiace specificate,3,1,2,0,0,0 0.0 %
+Z85.0 Istoric personal de tumora maligna a aparatului digestiv,8,1,5,0,0,2 25.0 %
+I84.1 Hemoroizi interni cu alte complicatii,1,0,1,0,0,0 0.0 %
+K62.0 Polip anal,1,0,1,0,0,0 0.0 %
+M20.1 Hallux valgus (dobandit),1,0,1,0,0,0 0.0 %
+M47.96 Spondiloza,6,0,6,0,0,0 0.0 %
+I49.9 Aritmia cardiaca,7,0,5,0,0,2 28.57 %
+M32.8 Alte forme de lupus sistemic eritematos,2,0,2,0,0,0 0.0 %
+J32.0 Sinuzita maxilara cronica,4,0,4,0,0,0 0.0 %
+J32.2 Sinuzita etmoidala cronica,2,0,2,0,0,0 0.0 %
+S06.01 Pierdere a cunostintei pe o durata nespecificata,1,0,1,0,0,0 0.0 %
+Z88.9 Istoric personal de alergie la droguri,2,0,2,0,0,0 0.0 %
+A41.51 Sepsis datorit Escherichia coli [E. Coli],2,0,1,0,0,1 50.0 %
+A41.52 Sepsis datorit pseudomonas,1,0,1,0,0,0 0.0 %
+C48.1 Tumora maligna localizari precise ale peritoneului,1,0,1,0,0,0 0.0 %
+C56 Tumora maligna a ovarului,3,0,1,0,0,2 66.67 %
+D01.5 Carcinom in situ ficat ,1,0,1,0,0,0 0.0 %
+D06.9 Carcinom in situ col uterin,2,0,2,0,0,0 0.0 %
+R60.0 Edem localizat,2,0,2,0,0,0 0.0 %
+T78.4 Alergie,11,2,7,0,0,2 18.18 %
+G45.9 Atac ischemic cerebral tranzitoriu,11,0,10,0,0,1 9.09 %
+G93.9 Afectiune cerebrala,2,1,1,0,0,0 0.0 %
+I34.2 Stenoza (valvei) mitrala nereumatismala,1,0,1,0,0,0 0.0 %
+Z86.0 Istoric personal de alte tumori maligne,2,1,1,0,0,0 0.0 %
+E11.29 Diabet mellitus tip 2 cu alte complicatii renale specificate,3,0,1,0,0,2 66.67 %
+B17.8 Alte hepatite virale acute specificate,2,0,2,0,0,0 0.0 %
+H54.7 Pierdere de vedere,1,0,0,0,0,1 100.0 %
+S98.1 Amputatie traumatica a unui deget de la picior,3,0,1,0,0,2 66.67 %
+T82.7 Infectie si reactie inflamatorie datorita altor dispozitive,1,0,0,0,0,1 100.0 %
+F41.2 Tulburare anxioasa si depresiva mixta,17,2,13,0,0,2 11.76 %
+I25.0 Boala cardio-vasculara aterosclerotica,6,0,3,0,0,3 50.0 %
+G40.10 Epilepsia simptomatica legata de localizare (focala,2,0,2,0,0,0 0.0 %
+L50.0 Urticaria alergica,1,0,1,0,0,0 0.0 %
+Z88.0 Istoric personal de alergie la penicilina,9,0,8,0,0,1 11.11 %
+C64 Tumora maligna a rinichiului,4,1,1,0,1,1 25.0 %
+I27.9 Cardiopatia pulmonara,8,2,4,0,0,2 25.0 %
+I70.24 Ateroscleroza arterelor extremitatilor cu gangrena,3,0,2,0,0,1 33.33 %
+Z89.4 Absenta dobandita a piciorului si gleznei,1,0,0,0,0,1 100.0 %
+Z99.9 Dependenta de folosirea unei masini si dispozitiv medical nespecificate,3,0,3,0,0,0 0.0 %
+I71.9 Anevrismul aortic,10,1,5,0,0,4 40.0 %
+K80.21 Calcul al vezicii biliare fara colecistita,3,1,0,0,0,2 66.67 %
+R04.2 Hemoptizie,1,1,0,0,0,0 0.0 %
+C48.2 Tumora maligna peritoneu,2,0,1,0,0,1 50.0 %
+C78.0 Tumora maligna secundara a pulmonului,5,0,1,0,0,4 80.0 %
+D69.8 Alte afectiuni hemoragice specificate,1,0,0,0,0,1 100.0 %
+I30.9 Pericardita acuta,8,0,5,0,0,3 37.5 %
+E03.8 Alte hipotiroidii specificate,10,0,9,0,0,1 10.0 %
+F20.8 Alte forme de schizofrenie,1,0,1,0,0,0 0.0 %
+D72.8 Alte anomalii specificate ale celulelor albe,3,0,3,0,0,0 0.0 %
+M47.80 Alte spondiloze,6,0,4,0,0,2 33.33 %
+R76.8 Alte rezultate imunologice anormale specificate ale serului,1,0,1,0,0,0 0.0 %
+Z99.1 Dependenta de un aparat de respiratie,3,0,3,0,0,0 0.0 %
+E11.42 Diabet mellitus tip 2 cu polineuropatie diabetica,23,1,15,0,0,7 30.43 %
+C16.9 Tumora maligna stomac ,1,0,0,0,0,1 100.0 %
+F45.39 Disfunctie autonoma somatoforma,13,0,0,0,0,13 100.0 %
+R58 Hemoragie,1,0,0,0,0,1 100.0 %
+E21.3 Hiperparatiroidism,2,0,2,0,0,0 0.0 %
+N19 Insuficienta renala nespecificata,9,0,4,0,1,4 44.44 %
+M51.9 Afectiunea unui disc intervertebral,2,1,1,0,0,0 0.0 %
+D50.9 Anemia prin carenta de fier,16,0,12,0,0,4 25.0 %
+K43.9 Hernia ventrala fara ocluzie sau gangrena,5,2,3,0,0,0 0.0 %
+J96.9 Insuficienta respiratorie,8,2,5,0,0,1 12.5 %
+M41.34 Scolioza prin anomalie toracica,4,0,4,0,0,0 0.0 %
+M10.98 Guta,5,0,4,0,0,1 20.0 %
+E05.9 Tireotoxicoza,5,0,4,0,0,1 20.0 %
+C24.1 Tumora maligna ampula Vater,1,0,1,0,0,0 0.0 %
+C25.9 Tumora maligna pancreas ,2,0,1,0,0,1 50.0 %
+E16.2 Hipoglicemie nespecificata,2,0,0,0,0,2 100.0 %
+Z96.68 Prezenta altor implanturi ale articulatiilor ortopedice,1,0,1,0,0,0 0.0 %
+D50.0 Anemia prin carenta de fier secundara unei pierderi de sange (cronica),2,0,2,0,0,0 0.0 %
+D58.9 Anemie hemolitica ereditara,1,0,1,0,0,0 0.0 %
+G54.4 Afectiunile radiculare lombo-sacrale,1,0,1,0,0,0 0.0 %
+G56.0 Sindromul canalului carpian,1,0,1,0,0,0 0.0 %
+I84.5 Hemoroizi externi fara complicatii,2,0,2,0,0,0 0.0 %
+K29.5 Gastrita cronica,9,0,8,1,0,0 0.0 %
+K87.0* Tulburari ale vezicii biliare si cailor biliare in boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+M67.82 Alte afectiuni specificate ale sinoviei si tendonului,1,0,1,0,0,0 0.0 %
+B97.1 Enterovirusi,1,0,1,0,0,0 0.0 %
+D41.0 Tumora rinichi cu evolutie imprevizibila si necunoscuta,4,1,3,0,0,0 0.0 %
+N28.9 Tulburare a rinichiului si a ureterului,3,0,3,0,0,0 0.0 %
+Z43.6 Supravegherea altor orificii artificiale ale tractului urinar,1,0,1,0,0,0 0.0 %
+E75.6 Tulburari ale lipidelor de rezerva,4,0,4,0,0,0 0.0 %
+E11.34 Diabet mellitus tip 2 cu alte retinopatii,6,0,3,0,0,3 50.0 %
+R04.0 Epistaxis,8,1,7,0,0,0 0.0 %
+H90.4 Surditate neurosensoriala unilaterala fara alterarea auditiei celeilalte urechi,1,0,1,0,0,0 0.0 %
+M10.06 Guta idiopatica,2,0,2,0,0,0 0.0 %
+M17.0 Gonartroza primara,11,1,7,0,0,3 27.27 %
+B37.0 Stomatita prin Candida,27,4,19,0,1,3 11.11 %
+H40.8 Alte glaucoame,1,0,1,0,0,0 0.0 %
+L03.10 Celulita membrului superior,1,0,0,0,0,1 100.0 %
+M40.04 Cifoza posturala,6,1,5,0,0,0 0.0 %
+M81.89 Alte osteoporoze,1,0,0,0,0,1 100.0 %
+R57.0 Soc cardiogen,4,0,0,0,0,4 100.0 %
+G45.2 Atac ischemic tranzitoriu al teritoriilor arteriale precerebrale multiple si bilaterale,1,0,0,0,0,1 100.0 %
+Z95.8 Prezenta altor implante si grefe cardiace si vasculare,1,0,0,0,0,1 100.0 %
+I74.8 Embolia si tromboza altor artere,3,1,0,0,0,2 66.67 %
+K29.6 Alte gastrite,5,1,2,0,0,2 40.0 %
+D44.3 Tumora hipofiza cu evolutie imprevizibila si necunoscuta,2,0,2,0,0,0 0.0 %
+M48.95 Spondilopatia,1,0,1,0,0,0 0.0 %
+R59.0 Ganglioni limfatici mariti localizati,5,0,5,0,0,0 0.0 %
+J42 Bronsita cronica nespecificata,6,0,6,0,0,0 0.0 %
+H90.5 Surditate neurosensoriala,3,0,2,0,0,1 33.33 %
+I25.10 Cardiopatia aterosclerotica a unor vase nespecificate,3,0,2,0,0,1 33.33 %
+R77.0 Anormalitate a albuminei,9,2,5,0,0,2 22.22 %
+S36.20 Leziune a pancreasului,1,0,1,0,0,0 0.0 %
+G30.9 Boala Alzheimer,3,1,1,0,0,1 33.33 %
+S09.9 Leziune nespecificata a capului,1,0,1,0,0,0 0.0 %
+K50.9 Boala Crohn,1,0,0,1,0,0 0.0 %
+E10.8 Diabet mellitus tip 1 cu complicatii nespecificate,2,0,2,0,0,0 0.0 %
+I69.8 Sechelele altor boli cerebrovasculare si nespecificate,3,0,2,0,0,1 33.33 %
+D73.4 Chistul splinei,3,0,2,0,0,1 33.33 %
+C92.00 Leucemia mieloida acuta,1,0,1,0,0,0 0.0 %
+M41.23 Alte scolioze idiopatice,1,1,0,0,0,0 0.0 %
+J44.8 Alte boli pulmonare obstructive cronice specificate,12,0,5,3,0,4 33.33 %
+G92 Encefalopatia toxica,3,0,2,0,0,1 33.33 %
+R33 Retentie de urina,10,0,10,0,0,0 0.0 %
+B96.2 Escherichia coli [E. coli],5,0,4,0,0,1 20.0 %
+F20.0 Schizofrenia paranoida,5,0,4,0,0,1 20.0 %
+I15.9 Hipertensiunea  secundara,5,0,3,1,0,1 20.0 %
+I35.2 Stenoza si insuficienta (valva) aortica,6,0,3,0,0,3 50.0 %
+N17.2 Insuficienta renala acuta cu necroza medulara,1,0,0,0,0,1 100.0 %
+G47.31 Sindromul central al apneei de somn,1,0,1,0,0,0 0.0 %
+I82.9 Embolia si tromboza unor vene nespecificate,3,0,1,0,0,2 66.67 %
+J44.1 Boala pulmonara obstructiva cronica cu exacerbare acuta,8,0,5,1,0,2 25.0 %
+M43.05 Spondiloliza,13,1,11,0,0,1 7.69 %
+N25.9 Tulburare care rezulta din deficienta functionarii tubulare renale,13,0,12,0,0,1 7.69 %
+D53.1 Alte anemii megaloblastice,2,0,0,0,0,2 100.0 %
+E44.0 Malnutritia proteino-energetica moderata,5,0,3,0,0,2 40.0 %
+I08.8 Alte boli multiple ale valvelor,1,0,0,0,0,1 100.0 %
+J93.9 Pneumotorax,9,0,1,0,0,8 88.89 %
+B35.3 Tinea piciorului,1,0,0,0,0,1 100.0 %
+G47.30 Apneea de somn,11,0,9,0,0,2 18.18 %
+I12.0 Nefropatia hipertensiva cu insuficienta renala,8,1,6,0,0,1 12.5 %
+I89.0 Limfedem,3,1,0,0,0,2 66.67 %
+K76.8 Alte boli specificate ale ficatului,10,1,7,1,0,1 10.0 %
+L03.3 Celulita trunchiului,1,0,0,0,0,1 100.0 %
+L30.4 Intertrigo eritematos,5,2,2,0,0,1 20.0 %
+M19.99 Artroza,3,0,2,0,0,1 33.33 %
+A41.8 Alte tipuri de sepsis specificate,22,2,5,1,0,14 63.64 %
+F01.8 Alte forme de dementa vasculara,3,0,1,0,0,2 66.67 %
+M10.08 Guta idiopatica,3,0,2,0,0,1 33.33 %
+F22.9 Tulburare deliranta persistenta,1,0,1,0,0,0 0.0 %
+J34.2 Sept nazal deviat,5,0,4,0,0,1 20.0 %
+D44.1 Tumota suprarenala cu evolutie imprevizibila si necunoscuta,9,1,8,0,0,0 0.0 %
+Z87.11 Istoric personal de ulcer peptic,5,1,4,0,0,0 0.0 %
+E23.2 Diabetul insipid,1,0,1,0,0,0 0.0 %
+G70.9 Afectiune neuro-musculara,1,0,1,0,0,0 0.0 %
+I63.1 Infarctul cerebral datorita emboliei arterelor precerebrale,1,0,1,0,0,0 0.0 %
+R77.9 Anormalitate a proteinei plasmatice,1,0,1,0,0,0 0.0 %
+K21.0 Boala refluxului gastro-esofagian cu esofagita,14,1,10,1,0,2 14.29 %
+K29.1 Alte gastrite acute,4,2,2,0,0,0 0.0 %
+R55 Sincopa si colaps,5,2,3,0,0,0 0.0 %
+Z87.8 Istoric personal al altor afectiuni specificate,2,0,2,0,0,0 0.0 %
+F70.9 Retardare mentala usoara fara mentionarea deficientei comportamentului,1,0,1,0,0,0 0.0 %
+H90.3 Surditate neurosensoriala bilaterala,3,0,3,0,0,0 0.0 %
+E04.9 Gusa netoxica,7,0,7,0,0,0 0.0 %
+Z82.3 Istoric familial de accident vascular cerebral,3,0,3,0,0,0 0.0 %
+C79.5 Tumora maligna secundara a osului si maduvei osoase,3,0,0,0,0,3 100.0 %
+M47.25 Alte spondiloze cu radiculopatie,2,0,2,0,0,0 0.0 %
+Q89.09 Alte malformatii congenitale specificate ale splinei,6,0,6,0,0,0 0.0 %
+T81.0 Hemoragie si hematom complicand o procedura,9,1,7,1,0,0 0.0 %
+E01.2 Gusa (endemica) legata de carenta de iod,1,0,1,0,0,0 0.0 %
+Z99.8 Dependenta de folosirea altor masini si dispozitive medicale,1,0,1,0,0,0 0.0 %
+F00.1* Dementa in boala Alzheimer,1,0,1,0,0,0 0.0 %
+I67.2 Ateroscleroza cerebrala,8,0,6,0,0,2 25.0 %
+J17.1* Pneumonia in boli virale clasificate altundeva,1,0,0,0,0,1 100.0 %
+M47.82 Alte spondiloze,2,0,1,0,0,1 50.0 %
+M51.8 Alte afectiuni specificate ale unui disc intervertebral,4,1,2,0,0,1 25.0 %
+G12.2 Bolile neuronului motor,2,1,1,0,0,0 0.0 %
+M19.98 Artroza,5,1,3,0,0,1 20.0 %
+M25.01 Hemartroza,1,1,0,0,0,0 0.0 %
+Z44.8 Amplasarea si ajustarea altor dispozitive prostetice externe,1,0,1,0,0,0 0.0 %
+C83.3 Limfom difuz nehodkinian celule mari (difuze),1,0,0,0,0,1 100.0 %
+G03.9 Meningita,1,0,0,0,0,1 100.0 %
+M47.85 Alte spondiloze,12,1,9,0,0,2 16.67 %
+S72.10 Fractura a sectiunii trohanteriene a femurului,3,0,1,0,0,2 66.67 %
+C92.50 Leucemia mielomonocitara acuta,1,0,1,0,0,0 0.0 %
+D61.9 Anemia aplazica,1,0,1,0,0,0 0.0 %
+C94.50 Mielofibroza acuta,1,0,1,0,0,0 0.0 %
+I72.8 Anevrismul altor artere specificate,1,0,1,0,0,0 0.0 %
+R16.2 Hepatomegalie si splenomegalie,7,0,5,1,0,1 14.29 %
+G47.0 Tulburari de adormire si mentinere a somnului [insomnii],5,1,4,0,0,0 0.0 %
+H40.9 Glaucom,8,0,7,0,0,1 12.5 %
+K83.5 Chistul biliar,7,0,7,0,0,0 0.0 %
+G46.8* Alte sindroame vasculare cerebrale in bolile cerebro-vasculare (I60-I67+),3,1,0,0,0,2 66.67 %
+I71.4 Anevrismul abdominal,3,0,2,0,0,1 33.33 %
+I77.0 Fistula arterio-venoasa,8,0,5,0,0,3 37.5 %
+R49.0 Disfonie,2,0,2,0,0,0 0.0 %
+E78.9 Tulburari de metabolism al lipoproteinelor,3,0,2,1,0,0 0.0 %
+I15.1 Hipertensiunea secundara altor afectiuni renale,6,1,4,1,0,0 0.0 %
+N04.2 Sindrom nefrotic,1,0,1,0,0,0 0.0 %
+Q44.6 Boala chistica a ficatului,15,1,11,1,0,2 13.33 %
+S22.32 Fractura a unei coaste,3,0,2,0,0,1 33.33 %
+S37.81 Leziune a glandei suprarenale,9,2,6,0,0,1 11.11 %
+N02.8 Hematuria persistenta si recurenta,2,0,1,1,0,0 0.0 %
+Q61.9 Boala chistica a rinichiului,4,0,3,1,0,0 0.0 %
+Z87.0 Istoric personal de boala a aparatului respirator,3,1,1,1,0,0 0.0 %
+I67.1 Anevrism cerebral,1,0,1,0,0,0 0.0 %
+C22.0 Carcinom al celulei hepatice,2,0,2,0,0,0 0.0 %
+C41.9 Tumora maligna oase si cartilagii,1,0,1,0,0,0 0.0 %
+N02.9 Hematuria persistenta si recurenta,2,0,2,0,0,0 0.0 %
+A41.0 Sepsis datorit stafilococului auriu,2,0,1,0,0,1 50.0 %
+E10.22 Diabet mellitus tip 1 cu nefropatie diabetica stabilita,1,0,1,0,0,0 0.0 %
+E10.42 Diabet mellitus tip 1 cu polineuropatie diabetica,1,0,1,0,0,0 0.0 %
+Q12.0 Cataracta congenitala,1,0,1,0,0,0 0.0 %
+E14.65 Diabet mellitus nespecificat cu control slab,1,0,0,0,0,1 100.0 %
+D41.1 Tumora rinichi pelvian cu evolutie imprevizibila si necunoscuta,1,1,0,0,0,0 0.0 %
+M47.97 Spondiloza,4,1,3,0,0,0 0.0 %
+G45.0 Sindrom vertebro-bazilar,1,1,0,0,0,0 0.0 %
+G56.8 Alte mononeuropatii ale membrului superior,2,1,1,0,0,0 0.0 %
+I70.1 Ateroscleroza arterei renale,4,1,3,0,0,0 0.0 %
+M31.1 Microangiopatia trombotica,1,1,0,0,0,0 0.0 %
+M47.20 Alte spondiloze cu radiculopatie,2,1,1,0,0,0 0.0 %
+M54.12 Radiculopatia,1,1,0,0,0,0 0.0 %
+Q61.8 Alte boli chistice ale rinichiului,12,2,9,0,0,1 8.33 %
+D73.1 Hipersplenism,2,0,2,0,0,0 0.0 %
+G62.9 Polineuropatia,4,0,3,0,0,1 25.0 %
+K70.0 Ciroza alcoolica grasoasa a ficatului,1,0,1,0,0,0 0.0 %
+M84.18 Fractura neconsolodata [pseudartroza],1,0,1,0,0,0 0.0 %
+R23.3 Echimoze spontane,2,0,2,0,0,0 0.0 %
+I21.9 Infarct miocardic acut,6,0,2,0,0,4 66.67 %
+Z90.8 Absenta dobandita a altor organe,4,0,3,1,0,0 0.0 %
+N30.8 Alta cistita,2,0,1,1,0,0 0.0 %
+M10.97 Guta,1,0,1,0,0,0 0.0 %
+F33.3 Tulburare depresiva recurenta,1,0,1,0,0,0 0.0 %
+Z86.18 Istoric personal al altor boli infectioase si parazitare,1,0,1,0,0,0 0.0 %
+Z88.6 Istoric personal de alergie la analgezice,12,1,8,1,0,2 16.67 %
+J45.1 Astmul nonalergic,1,0,1,0,0,0 0.0 %
+M43.00 Spondiloliza,5,0,3,0,0,2 40.0 %
+I32.8* Pericardita in alte boli clasificata altundeva,2,1,1,0,0,0 0.0 %
+G62.8 Alte polineuropatii specificate,4,0,3,1,0,0 0.0 %
+I65.2 Ocluzia si stenoza arterei carotide,26,1,18,0,0,7 26.92 %
+I69.1 Sechelele hemoragiei intracerebrale,3,1,2,0,0,0 0.0 %
+N20.2 Litiaza rinichiului cu litiaza ureterului,5,0,4,0,0,1 20.0 %
+R47.0 Disfazie si afazie,10,0,6,0,0,4 40.0 %
+J15.1 Pneumonia  datorita Pseudomonas,2,0,2,0,0,0 0.0 %
+J93.1 Alte forme de pneumotorax spontan,1,0,1,0,0,0 0.0 %
+K22.1 Ulcerul esofagului,1,0,1,0,0,0 0.0 %
+K92.1 Melena,4,1,3,0,0,0 0.0 %
+M54.3 Sciatica,1,0,1,0,0,0 0.0 %
+A05.2 Intoxicatia alimentara prin Clostridium perfringens [Clostridium welchii],1,0,1,0,0,0 0.0 %
+M40.19 Alte cifoze secundare,1,1,0,0,0,0 0.0 %
+M41.99 Scolioza,2,1,1,0,0,0 0.0 %
+S12.0 Fractura a primei vertebre cervicale,1,0,1,0,0,0 0.0 %
+S80.0 Contuzie a genunchiului,1,0,1,0,0,0 0.0 %
+S82.40 Fractura a fibulei,1,0,1,0,0,0 0.0 %
+Z92.2 Istoric personal de utilizare (actuala) pe termen lung a altor medicamente,1,0,1,0,0,0 0.0 %
+O87.1 Flebotromboza profunda in timpul lauziei,1,0,1,0,0,0 0.0 %
+Z39.1 Ingrijiri si examinari acordate mamei care alapteaza,1,0,1,0,0,0 0.0 %
+J15.9 Pneumonia bacteriena,8,1,5,0,0,2 25.0 %
+L40.0 Psoriazis vulgaris,2,0,1,0,0,1 50.0 %
+M43.06 Spondiloliza,2,1,1,0,0,0 0.0 %
+N13.0 Hidronefroza cu obstructia jonctiunii pelviene-ureterale,2,0,2,0,0,0 0.0 %
+I77.8 Alte afectiuni specificate ale arterelor si arteriolelor,7,1,2,0,0,4 57.14 %
+D38.3 Tumora mediastinului cu evolutie imprevizibila si necunoscuta,2,0,2,0,0,0 0.0 %
+H90.6 Surditate bilaterala mixta de transmisie si neurosensoriala,1,0,1,0,0,0 0.0 %
+G25.1 Tremuraturi provocate medicamentos,1,0,1,0,0,0 0.0 %
+G31.8 Alte afectiuni degenerative specificate ale sistemului nervos,2,0,2,0,0,0 0.0 %
+G91.9 Hidrocefalia,1,0,1,0,0,0 0.0 %
+H81.8 Alte afectiuni ale functiei vestibulare,3,0,3,0,0,0 0.0 %
+I63.2 Infarctul cerebral datorita ocluziei sau stenozei nespecificate ale arterelor precerebrale,1,0,0,1,0,0 0.0 %
+F70.8 Retardare mentala usoara,1,0,1,0,0,0 0.0 %
+K71.2 Boala toxica a ficatului cu hepatita acuta,8,0,8,0,0,0 0.0 %
+M81.00 Osteoporoza postmenopauza,4,0,2,0,0,2 50.0 %
+N30.9 Cistita,1,0,1,0,0,0 0.0 %
+A16.1 Tubercoloza pulmonara,1,0,1,0,0,0 0.0 %
+D45 Policitemia esentiala,2,0,2,0,0,0 0.0 %
+Z85.8 Istoric personal de tumori maligne ale altor organe si sisteme,2,1,1,0,0,0 0.0 %
+E21.0 Hiperparatiroidism primar,1,0,1,0,0,0 0.0 %
+H81.1 Vertij paroxistic benign,4,0,4,0,0,0 0.0 %
+M48.02 Stenoza canalului medular,1,0,1,0,0,0 0.0 %
+M81.90 Osteoporoza,3,0,2,0,0,1 33.33 %
+R21 Rash si alte eruptii nespecificate ale pielii,1,1,0,0,0,0 0.0 %
+R42 Ameteala si vertij,7,2,5,0,0,0 0.0 %
+Z96.64 Prezenta unui implant de sold,6,1,2,0,0,3 50.0 %
+I45.6 Sindrom de pre-excitatie,1,0,1,0,0,0 0.0 %
+Z90.4 Absenta dobandita a altor parti ale aparatului digestiv,13,1,11,0,1,0 0.0 %
+K76.6 Hipertensiunea portala,3,0,1,0,0,2 66.67 %
+I95.1 Hipotensiunea ortostatica,2,0,2,0,0,0 0.0 %
+M43.02 Spondiloliza,2,0,1,0,0,1 50.0 %
+E77.8 Alte tulburari de metabolism al glicoproteinelor,2,1,1,0,0,0 0.0 %
+J15.8 Alte pneumonii bacteriene,1,1,0,0,0,0 0.0 %
+K63.2 Fistula intestinului,1,1,0,0,0,0 0.0 %
+K86.8 Alte boli specificate ale pancreasului,5,1,4,0,0,0 0.0 %
+M41.85 Alte forme de scolioza,3,1,1,0,0,1 33.33 %
+T81.41 Infectie a plagii ca urmare a unei proceduri,1,1,0,0,0,0 0.0 %
+Z43.3 Supravegherea colostomiei,1,1,0,0,0,0 0.0 %
+D69.3 Purpura trombopenica idiopatica,2,0,2,0,0,0 0.0 %
+N01.0 Sindrom nefritic progresiv rapid,1,0,1,0,0,0 0.0 %
+N04.9 Sindrol nefrotic,2,0,2,0,0,0 0.0 %
+R60.1 Edem generalizat,2,0,1,0,0,1 50.0 %
+E11.72 Diabet mellitus tip 2 cu caracteristici de rezistenta la insulina,3,0,2,0,0,1 33.33 %
+G31.0 Atrofia cerebrala circumscrisa,23,0,10,2,0,11 47.83 %
+M62.38 Sindromul de imobilitate (paraplegica),2,0,1,0,0,1 50.0 %
+M80.86 Alte osteoporoze cu fractura patologica,1,0,1,0,0,0 0.0 %
+E14.23 Diabet mellitus nespecificat cu boala renala stadiu final [ESRD],1,0,0,0,0,1 100.0 %
+G40.80 Alte epilepsii,3,1,2,0,0,0 0.0 %
+I84.2 Hemoroizi interni fara complicatii,5,2,3,0,0,0 0.0 %
+K40.21 Hernia inghinala bilaterala,1,1,0,0,0,0 0.0 %
+K92.9 Boala sistemului digestiv,3,1,2,0,0,0 0.0 %
+Z87.10 Istoric personal de boala digestiva nespecificata,2,1,1,0,0,0 0.0 %
+D38.1 Tumora traheii,5,0,4,0,0,1 20.0 %
+D40.0 Tumora prostata cu evolutie imprevizibila si necunoscuta,7,0,7,0,0,0 0.0 %
+H26.9 Cataracta,2,0,2,0,0,0 0.0 %
+E85.8 Alte amiloidoze,1,0,1,0,0,0 0.0 %
+I42.9 Cardiomiopatia,1,0,1,0,0,0 0.0 %
+Z46.9 Amplasarea si ajustarea unui dispozitiv nespecificat,1,0,1,0,0,0 0.0 %
+I44.2 Bloc atrio-ventricular complet,1,0,0,0,0,1 100.0 %
+I44.3 Alte blocuri atrio-ventriculare si nespecificate,1,0,0,0,0,1 100.0 %
+M81.80 Alte osteoporoze,2,0,2,0,0,0 0.0 %
+Z94.0 Starea transplantului de rinichi,5,0,4,1,0,0 0.0 %
+D51.0 Anemia prin carenta de vitamina B12,4,0,2,1,0,1 25.0 %
+E11.01 Diabet mellitus tip 2 cu hiperosmolaritate fara coma noncetotica hiperglicemica-hiperosmolara [NKHHC],1,0,1,0,0,0 0.0 %
+H25.9 Cataracta senila,4,0,3,1,0,0 0.0 %
+F02.3* Dementa in boala Parkinson (G20+),2,0,1,0,0,1 50.0 %
+K25.7 Ulcerul gastric,5,1,2,0,0,2 40.0 %
+C79.88 Tumora maligna secundara cu alte localizari specificate,2,0,1,0,0,1 50.0 %
+Z80.5 Istoric familial de tumora maligna a tractului urinar,1,0,1,0,0,0 0.0 %
+E75.5 Alte tulburari ale lipidelor de rezerva,2,0,2,0,0,0 0.0 %
+H81.3 Alte vertijuri periferice,4,0,4,0,0,0 0.0 %
+M48.46 Fractura vertebrala de oboseala,1,0,1,0,0,0 0.0 %
+N43.2 Alt hidrocel,1,0,1,0,0,0 0.0 %
+E87.8 Alte tulburari hidrice si electrolitice,9,0,6,0,1,2 22.22 %
+I95.0 Hipotensiunea idiopatica,2,0,2,0,0,0 0.0 %
+I45.9 Tulburari de conducere,1,0,1,0,0,0 0.0 %
+J06.9 Infectii acute ale cailor respiratorii superioare,4,0,4,0,0,0 0.0 %
+M41.54 Alta scolioza secundara,2,0,2,0,0,0 0.0 %
+M41.56 Alta scolioza secundara,1,0,1,0,0,0 0.0 %
+M48.25 Artroza interspinoasa,1,0,1,0,0,0 0.0 %
+J15.2 Pneumonia datorira stafilococilor,2,0,2,0,0,0 0.0 %
+J94.8 Alte afectiuni pleurale specificate,7,0,6,0,0,1 14.29 %
+N62 Hipertrofia sanului,3,0,3,0,0,0 0.0 %
+X69 Auto-otravire intentionata prin si la expunerea la alte substante chimice si nocive nespecificate,1,0,0,1,0,0 0.0 %
+F30.9 Episod maniacal nespecificat,1,0,1,0,0,0 0.0 %
+N01.7 Sindrom nefritic progresiv rapid,1,0,1,0,0,0 0.0 %
+Z45.2 Ajustarea si intretinerea unui dispozitiv de acces vascular,1,0,1,0,0,0 0.0 %
+E83.0 Tulburari de metabolism al cuprului,1,0,1,0,0,0 0.0 %
+M43.90 Dorsopatia deformanta,1,0,1,0,0,0 0.0 %
+L02.2 Abces cutanat,1,0,0,0,0,1 100.0 %
+E11.40 Diabet mellitus tip 2 cu neuropatie nespecificata,3,0,2,0,0,1 33.33 %
+J93.8 Alte forme de pneumotorax,10,1,2,0,0,7 70.0 %
+N21.9 Litiaza [calcul] cailor urinare inferioare,1,0,0,0,0,1 100.0 %
+D44.0 Tumora tiroida cu evolutie imprevizibila si necunoscuta,5,1,4,0,0,0 0.0 %
+F00.9* Dementa in boala Alzheimer,4,0,2,1,0,1 25.0 %
+G40.91 Epilepsia,1,0,1,0,0,0 0.0 %
+D69.1 Defecte calitative ale trombocitelor,2,0,2,0,0,0 0.0 %
+I63.0 Infarctul cerebral datorita trombozei arterelor precerebrale,2,0,1,0,0,1 50.0 %
+S72.11 Fractura a sectiunii intertrohanteriene a femurului,1,0,1,0,0,0 0.0 %
+B09 Infectii virale caracterizate prin leziuni cutaneo-mucoase,2,0,2,0,0,0 0.0 %
+D22.5 Nev cu melanocisti al trunchiului,2,0,2,0,0,0 0.0 %
+E11.21 Diabet mellitus tip 2 cu nefropatie diabetica incipienta,3,0,3,0,0,0 0.0 %
+G81.9 Hemiplegia,15,0,10,0,0,5 33.33 %
+I66.9 Ocluzia si stenoza arterelor cerebrale nespecificate,2,0,1,0,0,1 50.0 %
+H35.3 Degenerescenta maculei si polului posterior,1,0,1,0,0,0 0.0 %
+H93.2 Alte perceptii de auz anormale,1,0,0,0,0,1 100.0 %
+I37.1 Insuficienta valvei pulmonare,3,0,3,0,0,0 0.0 %
+K91.5 Sindromul de postcolecistectomie,9,0,8,0,0,1 11.11 %
+E11.12 Diabet mellitus tip 2 cu acidocetoza,1,0,0,0,0,1 100.0 %
+J98.2 Emfizem interstitial,2,0,1,0,0,1 50.0 %
+T88.4 Intubare esuata sau dificila,1,0,0,0,0,1 100.0 %
+D13.4 Tumora benigna ficat,3,0,3,0,0,0 0.0 %
+I05.1 Insuficienta mitrala,2,0,0,0,0,2 100.0 %
+T78.9 Efect advers,3,0,3,0,0,0 0.0 %
+K80.80 Alte colelitiaze,3,1,2,0,0,0 0.0 %
+D51.9 Anemii prin carenta de vitamina B12,1,0,1,0,0,0 0.0 %
+E13.21 Alte forme specificate de diabet mellitus cu nefropatie diabetica incipienta,1,0,1,0,0,0 0.0 %
+N13.1 Hidronefroza cu strictura ureterala,2,0,2,0,0,0 0.0 %
+N28.8 Alte tulburari specificate ale rinichiului si ureterului,2,0,1,0,0,1 50.0 %
+T83.5 Infectie si reactie inflamatorie datorita unui dispozitiv prostetic,1,0,1,0,0,0 0.0 %
+Z51.3 Transfuzie de sange fara un diagnostic stabilit,3,0,3,0,0,0 0.0 %
+M13.11 Monoartrita,1,0,1,0,0,0 0.0 %
+G82.10 Paraplegia spastica,3,0,3,0,0,0 0.0 %
+G90.2 Sindromul Horner,1,0,1,0,0,0 0.0 %
+I65.0 Ocluzia si stenoza arterei vertebrale,2,0,2,0,0,0 0.0 %
+Z96.1 Prezenta lentilelor intraoculare,2,0,2,0,0,0 0.0 %
+G54.0 Afectiunile plexului brahial,1,0,1,0,0,0 0.0 %
+M40.24 Alte cifoze si nespecificate,1,0,1,0,0,0 0.0 %
+M47.83 Alte spondiloze,1,0,1,0,0,0 0.0 %
+M53.88 Alte dorsopatii specificate,1,0,1,0,0,0 0.0 %
+D17.1 Tumora lipomatoasa benigna a pielii si a tesutului subcutanat al trunchiului,2,0,2,0,0,0 0.0 %
+F60.4 Tulburare de personalitate histrionica,1,0,1,0,0,0 0.0 %
+F61 Tulburari mixte de personalitate si altele,1,0,1,0,0,0 0.0 %
+I83.2 Vene varicoase ale extremitatilor inferioare cu ulceratie si inflamatie,3,1,2,0,0,0 0.0 %
+E13.9 Alte forme specificate de diabet mellitus fara complicatii,4,0,3,0,0,1 25.0 %
+A08.5 Alte infectii intestinale specificate,2,2,0,0,0,0 0.0 %
+B37.88 Candidiaza cu alte localizari,4,1,3,0,0,0 0.0 %
+J94.9 Afectiune pleurala,6,1,5,0,0,0 0.0 %
+M46.85 Alte spondilopatii inflamatorii specificate,1,1,0,0,0,0 0.0 %
+I61.4 Hemoragia intracerebrala in cerebel,1,0,1,0,0,0 0.0 %
+M43.09 Spondiloliza,3,0,3,0,0,0 0.0 %
+S20.2 Contuzie a toracelui,1,0,0,0,0,1 100.0 %
+G93.8 Alte afectiuni specificate ale creierului,1,0,0,0,0,1 100.0 %
+I33.0 Endocardita acuta si subacuta infectioasa,1,0,0,0,0,1 100.0 %
+M13.0 Poliartrita,3,0,2,0,0,1 33.33 %
+I21.2 Infarct miocardic acut transmural cu alte localizari,1,0,0,0,0,1 100.0 %
+T86.1 Esec si respingere a unui transplant de rinichi,2,0,0,1,0,1 50.0 %
+F60.9 Tulburare de personalitate,2,0,2,0,0,0 0.0 %
+Z72.0 Folosirea tutunului,7,1,6,0,0,0 0.0 %
+Z73.6 Limitarea activitatii datorita invaliditatii,1,0,1,0,0,0 0.0 %
+D86.0 Sarcoidoza plamanului,1,1,0,0,0,0 0.0 %
+F00.2* Dementa in boala Alzheimer,1,0,0,0,0,1 100.0 %
+F05.1 Delir supra-adaugat unei demente,2,0,2,0,0,0 0.0 %
+R32 Incontinenta urinara nespecificata,4,0,3,0,0,1 25.0 %
+R91 Rezultate anormale in diagnosticul imagistic al plamanului,4,1,3,0,0,0 0.0 %
+I26.0 Embolia vaselor pulmonare cu mentiunea cordului pulmonar acut,6,0,2,0,0,4 66.67 %
+K92.2 Hemoragia gastro-intestinala,6,1,1,0,0,4 66.67 %
+R06.8 Alte anomaliile de respiratie si nespecificate,2,0,1,0,0,1 50.0 %
+D68.9 Anomalia de coagulare,1,0,0,0,0,1 100.0 %
+K52.8 Alte gastroenterite si colite neinfectioase specificate,1,0,0,0,0,1 100.0 %
+T13.6 Amputatie traumatica a membrului inferior,1,0,0,0,0,1 100.0 %
+D14.4 Tumora benigna aparat respirator,1,0,1,0,0,0 0.0 %
+E13.22 Alte forme specificate de diabet mellitus cu nefropatie diabetica stabilita,1,0,1,0,0,0 0.0 %
+E13.42 Alte forme specificate de diabet mellitus cu polineuropatie diabetica,1,0,1,0,0,0 0.0 %
+K80.10 Calcul al vezicii biliare cu o alta forma de colecistita,3,0,3,0,0,0 0.0 %
+L80 Vitiligo,2,0,2,0,0,0 0.0 %
+R57.9 Soc,4,0,0,0,0,4 100.0 %
+R16.0 Hepatomegalie,2,0,2,0,0,0 0.0 %
+J43.2 Emfizem centrolobular,4,0,3,0,0,1 25.0 %
+C44.3 Tumora maligna pielea fetei,1,0,1,0,0,0 0.0 %
+E89.0 Hipotiroidism postprocedural,9,3,6,0,0,0 0.0 %
+M79.88 Alte afectiuni specificate ale tesuturilor moi,1,0,1,0,0,0 0.0 %
+Z91.0 Istoric personal de alergie,7,0,7,0,0,0 0.0 %
+M45.09 Spondilita anchilozanta,2,0,1,0,0,1 50.0 %
+C54.1 Tumora maligna endometru,3,0,3,0,0,0 0.0 %
+K45.8 Alte hernii abdominale specificate fara obstructie sau gangrena,6,0,6,0,0,0 0.0 %
+L21.9 Dermatita seboreica,1,0,1,0,0,0 0.0 %
+Z90.3 Absenta dobandita a unei parti a stomacului,3,0,3,0,0,0 0.0 %
+I42.2 Alte cardiomiopatii hipertrofice,3,0,2,0,0,1 33.33 %
+I74.0 Embolia si tromboza aortei abdominale,1,0,1,0,0,0 0.0 %
+Z98.8 Alte stari postprocedurale specificate,2,0,1,0,0,1 50.0 %
+B37.3+ Candidiaza vulvei si vaginului (M77.1*),1,0,1,0,0,0 0.0 %
+G91.8 Alte hidrocefalii,2,0,1,0,0,1 50.0 %
+S06.28 Alta leziune difuza cerebrala si cerebeloasa,3,0,1,0,0,2 66.67 %
+M19.01 Artroza primara a altor articulatii,1,0,1,0,0,0 0.0 %
+A41.1 Sepsis datorit altor stafilococi,4,0,0,0,0,4 100.0 %
+I77.6 Arterita,2,0,1,0,0,1 50.0 %
+D73.5 Infarctul splinei,2,0,1,0,0,1 50.0 %
+I74.5 Embolia si tromboza arterei iliace,1,0,0,0,0,1 100.0 %
+N28.0 Ischemia si infarctul rinichiului,1,0,0,0,0,1 100.0 %
+M06.09 Artrita reumatoida seronegativa,1,0,1,0,0,0 0.0 %
+I80.3 Flebita si tromboflebita extremitatilor inferioare,3,0,2,0,0,1 33.33 %
+N01.1 Sindrom nefritic progresiv rapid,1,0,1,0,0,0 0.0 %
+M41.24 Alte scolioze idiopatice,5,0,5,0,0,0 0.0 %
+Q61.41 Displazia renala chistica,2,0,1,0,0,1 50.0 %
+E79.9 Tulburari de metabolism al purinelor si pirimidinei,1,0,1,0,0,0 0.0 %
+D48.0 Tumora os si cartilagiu articular cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+G51.0 Paralizia Bell,1,0,1,0,0,0 0.0 %
+D37.1 Tumora stomacului  cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+F43.2 Tulburare de adaptare,4,1,3,0,0,0 0.0 %
+E04.0 Gusa difuza netoxica,2,0,2,0,0,0 0.0 %
+I71.2 Anevrismul toracic,4,0,3,0,0,1 25.0 %
+I72.3 Anevrismul arterei iliace,1,0,1,0,0,0 0.0 %
+I47.0 Aritmia ventriculara de reintrare,1,0,1,0,0,0 0.0 %
+L50.9 Urticaria,1,0,1,0,0,0 0.0 %
+Z46.8 Amplasarea si ajustarea altor dispozitive specificate,1,0,1,0,0,0 0.0 %
+E01.1 Gusa multinodulara (endemica) legata de o carenta de iod,3,0,2,0,0,1 33.33 %
+E06.9 Tiroidita,4,0,3,0,0,1 25.0 %
+K57.92 Diverticulita intestinului,1,0,0,0,0,1 100.0 %
+N11.0 Pielonefrita neobstructiva cronica asociata cu un reflux,2,0,0,0,0,2 100.0 %
+S22.41 Fracturi multiple de coaste,1,0,0,0,0,1 100.0 %
+E11.33 Diabet mellitus tip 2 cu retinopatie proliferativa,1,0,1,0,0,0 0.0 %
+M81.98 Osteoporoza,3,0,3,0,0,0 0.0 %
+M45.06 Spondilita anchilozanta,1,1,0,0,0,0 0.0 %
+E83.9 Tulburari de metabolism al mineralelor,1,0,1,0,0,0 0.0 %
+S22.00 Fractura de vertebre toracice,1,0,1,0,0,0 0.0 %
+N60.2 Adenofibroza sanului,1,0,1,0,0,0 0.0 %
+Q21.1 Defect septal atrial,1,0,1,0,0,0 0.0 %
+I69.2 Sechelele altor hemoragii intracraniene netraumatice,1,0,1,0,0,0 0.0 %
+I97.2 Sindromul limfedemului dupa mastectomie,1,0,1,0,0,0 0.0 %
+M84.35 Fractura prin solicitare excesiva,1,0,1,0,0,0 0.0 %
+H81.4 Vertijul de origine centrala,2,0,2,0,0,0 0.0 %
+N30.0 Cistita acuta,3,0,3,0,0,0 0.0 %
+M35.3 Polimialgia reumatismala,2,0,2,0,0,0 0.0 %
+M51.2 Alta deplasarea a unui alt disc intervertebral specificat,2,0,2,0,0,0 0.0 %
+M84.40 Fractura patologica,1,0,1,0,0,0 0.0 %
+D64.1 Anemia sideroblastica secundara datorita unei boli,1,1,0,0,0,0 0.0 %
+Q61.2 Rinichi polichistic,1,1,0,0,0,0 0.0 %
+B37.81 Esofagita prin Candida,3,0,3,0,0,0 0.0 %
+D41.4 Tumora vezica urinara cu evolutie imprevizibila si necunoscuta,2,0,1,0,0,1 50.0 %
+Z12.6 Examinare speciala de screening pentru tumora vezicii urinare,1,0,1,0,0,0 0.0 %
+H91.1 Presbiacuzia,2,0,2,0,0,0 0.0 %
+H34.9 Ocluzie vasculara retiniana,1,1,0,0,0,0 0.0 %
+Z88.4 Istoric personal de alergie la anestezice,2,1,1,0,0,0 0.0 %
+I05.8 Alte boli ale valvei mitrale,1,0,0,0,0,1 100.0 %
+R00.8 Alte anomalii de ritm cardiac si nespecificate,2,0,1,0,0,1 50.0 %
+I31.9 Boala pericardului,2,0,2,0,0,0 0.0 %
+G93.6 Edem cerebral,3,0,0,0,0,3 100.0 %
+K72.0 Insuficienta hepatica acuta si subacuta,6,0,0,0,0,6 100.0 %
+T81.8 Alte complicatii ale procedurilor,1,0,1,0,0,0 0.0 %
+C44.5 Tumora maligna pielea trunchiului,1,0,1,0,0,0 0.0 %
+G40.40 Alte epilepsii generalizate si sindroame epileptice,2,0,1,0,0,1 50.0 %
+M06.91 Artrita reumatoida,1,0,1,0,0,0 0.0 %
+U07.2 COVID-19 cu virus neidentificat,4,0,3,0,0,1 25.0 %
+E05.8 Alte tireotoxicoze,2,0,1,0,0,1 50.0 %
+T96 Sechele ale intoxicatiilor prin droguri,1,0,0,0,0,1 100.0 %
+M67.40 Ganglion,1,0,1,0,0,0 0.0 %
+D16.0 Tumora benigna omoplat si oase lungi ale membrului superior,1,0,1,0,0,0 0.0 %
+K13.0 Bolile buzelor,1,0,1,0,0,0 0.0 %
+K91.1 Sindroame dupa chirurgia gastrica,3,0,2,0,0,1 33.33 %
+Y83.2 Interventie chirurgicala cu anastomoza,1,0,1,0,0,0 0.0 %
+D39.0 Tumora uter cu evolutie imprevizibila si necunoscuta,1,0,0,0,0,1 100.0 %
+J01.4 Pansinuzita acuta,1,0,0,0,0,1 100.0 %
+K26.9 Ulcerul duodenal nespecificat ca acut sau cronic,4,0,2,0,0,2 50.0 %
+C78.6 Tumora maligna secundara a retroperitoneului si peritoneului,2,1,0,0,0,1 50.0 %
+Z46.6 Amplasarea si ajustarea unei proteze urinare,3,0,2,0,0,1 33.33 %
+D46.9 Sindrom mielodisplazic,3,0,1,0,0,2 66.67 %
+C34.8 Tumora maligna leziune depasind bronhiile si pulmonul,1,0,0,0,0,1 100.0 %
+I25.3 Anevrismul inimii,1,0,0,0,0,1 100.0 %
+M19.88 Alte artroze specificate,1,0,0,0,0,1 100.0 %
+S36.08 Alta leziune a splinei,1,0,0,0,0,1 100.0 %
+S72.00 Fractura a colului femural,2,0,1,0,0,1 50.0 %
+I70.20 Ateroscleroza arterelor extremitatilor,3,0,1,0,0,2 66.67 %
+N42.9 Tulburare a prostatei,3,1,1,0,0,1 33.33 %
+L42 Pitiriazis rozeu Gilbert,1,1,0,0,0,0 0.0 %
+N51.0* Afectiuni ale prostatei in boli clasificate altundeva,1,1,0,0,0,0 0.0 %
+Q61.50 Rinichi chistic medular,1,1,0,0,0,0 0.0 %
+H90.1 Surditate unilaterala de transmisie,1,0,1,0,0,0 0.0 %
+I30.8 Alte forme de pericardita acuta,9,0,7,0,0,2 22.22 %
+I44.6 Alte blocuri fasciculare si nespecificate,2,0,2,0,0,0 0.0 %
+K86.3 Pseudochistul pancreasului,1,0,1,0,0,0 0.0 %
+G91.0 Hidrocefalia comunicanta,1,0,0,0,0,1 100.0 %
+H54.2 Scaderea vederii ambilor ochi,1,0,1,0,0,0 0.0 %
+I67.9 Boala cerebrovasculara,1,0,1,0,0,0 0.0 %
+M62.82 Alte afectiuni specificate ale muschiului,2,0,0,0,0,2 100.0 %
+C34.3 Tumora maligna lobul inferior ,2,1,1,0,0,0 0.0 %
+D18.04 Hemangiom,1,1,0,0,0,0 0.0 %
+R64 Casexie,4,1,3,0,0,0 0.0 %
+F43.0 Reactie acuta la stress,3,0,3,0,0,0 0.0 %
+F33.4 Tulburare depresiva recurenta,2,0,2,0,0,0 0.0 %
+F20.9 Schizofrenia,2,0,2,0,0,0 0.0 %
+E78.6 Deficit in lipoproteine,4,0,2,1,0,1 25.0 %
+N04.8 Sindrom nefrotic,2,0,2,0,0,0 0.0 %
+A41.2 Sepsis datorit unui stafilococ nespecificat,3,0,1,0,0,2 66.67 %
+I86.8 Vene varicoase cu alte localizari specificate,1,0,1,0,0,0 0.0 %
+N13.9 Uropatia cu reflux si obstructiva,1,0,1,0,0,0 0.0 %
+N32.3 Diverticulul vezicii urinare,2,0,2,0,0,0 0.0 %
+M53.27 Instabilitati ale coloanei vertebrale,1,0,1,0,0,0 0.0 %
+C91.90 Leucemia limfoida,2,0,1,1,0,0 0.0 %
+D01.7 Carcinom in situ alte organe digistive precizate,1,0,1,0,0,0 0.0 %
+D17.5 Tumora lipomatoasa benigna a organelor intraabdominale,1,0,1,0,0,0 0.0 %
+K31.7 Polip al stomacului si duodenului,2,0,1,1,0,0 0.0 %
+C50.5 Tumora maligna cadranul infero-extern al sanului,1,0,1,0,0,0 0.0 %
+Z40.00 Chirurgie profilactica pentru factori de risc legati de tumorile maligne,1,0,1,0,0,0 0.0 %
+M19.08 Artroza primara a altor articulatii,1,0,1,0,0,0 0.0 %
+D70 Agranulocitoza,1,0,1,0,0,0 0.0 %
+I61.2 Hemoragia intracerebrala in emisfere,1,0,1,0,0,0 0.0 %
+K74.1 Scleroza hepatica,2,0,1,0,0,1 50.0 %
+M16.1 Alte coxartroze primare,1,0,1,0,0,0 0.0 %
+M48.20 Artroza interspinoasa,1,0,1,0,0,0 0.0 %
+E16.9 Tulburari ale secretiei interne pancreatice,3,0,3,0,0,0 0.0 %
+E73.9 Intoleranta la lactoza,2,1,1,0,0,0 0.0 %
+H90.2 Surditate de transmisie,1,0,1,0,0,0 0.0 %
+K80.50 Calculul canalelor biliare fara angiocolita si colecistita,1,0,1,0,0,0 0.0 %
+M15.9 Poliartroza,1,0,1,0,0,0 0.0 %
+M54.5 Dorsalgie joasa,1,0,1,0,0,0 0.0 %
+S27.38 Alte leziuni si nespecificate ale plamanului,2,0,2,0,0,0 0.0 %
+M81.09 Osteoporoza postmenopauza,1,0,1,0,0,0 0.0 %
+B99 Boli infectioase,2,0,2,0,0,0 0.0 %
+E88.8 Alte tulburari de metabolism specificate,6,0,6,0,0,0 0.0 %
+I47.9 Tahicardia paroxistica,2,0,2,0,0,0 0.0 %
+I72.2 Anevrismul arterei renale,2,0,2,0,0,0 0.0 %
+K46.9 Hernia abdominala nespecificata fara obstructie sau gangrena,7,0,6,0,0,1 14.29 %
+M80.01 Osteoporoza postmenopauza cu fractura patologica,1,0,1,0,0,0 0.0 %
+M89.09 Algoneurodistrofia,1,0,1,0,0,0 0.0 %
+D09.0 Carcinom in situ vezica urinara,2,0,2,0,0,0 0.0 %
+I81 Tromboza venei porte,1,0,1,0,0,0 0.0 %
+I85.0 Varice esofagiene cu sangerare,1,0,1,0,0,0 0.0 %
+I86.4 Varice gastrice,2,0,1,0,0,1 50.0 %
+K70.3 Ciroza alcoolica a ficatului,4,0,2,0,0,2 50.0 %
+K76.7 Sindromul hepato-renal,1,0,1,0,0,0 0.0 %
+M40.02 Cifoza posturala,2,0,2,0,0,0 0.0 %
+C16.2 Tumora maligna corpul stomacului,1,0,0,0,0,1 100.0 %
+J32.3 Sinuzita sfenoidala cronica,1,0,1,0,0,0 0.0 %
+M50.1 Afectiune a discului cervical cu radiculopatie,1,0,1,0,0,0 0.0 %
+C18.9 Tumora maligna colon ,3,1,2,0,0,0 0.0 %
+L40.5+ Artropatia psoriazica (M07.0-M07.3*,2,0,2,0,0,0 0.0 %
+L40.8 Alte forme de psoriazis,2,0,2,0,0,0 0.0 %
+M07.30* Alte artropatii psoriazice,1,0,1,0,0,0 0.0 %
+M53.90 Dorsopatia,2,1,1,0,0,0 0.0 %
+A41.4 Sepsis datorit anaerobilor,1,0,0,0,0,1 100.0 %
+E88.2 Lipomatoza,2,0,2,0,0,0 0.0 %
+M41.86 Alte forme de scolioza,1,0,1,0,0,0 0.0 %
+K57.02 Diverticulita intestinului subtire cu perforatie si abces,1,0,1,0,0,0 0.0 %
+N95.0 Sangerari postmenopauza,2,0,2,0,0,0 0.0 %
+K44.0 Hernia diafragmatica cu obstructie,2,0,1,0,0,1 50.0 %
+J45.8 Astmul asociat,1,0,1,0,0,0 0.0 %
+M13.95 Artrita,1,0,1,0,0,0 0.0 %
+M47.86 Alte spondiloze,7,1,6,0,0,0 0.0 %
+S22.44 Fracturi multiple de coaste implicand patru sau mai multe coaste,1,0,1,0,0,0 0.0 %
+F20.3 Schizofrenie nediferentiata,1,0,1,0,0,0 0.0 %
+E11.52 Diabet mellitus tip 2 cu angiopatie periferica,2,0,2,0,0,0 0.0 %
+D04.7 Carcinom in situ pielea membrului inferior,1,0,0,0,1,0 0.0 %
+Z22.59 Purtator de alte forme de hepatita virala specificate,1,0,0,0,1,0 0.0 %
+M79.28 Nevralgia si nevrita,1,0,1,0,0,0 0.0 %
+Q76.0 Spina bifida occulta,1,0,1,0,0,0 0.0 %
+M40.09 Cifoza posturala,1,0,0,0,0,1 100.0 %
+M41.89 Alte forme de scolioza,1,0,0,0,0,1 100.0 %
+N99.9 Afectiune postprocedurala a sistemului genito-urinar,1,0,0,0,0,1 100.0 %
+M10.34 Guta datorita deficientei functiei renale,1,1,0,0,0,0 0.0 %
+M10.37 Guta datorita deficientei functiei renale,1,1,0,0,0,0 0.0 %
+K82.4 Colesteroloza vezicii biliare,2,0,2,0,0,0 0.0 %
+Q40.1 Hernia hiatala congenitala,7,0,7,0,0,0 0.0 %
+E11.13 Diabet mellitus tip 2 cu acidoza lactica,1,0,0,0,0,1 100.0 %
+R68.0 Hipotermia,1,0,0,0,0,1 100.0 %
+C85.1 Limfoame cu celule B,1,1,0,0,0,0 0.0 %
+M86.96 Osteomielita,1,0,1,0,0,0 0.0 %
+Q76.5 Coasta cervicala,1,1,0,0,0,0 0.0 %
+M54.90 Dorsalgia,1,0,0,1,0,0 0.0 %
+Y83.6 Ablatia unui alt organ (partiala) (totala),1,0,1,0,0,0 0.0 %
+Z90.0 Absenta dobandita a unei parti a capului si gatului,1,0,1,0,0,0 0.0 %
+B00.1 Dermita veziculara datorita virusului herpetic,2,0,2,0,0,0 0.0 %
+K71.1 Boala toxica a ficatului cu necroza hepatica,3,0,3,0,0,0 0.0 %
+M63.85* Alte afectiuni ale muschilor in boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+D14.3 Tumora benigna bronhii si pulmon,1,0,1,0,0,0 0.0 %
+I21.1 Infarct miocardic acut transmural al peretului inferior,1,0,1,0,0,0 0.0 %
+M15.3 Artroza secundara multipla,1,0,1,0,0,0 0.0 %
+D59.9 Anemii hemolitice dobandite,1,0,0,0,0,1 100.0 %
+E78.8 Alte tulburari de metabolism al lipoproteinelor,4,0,3,0,0,1 25.0 %
+N35.9 Strictura uretrala,1,0,1,0,0,0 0.0 %
+J81 Edem pulmonar,3,0,1,0,0,2 66.67 %
+E67.8 Alte excese de aport specificate,1,0,1,0,0,0 0.0 %
+I15.0 Hipertensiunea renovasculara,1,0,1,0,0,0 0.0 %
+M40.05 Cifoza posturala,1,0,1,0,0,0 0.0 %
+I87.0 Sindromul postflebitic,3,0,3,0,0,0 0.0 %
+I73.0 Sindromul Raynaud,1,1,0,0,0,0 0.0 %
+L72.0 Chist epidermic,1,0,1,0,0,0 0.0 %
+B00.2 Gingivo-stomatita si faringo-amigdalita cu virusul herpetic,2,0,2,0,0,0 0.0 %
+N35.8 Alta strictura uretrala,1,0,1,0,0,0 0.0 %
+F10.3 Tulburari mentale si de comportament datorite folosirii alcoolului,6,0,4,0,0,2 33.33 %
+F17.3 Tulburari mentale si de comportament datorite folosirii tutunului,1,0,0,0,0,1 100.0 %
+M82.80* Osteoporoza in alte boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+T92.1 Sechele ale fracturii bratului,1,0,1,0,0,0 0.0 %
+T93.2 Sechele ale altor fracturi ale membrului inferior,1,0,1,0,0,0 0.0 %
+Z74.8 Alte probleme legate de dependenta fata de persoana care asigura ingrijiri medicale,1,0,1,0,0,0 0.0 %
+Z98.0 Starea bypassului intestinal si anastomozei,1,0,0,0,0,1 100.0 %
+C06.9 Tumora maligna gura,1,0,0,0,0,1 100.0 %
+I61.0 Hemoragia intracerebrala in emisfere,1,0,0,0,0,1 100.0 %
+Z86.41 Istoric personal de tulburare datorita consumului de alcool,1,0,0,0,0,1 100.0 %
+E06.5 Alte tiroidite cronice,1,0,1,0,0,0 0.0 %
+C15.9 Tumora maligna esofagul ,1,0,0,0,0,1 100.0 %
+I35.8 Alte afectiuni ale valvei aortice,1,0,0,0,0,1 100.0 %
+Z51.2 Alte forme de chimioterapie,1,0,0,0,0,1 100.0 %
+E07.9 Afectiunea tiroidei,3,0,2,1,0,0 0.0 %
+C78.2 Tumora maligna secundara a pleurei,1,0,0,0,0,1 100.0 %
+B37.4+ Candidiaza altor localizari uro-genitale,2,0,2,0,0,0 0.0 %
+K73.9 Hepatita cronica,4,0,3,1,0,0 0.0 %
+Z71.6 Consiliere si supraveghere a tulburarilor datorite consumului de tutun,2,0,2,0,0,0 0.0 %
+B37.1 Candidiaza pulmonara,2,0,1,0,0,1 50.0 %
+C96.7 Alte tumori maligne precizate ale tesutului limfoid,1,0,0,0,0,1 100.0 %
+J43.1 Emfizem panlobular,2,0,1,0,0,1 50.0 %
+J98.1 Colaps pulmonar,1,0,0,0,0,1 100.0 %
+I22.8 Infarct miocardic ulterior cu alte localizari specificate,1,0,0,0,0,1 100.0 %
+I25.13 Cardiopatia aterosclerotica a unei grefe de bypass nonautolog,1,0,0,0,0,1 100.0 %
+B44.0 Aspergilloza pulmonara invaziva,1,0,1,0,0,0 0.0 %
+I80.8 Flebita si tromboflebita cu alte localizari,2,0,2,0,0,0 0.0 %
+Q44.5 Alte malformatii congenitale ale cailor biliare,1,0,1,0,0,0 0.0 %
+D42.0 Tumora meninge cerebral cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+Q63.89 Alte malformatii congenitale ale rinichiului specificate,1,0,1,0,0,0 0.0 %
+M16.6 Alte coxartroze secundare,2,0,2,0,0,0 0.0 %
+M54.16 Radiculopatia,2,0,1,0,0,1 50.0 %
+A41.58 Sepsis datorit altor organisme Gram-negative,1,1,0,0,0,0 0.0 %
+J15.0 Pneumonia datorita Klebsiella pneumoniae,1,1,0,0,0,0 0.0 %
+K38.9 Boala apendicelui,1,0,1,0,0,0 0.0 %
+F71.8 Retardare mentala moderata alte deficiente ale comportamentului,1,0,1,0,0,0 0.0 %
+M05.30+ Artrita reumatoida cu implicarea altor organe sau sisteme,1,0,1,0,0,0 0.0 %
+F10.2 Tulburari mentale si de comportament datorite folosirii alcoolului,4,0,1,0,0,3 75.0 %
+C71.9 Tumora maligna creierul,1,0,1,0,0,0 0.0 %
+E11.71 Diabet mellitus tip 2 cu complicatii microvasculare multiple,1,0,1,0,0,0 0.0 %
+Z94.1 Starea transplantului de inima,1,0,1,0,0,0 0.0 %
+B96.5 Pseudomonas,1,1,0,0,0,0 0.0 %
+I84.8 Hemoroizi nespecificati cu alte complicatii,1,0,1,0,0,0 0.0 %
+K29.4 Gastrita atrofica cronica,3,0,3,0,0,0 0.0 %
+K57.31 Diverticuloza intestinului gros fara perforatie sau abces,1,0,1,0,0,0 0.0 %
+H06.2* Exoftalmia tireotoxica (E05.-+),1,0,1,0,0,0 0.0 %
+S22.06 Fractura de vertebre toracice,1,0,0,0,0,1 100.0 %
+I61.9 Hemoragia intracerebrala,1,0,1,0,0,0 0.0 %
+I44.1 Bloc atrio-ventricular,3,0,2,0,0,1 33.33 %
+E43 Malnutritia proteino-energetica grava,1,0,0,0,0,1 100.0 %
+K71.7 Boala toxica a ficatului cu fibroza si ciroza ficatului,1,0,0,0,0,1 100.0 %
+I71.01 Disectia aortei toracice,1,0,0,0,0,1 100.0 %
+M81.58 Osteoporoza idiopatica,1,0,1,0,0,0 0.0 %
+T91.1 Sechele ale fracturii coloanei vertebrale,1,0,1,0,0,0 0.0 %
+C43.7 Melanom malign al membrelor inferioare,2,0,1,0,0,1 50.0 %
+I68.2* Arterita cerebrala in alte boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+I99 Alte afectiuni ale sistemului circulator si nespecificate,1,0,1,0,0,0 0.0 %
+E83.1 Tulburari de metabolism al fierului,1,0,1,0,0,0 0.0 %
+F06.4 Tulburari anxioase organice,2,0,2,0,0,0 0.0 %
+C45.9 Mesoteliom,1,0,0,1,0,0 0.0 %
+K51.0 Enterocolita (cronica) ulceroasa,1,0,1,0,0,0 0.0 %
+Q89.19 Alte malformatii congenitale specificate ale glandei suprarenale,1,0,1,0,0,0 0.0 %
+Y83.1 Interventie chirurgicala cu implant al unui dispozitiv intern artificial,1,0,1,0,0,0 0.0 %
+Y83.4 Alte interventii chirurgicale de reconstructie,1,0,1,0,0,0 0.0 %
+J30.4 Rinita alergica,2,0,2,0,0,0 0.0 %
+Z80.8 Istoric familial de tumora maligna a altor organe si sisteme,1,0,1,0,0,0 0.0 %
+J13 Pneumonia datorita Streptococcus pneumoniae,1,0,1,0,0,0 0.0 %
+D48.9 Tumora cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+J34.8 Alte boli specificate ale nasului si sinusului nazal,1,0,1,0,0,0 0.0 %
+M62.80 Alte afectiuni specificate ale muschiului,1,0,1,0,0,0 0.0 %
+G80.00 Paralizia cerebrala spastica,1,0,1,0,0,0 0.0 %
+D35.2 Tumora benigna hipofiza,3,0,3,0,0,0 0.0 %
+F31.3 Tulburare afectiva bipolara,1,0,1,0,0,0 0.0 %
+I34.9 Afectiunea nereumatismala a valvulei mitrale,1,0,1,0,0,0 0.0 %
+I30.1 Pericardita infectioasa,3,0,2,0,0,1 33.33 %
+D00.0 Carcinom in situ buza,1,0,1,0,0,0 0.0 %
+F13.3 Tulburari mentale si de comportament datorite folosirii sedativelor sau hipnoticelor,1,0,1,0,0,0 0.0 %
+N41.1 Prostatita cronica,1,0,1,0,0,0 0.0 %
+I06.0 Stenoza aortica reumatismala,2,0,1,0,0,1 50.0 %
+I21.4 Infarct miocardic acut subendocardic,1,0,1,0,0,0 0.0 %
+Z71.4 Consiliere si supraveghere a tulburarilor datorite consumului de alcool,1,0,1,0,0,0 0.0 %
+E71.3 Tulburari de metabolism al acizilor grasi,1,1,0,0,0,0 0.0 %
+Q61.0 Chist renal unic congenital,1,0,1,0,0,0 0.0 %
+B00.4 Encefalita  cu virusul herpetic,1,0,1,0,0,0 0.0 %
+M41.20 Alte scolioze idiopatice,1,0,1,0,0,0 0.0 %
+M48.53 Prabusire vertebrala,1,0,1,0,0,0 0.0 %
+D47.1 Boala mieloproliferativa cronica,2,0,2,0,0,0 0.0 %
+L23.4 Dermatita alergica de contact datorita vopselelor,1,0,1,0,0,0 0.0 %
+C91.10 Leucemia limfoida cronica,2,0,2,0,0,0 0.0 %
+D46.0 Anemie refractara fara sideroblasti,1,0,1,0,0,0 0.0 %
+F33.8 Alte tulburari depresive recurente,3,0,1,0,0,2 66.67 %
+M85.45 Chist osos solitar,1,0,1,0,0,0 0.0 %
+N14.2 Nefropatia cauzata de un drog,1,0,1,0,0,0 0.0 %
+M48.44 Fractura vertebrala de oboseala,1,0,1,0,0,0 0.0 %
+M53.96 Dorsopatia,1,0,1,0,0,0 0.0 %
+G11.2 Ataxia cerebeloasa tardiva,1,0,0,1,0,0 0.0 %
+G23.2 Degenerescenta striato-nigrica [nigrostriate],1,0,0,1,0,0 0.0 %
+M48.54 Prabusire vertebrala,1,0,1,0,0,0 0.0 %
+M90.88* Osteopatia in alte boli clasificate altundeva,1,1,0,0,0,0 0.0 %
+H50.9 Strabism,2,0,2,0,0,0 0.0 %
+C53.9 Tumora maligna col uterin,1,0,1,0,0,0 0.0 %
+E80.4 Sindromul Gilbert,1,0,1,0,0,0 0.0 %
+E09.9 Reglementarea intolerantei la glucoza fara complicatii,1,0,1,0,0,0 0.0 %
+M40.03 Cifoza posturala,1,0,1,0,0,0 0.0 %
+I71.02 Disectia aortei abdominale,1,1,0,0,0,0 0.0 %
+K29.8 Duodenita,2,1,0,0,0,1 50.0 %
+T88.6 Soc anafilactic datorit efectelor adverse ale unui drog sau medicament corect administrat,1,1,0,0,0,0 0.0 %
+E74.8 Alte tulburari specificate de metabolism al carbohidratilor,2,1,1,0,0,0 0.0 %
+Q60.0 Agenezia renala unilaterala,1,0,1,0,0,0 0.0 %
+T79.2 Hemoragie traumatica secundara si recurenta,1,0,0,0,0,1 100.0 %
+I79.0* Anevrismul aortei in boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+T81.42 Sepsis ca urmare a unei proceduri,1,0,1,0,0,0 0.0 %
+G82.22 Paraplegia,1,0,1,0,0,0 0.0 %
+L97 Ulceratia membrului inferior,1,0,1,0,0,0 0.0 %
+D43.2 Tumora creier,2,0,2,0,0,0 0.0 %
+I65.1 Ocluzia si stenoza arterei bazilare,1,0,0,1,0,0 0.0 %
+J30.3 Alte rinite alergice,1,0,1,0,0,0 0.0 %
+E53.8 Carenta de alte vitamine din grupa B,1,0,1,0,0,0 0.0 %
+S02.2 Fractura a oaselor nasale,1,0,1,0,0,0 0.0 %
+A41.50 Sepsis datorit organismelor Gram-negative nespecificate,1,0,1,0,0,0 0.0 %
+G21.8 Alte parkinsonisme secundare,1,0,1,0,0,0 0.0 %
+G83.8 Alte sindroame paralitice specificate,2,0,1,0,0,1 50.0 %
+I77.9 Afectiuni ale arterelor si arteriolelor,1,0,1,0,0,0 0.0 %
+M62.24 Infarctul ischemic muscular,1,0,1,0,0,0 0.0 %
+S35.2 Leziune a arterelor celiace sau mezenterice,1,0,1,0,0,0 0.0 %
+E74.9 Tulburari de metabolism al carbohidratilor,1,1,0,0,0,0 0.0 %
+M11.28 Alte condrocalcinoze,1,1,0,0,0,0 0.0 %
+M41.96 Scolioza,1,1,0,0,0,0 0.0 %
+E27.8 Alte tulburari specificate ale glandei adrenale,3,0,2,0,0,1 33.33 %
+M41.55 Alta scolioza secundara,1,0,1,0,0,0 0.0 %
+D30.3 Tumora benigna vezica urinara,1,0,1,0,0,0 0.0 %
+G82.46 Tetraplegia spastica,1,0,1,0,0,0 0.0 %
+H50.0 Strabism convergent concomitent,1,0,1,0,0,0 0.0 %
+D61.1 Anemia aplazica provocata de medicamente,1,0,1,0,0,0 0.0 %
+N99.3 Prolaps al peretelui vaginal dupa histerectomie,1,0,1,0,0,0 0.0 %
+K72.9 Insuficienta hepatica,4,0,0,0,0,4 100.0 %
+S25.0 Leziune a aortei toracice,2,0,0,0,0,2 100.0 %
+I42.8 Alte  cardiomiopatii,2,0,1,0,0,1 50.0 %
+D12.8 Tumora benigna rect,1,0,0,0,0,1 100.0 %
+K57.50 Diverticuloza atat a intestinului gros cat si a intestinului subtire fara perforatie si abces,1,0,0,0,0,1 100.0 %
+D38.4 Tumora timusului cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+E05.0 Tireotoxicoza cu gusa difuza,1,0,1,0,0,0 0.0 %
+M43.03 Spondiloliza,1,0,1,0,0,0 0.0 %
+K29.9 Gastro-duodenita,1,0,0,1,0,0 0.0 %
+L26 Dermatita exfoliativa,1,0,1,0,0,0 0.0 %
+M62.89 Alte afectiuni specificate ale muschiului,1,0,1,0,0,0 0.0 %
+K63.3 Ulcer al intestinului,1,0,1,0,0,0 0.0 %
+K56.5 Aderente intestinale [bride] cu obstructie,2,0,0,1,0,1 50.0 %
+R45.2 Nefericire,1,0,1,0,0,0 0.0 %
+R45.5 Ostilitate,1,0,1,0,0,0 0.0 %
+D72.9 Anomalia celulelor albe,1,0,1,0,0,0 0.0 %
+D75.8 Alte boli specificate ale sangelui si ale organelor hematopoietice,1,0,1,0,0,0 0.0 %
+E16.1 Alte hipoglicemii,2,1,1,0,0,0 0.0 %
+D32.0 Tumora benigna meninge cerebral,1,0,1,0,0,0 0.0 %
+S06.20 Leziune difuza cerebrala si cerebeloasa,2,0,2,0,0,0 0.0 %
+D30.0 Tumora benigna rinichi,2,0,2,0,0,0 0.0 %
+H49.0 Paralizia celui de-al treilea nerv [oculomotor],1,0,1,0,0,0 0.0 %
+T23.2 Arsura a pumnului si mainii cu adancime partiala [flictene,1,0,1,0,0,0 0.0 %
+F17.2 Tulburari mentale si de comportament datorite folosirii tutunului,1,0,0,0,0,1 100.0 %
+D69.9 Afectiuni hemoragice,1,0,1,0,0,0 0.0 %
+K80.00 Calcul al vezicii biliare cu colecistita acuta,1,0,1,0,0,0 0.0 %
+F22.0 Tulburare deliranta,2,0,1,0,0,1 50.0 %
+H81.9 Afectiunea functiei vestibulare,1,0,1,0,0,0 0.0 %
+T94.1 Sechele ale leziunilor traumatice,1,0,1,0,0,0 0.0 %
+R17 Icter,1,0,0,0,0,1 100.0 %
+C11.9 Tumora maligna rinofaringe ,1,0,1,0,0,0 0.0 %
+M54.85 Alte dorsalgii,1,0,0,0,0,1 100.0 %
+Z93.3 Starea colostomiei,1,0,1,0,0,0 0.0 %
+F05.8 Alte forme de delir,1,0,1,0,0,0 0.0 %
+M79.85 Alte afectiuni specificate ale tesuturilor moi,1,0,1,0,0,0 0.0 %
+I60.9 Hemoragia subarahnoida,1,0,0,0,0,1 100.0 %
+M41.39 Scolioza prin anomalie toracica,1,0,1,0,0,0 0.0 %
+Q78.4 Encondromatoza,1,0,1,0,0,0 0.0 %
+H90.8 Surditate mixta de transmisie si neurosensoriala,1,0,0,0,0,1 100.0 %
+M05.84 Alte artrite reumatoide seropozitive,1,0,0,0,0,1 100.0 %
+M62.26 Infarctul ischemic muscular,1,0,0,0,0,1 100.0 %
+Z96.65 Prezenta unui implant de genunchi,2,0,1,0,0,1 50.0 %
+J32.9 Sinuzita cronica,2,0,2,0,0,0 0.0 %
+C20 Tumora maligna a rectului,1,0,0,0,1,0 0.0 %
+K62.7 Proctita datorita iradierii,1,0,0,0,1,0 0.0 %
+I34.1 Prolapsul (valva) mitral,2,0,2,0,0,0 0.0 %
+Z54.2 Convalescenta dupa chimioterapie,1,0,1,0,0,0 0.0 %
+Z92.3 Istoric personal de iradiere,1,0,1,0,0,0 0.0 %
+M08.18 Spondilita anchilozanta juvenila,1,0,1,0,0,0 0.0 %
+Z86.43 Istoric personal de tulburare datorita consumului de tutun,3,0,3,0,0,0 0.0 %
+K75.0 Abces al ficatului,1,0,1,0,0,0 0.0 %
+Z48.0 Supravegherea suturilor si pansamentelor chirurgicale,1,0,1,0,0,0 0.0 %
+Z48.8 Alte ingrijiri de control specificate dupa o interventie chirurgicala,1,0,1,0,0,0 0.0 %
+Z54.0 Convalescenta dupa interventie chirurgicala,1,0,1,0,0,0 0.0 %
+H40.1 Glaucom primar in unghi deschis,1,0,1,0,0,0 0.0 %
+C18.6 Tumora maligna colonul descendent,1,0,0,0,0,1 100.0 %
+C25.4 Tumora maligna pancreas endrocrin,1,0,0,0,0,1 100.0 %
+C55 Tumora maligna a uterului,1,0,0,0,0,1 100.0 %
+C57.4 Tumora maligna anexele uterului,1,0,0,0,0,1 100.0 %
+K36 Alte forme de apendicita,1,0,1,0,0,0 0.0 %
+N03.9 Sindrom nefritic cronic,1,0,1,0,0,0 0.0 %
+I95.8 Alte hipotensiuni,1,0,1,0,0,0 0.0 %
+M19.91 Artroza,1,0,1,0,0,0 0.0 %
+M41.26 Alte scolioze idiopatice,1,0,1,0,0,0 0.0 %
+M79.22 Nevralgia si nevrita,1,0,1,0,0,0 0.0 %
+E83.8 Alte tulburari de metabolism al mineralelor,3,0,3,0,0,0 0.0 %
+K57.90 Diverticuloza intestinului,1,0,1,0,0,0 0.0 %
+M54.6 Rahialgie toracica,1,0,1,0,0,0 0.0 %
+K44.1 Hernia diafragmatica cu gangrena,1,0,1,0,0,0 0.0 %
+S37.01 Contuzie si hematom ale rinichiului,1,0,1,0,0,0 0.0 %
+K05.5 Alte boli periodontale,1,0,1,0,0,0 0.0 %
+M48.96 Spondilopatia,1,0,1,0,0,0 0.0 %
+N93.8 Alte sangerari anormale specificate ale uterului si vaginului,1,0,1,0,0,0 0.0 %
+S00.81 Leziune superficiala a altor parti ale capului,1,0,1,0,0,0 0.0 %
+M23.29 Leziunea meniscului datorita unei rupturi sau leziuni vechi,1,0,0,0,0,1 100.0 %
+J39.2 Alte boli ale faringelui,1,0,1,0,0,0 0.0 %
+M42.13 Osteocondroza vertebrala a adultului,1,0,1,0,0,0 0.0 %
+M85.39 Osteita condensata,1,0,1,0,0,0 0.0 %
+M85.48 Chist osos solitar,1,0,1,0,0,0 0.0 %
+I63.5 Infarctul cerebral datorita ocluziei sau stenozei nespecificate ale arterelor cerebrale,2,0,0,0,0,2 100.0 %
+J16.8 Pneumonia datorita altor microorganisme infectioase specificate,2,0,0,0,0,2 100.0 %
+C43.9 Melanomul malign al pielii,1,0,0,0,0,1 100.0 %
+D04.9 Carcinom in situ piele,1,0,0,0,0,1 100.0 %
+K51.8 Alte colite ulcerative,1,0,1,0,0,0 0.0 %
+I33.9 Endocardita acuta,1,0,0,0,0,1 100.0 %
+D23.9 Tumora benigna pielea,1,1,0,0,0,0 0.0 %
+L30.8 Alte dermatite specificate,1,1,0,0,0,0 0.0 %
+S43.00 Luxatie a umarului,1,1,0,0,0,0 0.0 %
+S82.21 Fractura a diafizei tibiei cu fractura fibulei (orice parte),1,1,0,0,0,0 0.0 %
+D42.9 Tumora meninge cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+D48.6 Tumora sin cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+R71 Anormalitate a globulelor rosii,1,0,1,0,0,0 0.0 %
+D51.2 Carenta de transcobalamina II,1,0,0,0,0,1 100.0 %
+K93.8* Afectiunile altor organe digestive specificate in boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+R39.1 Alte dificultati de mictiune,1,0,1,0,0,0 0.0 %
+S06.34 Hematom cerebelos in focar,1,0,0,0,0,1 100.0 %
+I45.8 Alte tulburari de conducere specificate,1,0,1,0,0,0 0.0 %
+E63.9 Carenta nutritionala,1,0,1,0,0,0 0.0 %
+D37.6 Tumora ficatului si cailor biliare cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+L03.11 Celulita membrului inferior,1,0,0,0,0,1 100.0 %
+S33.2 Luxatie a articulatiei sacroiliace si sacrococcigiene,1,0,0,0,0,1 100.0 %
+G46.4* Sindrom cerebelos vascular (I60-I67+),1,0,1,0,0,0 0.0 %
+I28.8 Alte boli specificate ale vaselor pulmonare,1,0,1,0,0,0 0.0 %
+K45.0 Alte hernii abdominale specificate cu obstructie,1,0,1,0,0,0 0.0 %
+N84.0 Polip al corpului uterin,2,0,2,0,0,0 0.0 %
+N85.0 Hiperplazia glandulara a endometrului,1,0,1,0,0,0 0.0 %
+Z86.3 Istoric personal de boli endocrine,1,0,1,0,0,0 0.0 %
+Q87.81 Sindromul Alport,1,0,1,0,0,0 0.0 %
+J10.0 Gripa cu pneumonie,1,0,0,0,0,1 100.0 %
+M15.0 (Osteo)artroza primara generalizata,1,0,0,0,0,1 100.0 %
+I60.7 Hemoragia subarahnoida de la artere intracraniene,1,0,0,0,0,1 100.0 %
+M76.9 Entezopatia membrului inferior,1,0,0,0,0,1 100.0 %
+S06.33 Hematom cerebral in focar,1,0,0,0,0,1 100.0 %
+W19 Cadere nespecificata,1,0,0,0,0,1 100.0 %
+N92.0 Menstruatie excesiva si frecventa cu ciclu menstrual regulat,1,0,1,0,0,0 0.0 %
+D59.1 Alte anemii hemolitice auto-imune,1,0,1,0,0,0 0.0 %
+G94.8* Alte afectiuni specificate ale creierului in boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+S06.38 Alte leziuni cerebrale si cerebeloase in focar,2,0,2,0,0,0 0.0 %
+G21.9 Parkinsonism secundar,1,0,1,0,0,0 0.0 %
+K09.2 Alte chisturi ale mandibulei,1,0,1,0,0,0 0.0 %
+K92.8 Alte boli specificate ale sistemului digestiv,1,0,1,0,0,0 0.0 %
+A37.9 Tusea convulsiva,1,0,1,0,0,0 0.0 %
+Y59.0 Vaccinuri antivirale,1,0,1,0,0,0 0.0 %
+B30.9 Conjunctivite virale,1,0,1,0,0,0 0.0 %
+M48.89 Alte spondilopatii specificate,1,0,0,0,0,1 100.0 %
+J60 Pneumoconioza minerilor (mina de carbune),1,0,1,0,0,0 0.0 %
+Z90.6 Absenta dobandita a altor organe ale tractului urinar,1,0,1,0,0,0 0.0 %
+I74.3 Embolia si tromboza arterelor extremitatilor inferioare,1,0,0,0,0,1 100.0 %
+M46.44 Discita,1,0,1,0,0,0 0.0 %
+E63.8 Alte carente nutritionale specificate,1,0,1,0,0,0 0.0 %
+M51.0 Tulburari ale discului lombar si ale altor discuri intervertebrale cu mielopatie,1,0,1,0,0,0 0.0 %
+Z87.3 Istoric personal de boli ale sistemului musculo-scheletal si tesutului conjunctiv,1,0,1,0,0,0 0.0 %
+I51.4 Miocardita,2,0,2,0,0,0 0.0 %
+Q63.01 Rinichi dublu,1,0,1,0,0,0 0.0 %
+I21.3 Infarct miocardic acut transmural cu localizari nespecificate,1,0,1,0,0,0 0.0 %
+I85.9 Varice esofagiene fara sangerare,2,0,2,0,0,0 0.0 %
+I98.8* Alte afectiuni specifice ale sistemului circulator in boli clasificate altundeva,1,0,1,0,0,0 0.0 %
+M13.91 Artrita,1,0,1,0,0,0 0.0 %
+N39.4 Alte forme specificate de incontinenta urinara,1,0,1,0,0,0 0.0 %
+D37.4 Tumora colonului cu evolutie imprevizibila si necunoscuta,1,0,1,0,0,0 0.0 %
+M43.16 Spondilolisteza,1,0,1,0,0,0 0.0 %
+M46.07 Entezopatia coloanei vertebrale,1,0,1,0,0,0 0.0 %
+M48.27 Artroza interspinoasa,1,0,1,0,0,0 0.0 %
+M19.97 Artroza,1,0,0,0,0,1 100.0 %
+H53.9 Tulburari de vedere,1,0,1,0,0,0 0.0 %
+H61.2 Dop de cerumen,1,0,1,0,0,0 0.0 %
+J31.0 Rinita cronica,1,0,1,0,0,0 0.0 %
+B97.8 Alti virusi,1,0,1,0,0,0 0.0 %
+D31.3 Tumora benigna coroida,1,0,1,0,0,0 0.0 %
+D51.3 Alte anemii prin carenta alimentara de vitamina B12,1,0,1,0,0,0 0.0 %
+G82.20 Paraplegia,1,0,1,0,0,0 0.0 %
+M13.81 Alte artrite specificate,1,0,1,0,0,0 0.0 %
+C17.1 Tumora maligna jejun,1,0,1,0,0,0 0.0 %
+M41.09 Scolioza idiopatica infantila,1,0,1,0,0,0 0.0 %
+A48.8 Alte boli bacteriane specificate,1,0,0,0,0,1 100.0 %
+A49.0 Infectia stafilococica,1,0,0,0,0,1 100.0 %
+E61.8 Carenta de alte elemente nutritionale specificate,1,0,0,0,0,1 100.0 %
+K57.81 Diverticuloza intestinului,1,0,0,0,0,1 100.0 %
+M13.92 Artrita,1,0,0,0,0,1 100.0 %
+N47 Hipertrofia preputului,1,0,0,0,0,1 100.0 %
+R45.1 Neliniste si agitatie,1,0,0,0,0,1 100.0 %
+M84.02 Fractura rau consolidata,1,0,0,0,0,1 100.0 %
+M13.97 Artrita,1,0,1,0,0,0 0.0 %
+G82.14 Paraplegia spastica,1,0,1,0,0,0 0.0 %
+M48.00 Stenoza canalului medular,1,0,1,0,0,0 0.0 %
+M43.10 Spondilolisteza,1,0,1,0,0,0 0.0 %
+M48.84 Alte spondilopatii specificate,1,0,1,0,0,0 0.0 %
+D73.8 Alte boli ale splinei,1,0,1,0,0,0 0.0 %
+M89.50 Osteoliza,1,0,1,0,0,0 0.0 %
+E05.2 Tireotoxicoza cu gusa multinodulara toxica,1,0,1,0,0,0 0.0 %
+H25.0 Cataracta senila incipienta,1,0,1,0,0,0 0.0 %
+H33.5 Alte dezlipiri ale retinei,1,0,1,0,0,0 0.0 %
+G91.2 Hidrocefalia cu presiune normala,1,0,1,0,0,0 0.0 %
+D24 Tumora benigna a sinului,1,0,1,0,0,0 0.0 %
+F25.1 Tulburare schizo-afectiva,1,0,1,0,0,0 0.0 %
+K74.2 Fibroza hepatica cu scleroza hepatica,1,0,1,0,0,0 0.0 %
+K57.22 Diverticulita intestinului gros cu perforatie si abces,1,0,0,0,0,1 100.0 %
+R10.0 Abdomen acut,1,0,0,0,0,1 100.0 %
+F51.9 Tulburari de somn neorganice,1,0,1,0,0,0 0.0 %
+I71.03 Disectia aortei toracoabdominale,1,0,1,0,0,0 0.0 %
+M25.18 Fistula articulatiei,1,0,1,0,0,0 0.0 %

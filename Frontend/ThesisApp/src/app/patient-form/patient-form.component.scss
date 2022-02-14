@@ -1,5 +1,5 @@
 .disabled-input {
-  background-color: var(--input-background);
+  background-color: var(--disabled-input-background);
 }
 
 .example-chip-list {
@@ -22,7 +22,7 @@
 
 ::ng-deep{
   .mat-form-field-appearance-fill .mat-form-field-flex {
-    // background-color: var(--input-background);
+    background-color: var(--input-background, rgba(0,0,0,.04));
   }
 
   .mat-input-element {

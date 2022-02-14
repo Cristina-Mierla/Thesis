@@ -18,7 +18,8 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
   --button-font: #F0F7EE;
   --button-focus: rgb(216 178 172);
   --button-font2: #130303;
-  --input-background: #d5d0cd;
+  --disabled-input-background: #d5d0cd;
+  --input-background: #F1E3DF;
 }
 
 .outcome-cured {
@@ -61,19 +62,9 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
   color: var(--button-font2);
 }
 
+.custom-button:not(:disabled):not(.disabled).active,
+.custom-button .active,
 .custom-button:hover {
-  border-color: var(--button-focus);
-  background-color: var(--button-focus);
-  color: var(--button-font2);
-}
-
-.custom-button .active {
-  border-color: var(--button-focus);
-  background-color: var(--button-focus);
-  color: var(--button-font2);
-}
-
-.custom-button:not(:disabled):not(.disabled).active {
   border-color: var(--button-focus);
   background-color: var(--button-focus);
   color: var(--button-font2);
@@ -81,7 +72,8 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
 
 .custom-input {
   margin: 0px;
-  background-color: rgba(0,0,0,.04);
+  // background-color: rgba(0,0,0,.04);
+  background-color: var(--input-background);
   border-radius: 8px 8px 8px 8px;
   border-color: var(--button-theme);
 }
@@ -95,4 +87,20 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
   font-size: 1em;
   font-weight: 12px;
   color: #171710
+}
+
+// Overwritten elements
+
+.dropdown-menu, .dropdown-menu.show {
+  background-color: var(--input-background);
+  color: var(--button-font2);
+}
+
+.dropdown-item, .dropdown-item.show {
+  color: var(--button-font2);
+}
+
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active, .dropdown-item.active {
+  background-color: var(--button-focus);
+  color: var(--button-font2);
 }
