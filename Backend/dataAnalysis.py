@@ -61,7 +61,8 @@ class DataAnalysis:
         :return:
         """
         # print("\nDrop the columns that we are not going to use for the model")
-        self.df.drop(["AN", "precod", "Data_Examinare_Radiologie", "Radiologie", "rezultat_radiologie", "Proceduri", "Proceduri_Radiologie", "tip_externare", "unde_pleaca"], inplace=True, axis='columns')
+        self.df.drop(["AN", "precod", "Data_Examinare_Radiologie", "Radiologie", "rezultat_radiologie", "Proceduri",
+                      "Proceduri_Radiologie", "tip_externare", "unde_pleaca"], inplace=True, axis='columns')
 
         self.df.replace("NULL", np.NAN, inplace=True)
         self.df.replace("", np.NAN, inplace=True)
@@ -72,7 +73,8 @@ class DataAnalysis:
         self.df.stare_externare.replace(
             ("Vindecat", "Ameliorat", "Stationar", "AGRAVAT                                           ", "Decedat"),
             (0, 1, 2, 3, 4), inplace=True)
-        self.df.forma_boala.replace(('1.USOARA', '2. MODERATA', '3.SEVERA', 'PERICLITAT TRANSFUZIONAL'), (1, 2, 3, np.NaN), inplace=True)
+        self.df.forma_boala.replace(('1.USOARA', '2. MODERATA', '3.SEVERA', 'PERICLITAT TRANSFUZIONAL'),
+                                    (1, 2, 3, np.NaN), inplace=True)
 
         self.df.forma_boala = self.df.forma_boala.fillna(self.df.forma_boala.median())
 
@@ -219,7 +221,7 @@ class DataAnalysis:
         # print(ageFreq)
         n = (10 / 3) * np.log10(self.df["Varsta"].count()) + 1
         # print("Number of groups: " + str(n))
-        grLen = (self.df["Varsta"].max() - self.df["Varsta"].min())/n
+        grLen = (self.df["Varsta"].max() - self.df["Varsta"].min()) / n
         # print("Length of the groups: " + str(grLen))
 
         x1 = self.df["Varsta"].min()
@@ -231,7 +233,7 @@ class DataAnalysis:
             newfreq = 0
             for loc in range(np.int(x1), np.int(x2)):
                 try:
-                    newfreq += ageFreq.iloc[loc-18]
+                    newfreq += ageFreq.iloc[loc - 18]
                 except IndexError:
                     pass
             x1 = x2
@@ -256,16 +258,20 @@ class DataAnalysis:
     def clusteringData(self, filename, age, gender):
         # sns.set_palette("Purples_r")
 
-        clusterData = self.df[self.df["Varsta"] == age]
-        clusterData = clusterData[clusterData["Sex"] == gender]
-        clusterData["forma_boala"] = clusterData["forma_boala"].astype(int)
+        clusterData = self.df[self.df["Varsta"] == int(age)]
+        clusterData = clusterData[clusterData["Sex"] == int(gender)]
         cols = ["Zile_spitalizare", "zile_ATI", "Comorbiditati", "stare_externare", 'forma_boala']
-        print(clusterData.columns.get_loc("forma_boala"))
-        print(clusterData.columns.tolist())
-        print(clusterData.get("forma_boala", default="Name is not present"))
 
-        pp = sns.pairplot(self.df[cols], palette="Set2",
-                          diag_kind="kde", hue='forma_boala', markers=["s", "D", "^"])
+        try:
+            pp = sns.pairplot(clusterData[cols], palette="Set2",
+                              diag_kind="kde", hue='forma_boala', markers=["s", "D", "^"])
+        except ValueError:
+            try:
+                pp = sns.pairplot(clusterData[cols], palette="Set2",
+                              diag_kind="kde", hue='forma_boala', markers=["s", "D"])
+            except ValueError:
+                pp = sns.pairplot(clusterData[cols], palette="Set2",
+                                diag_kind="kde", hue='forma_boala', markers=["D"])
         fig = pp.fig
         fig.subplots_adjust(top=0.93, wspace=0.3)
         t = fig.suptitle('Clustered data based on a given age and gender', fontsize=14)
