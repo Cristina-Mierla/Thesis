@@ -82,9 +82,7 @@ class Service:
             zicu = patient.iloc[5, 0]
             gender = patient.iloc[6, 0]
             age = patient.iloc[7, 0]
-            print(self.comorb[str(indx)])
             comorb = self.comorb[str(indx)]
-            print(comorb)
             comorb = [x for x in comorb if x != '']
             med = self.medicatie[str(indx)]
             med = [x for x in med if x != '']

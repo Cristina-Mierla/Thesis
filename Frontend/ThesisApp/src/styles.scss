@@ -79,8 +79,10 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
 }
 
 .custom-input:focus {
+  background-color: var(--input-background);
   box-shadow: 0 0 0 0.15rem var(--button-focus);
   border-color: var(--button-focus);
+  color: var(--button-font2)
 }
 
 .custom-font {

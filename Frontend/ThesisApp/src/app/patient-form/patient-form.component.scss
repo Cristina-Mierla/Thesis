@@ -21,6 +21,21 @@
 }
 
 ::ng-deep{
+  .mat-chip.mat-standard-chip {
+    border-color: var(--button-focus);
+    background-color: var(--button-focus);
+    color: var(--button-font2);
+  }
+
+  .mat-standard-chip:focus,
+  .mat-standard-chip:hover,
+  .mat-option:hover:not(.mat-option-disabled),
+  .mat-option:focus:not(.mat-option-disabled) {
+    border-color: var(--button-theme);
+    background-color: var(--button-theme);
+    color: var(--button-font);
+  }
+
   .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: var(--input-background, rgba(0,0,0,.04));
   }
@@ -35,5 +50,28 @@
 
   .mat-form-field.mat-focused .mat-form-field-label {
     color: var(--nav-background);
+  }
+
+  .mat-form-field-ripple {
+    background-color: var(--nav-background);
+  }
+
+  .mat-autocomplete-panel {
+    background-color: var(--input-background);
+    color: var(--button-font2);
+  }
+
+  .mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+    background-color: var(--nav-background);
+    color: var(--button-font);
+  }
+
+  .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+    background-color: var(--button-focus);
+    color: var(--button-font2);
+  }
+
+  .mat-form-field-should-float-focused  {
+    background-color: blue;
   }
 }

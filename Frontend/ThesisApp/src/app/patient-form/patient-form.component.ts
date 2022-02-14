@@ -18,23 +18,29 @@ export class PatientFormComponent implements OnInit {
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
   comorbiditiesCtrl = new FormControl();
+  diagnosisCtrl = new FormControl();
   filteredComorbidities: Observable<string[]>;
-  chosenComorbidities: string[] = [];
+  //allComorbiditiesObservable: Observable<string[]>;
   allComorbidities: string[] = comorbiditiList;
 
+  chosenComorbidities: string[] = [];
+  initialDiagnosis?: string = undefined;
+
   @ViewChild('comorbInput') comorbInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('diagnosInput') diagnosInput!: ElementRef<HTMLInputElement>;
 
   constructor(private patientsService: PatientsService, private route: ActivatedRoute) {
     this.filteredComorbidities = this.comorbiditiesCtrl.valueChanges.pipe(
       startWith(null),
       map((comorb: string | null) => (comorb ? this._filter(comorb) : this.allComorbidities.slice())),
     );
+
    }
 
   ngOnInit(): void {
   }
 
-  add(event: MatChipInputEvent): void {
+  addComorbidity(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
     // Add new comorbiditie
@@ -48,7 +54,21 @@ export class PatientFormComponent implements OnInit {
     this.comorbiditiesCtrl.setValue(null);
   }
 
-  remove(comorb: string): void {
+  addDiagnosis(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Choose comorbidity
+    if (value){
+      this.initialDiagnosis = value;
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+
+    this.diagnosisCtrl.setValue(null);
+  }
+
+  removeComorbidity(comorb: string): void {
     const index = this.chosenComorbidities.indexOf(comorb);
 
     if (index >= 0) {
@@ -56,7 +76,11 @@ export class PatientFormComponent implements OnInit {
     }
   }
 
-  selected(event: MatAutocompleteSelectedEvent): void {
+  removeDiagnosis(): void {
+    this.initialDiagnosis = undefined;
+  }
+
+  selectedComorbidity(event: MatAutocompleteSelectedEvent): void {
     const value = (event.option.viewValue || '').trim();
 
     if (value && this.chosenComorbidities.indexOf(value) == -1) {
@@ -66,6 +90,17 @@ export class PatientFormComponent implements OnInit {
     //this.fruits.push(event.option.viewValue);
     this.comorbInput.nativeElement.value = '';
     this.comorbiditiesCtrl.setValue(null);
+  }
+
+  selectedDiagnosis(event: MatAutocompleteSelectedEvent): void {
+    const value = (event.option.viewValue || '').trim();
+
+    if (value){
+      this.initialDiagnosis = event.option.viewValue
+    }
+
+    this.diagnosInput.nativeElement.value = '';
+    this.diagnosisCtrl.setValue(null);
   }
 
   private _filter(value: string): string[] {

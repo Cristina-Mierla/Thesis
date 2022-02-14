@@ -43,13 +43,44 @@
       </div>
       <div class="row align-items-center form-group custom-margin">
         <div class="">
-          <label for="icuLabel">List of any relevant conditions and illneses</label>
+          <label for="Comorbidity selection">Initial diagnosis</label>
           <mat-form-field class="example-chip-list" appearance="fill">
-            <mat-label>List of comorbidities</mat-label>
-            <mat-chip-list #chipList aria-label="Fruit selection">
+            <mat-label>Choose one comorbity for the initial diagnosis</mat-label>
+            <mat-chip-list #diagchipList aria-label="Comorbidity selection" >
+              <!-- <div *ngIf="this.initialDiagnosis === ''"> -->
+                <!-- *ngFor="let comorb of this.chosenComorbidities" -->
+              <mat-chip (removed)="removeDiagnosis()" *ngIf="this.initialDiagnosis">
+                <div *ngIf="this.initialDiagnosis"> {{this.initialDiagnosis}} </div>
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input
+                placeholder="Initial diagnosis..."
+                #diagnosInput
+                [formControl]="diagnosisCtrl"
+                [matAutocomplete]="diagauto"
+                [matChipInputFor]="diagchipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addDiagnosis($event)">
+            </mat-chip-list>
+            <mat-autocomplete #diagauto="matAutocomplete" (optionSelected)="selectedDiagnosis($event)">
+              <mat-option *ngFor="let comorb of allComorbidities" [value]="comorb">
+                {{comorb}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row align-items-center form-group">
+        <div class="">
+          <label for="Initial Comorbidity selection">List of any relevant conditions and illneses</label>
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Select all comorbidities that apply</mat-label>
+            <mat-chip-list #combchipList aria-label="Initial Comorbidity selection">
               <mat-chip
                 *ngFor="let comorb of this.chosenComorbidities"
-                (removed)="remove(comorb)">
+                (removed)="removeComorbidity(comorb)">
                 {{comorb}}
                 <button matChipRemove>
                   <mat-icon>cancel</mat-icon>
@@ -59,12 +90,12 @@
                 placeholder="New comorbidity..."
                 #comorbInput
                 [formControl]="comorbiditiesCtrl"
-                [matAutocomplete]="auto"
-                [matChipInputFor]="chipList"
+                [matAutocomplete]="combauto"
+                [matChipInputFor]="combchipList"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                (matChipInputTokenEnd)="add($event)">
+                (matChipInputTokenEnd)="addComorbidity($event)">
             </mat-chip-list>
-            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-autocomplete #combauto="matAutocomplete" (optionSelected)="selectedComorbidity($event)">
               <mat-option *ngFor="let comorb of filteredComorbidities | async" [value]="comorb">
                 {{comorb}}
               </mat-option>
