@@ -3,3 +3,9 @@
   border-color: transparent;
   color: inherit;
 }
+
+::ng-deep {
+  .mat-simple-snackbar-action, .mat-button {
+    color: var(--button-focus);
+  }
+}

@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { StatisticsPanelComponent } from './statistics-panel/statistics-panel.component';
 import { ClusterStatisticsPanelComponent } from './cluster-statistics-panel/cluster-statistics-panel.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ClusterStatisticsPanelComponent } from './cluster-statistics-panel/clus
     MatAutocompleteModule,
     MatIconModule,
     OverlayModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PatientsService } from '../services/patients.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cluster-statistics-panel',
@@ -15,17 +20,25 @@ export class ClusterStatisticsPanelComponent implements OnInit {
   age!: string;
   gender: number = 1;
 
-  constructor(private patientsService: PatientsService, private sanitizer: DomSanitizer) { }
+  constructor(private patientsService: PatientsService,
+              private sanitizer: DomSanitizer,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   async getStatistic() {
-    this.image = await this.patientsService.getClusterStatistics('/stat3', Number(this.age), this.gender)
+    if (!(this.age && Number(this.age))) {
+      let snackBarRef = this._snackBar.open('Please input a valid age', 'Ok', {
+             horizontalPosition: 'center', verticalPosition: 'bottom',
+           });
+    } else {
+      this.image = await this.patientsService.getClusterStatistics('/stat3', Number(this.age), this.gender)
 
-    let unsafeImageUrl = URL.createObjectURL(this.image);
-    this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(unsafeImageUrl);
-    this.showImage = true;
+      let unsafeImageUrl = URL.createObjectURL(this.image);
+      this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(unsafeImageUrl);
+      this.showImage = true;
+    }
   }
 
   setMaleGender() {this.gender = 1;}
