@@ -1,15 +1,20 @@
 import numpy as np
 import pandas as pd
 import csv
+from datetime import date, datetime
+
+from Backend.dataAnalysis import DataAnalysis
+from Backend.dataProcessing import DataProcessing
+
 
 class Service:
     def __init__(self, file):
         try:
             dataset = pd.read_csv(file)
             self.df = pd.DataFrame(dataset)
-            self.df.stare_externare.replace(
-                ("Vindecat", "Ameliorat", "Stationar", "AGRAVAT                                           ", "Decedat"),
-                (0, 1, 2, 3, 4), inplace=True)
+            # self.df.stare_externare.replace(
+            #     ("Vindecat", "Ameliorat", "Stationar", "AGRAVAT                                           ", "Decedat"),
+            #     (0, 1, 2, 3, 4), inplace=True)
 
             filename_comrb = "csv_comorbiditati.csv"
             filename_analize = "csv_analize.csv"
@@ -31,6 +36,10 @@ class Service:
                 self.medicatie = {rows[0]: rows[1:] for rows in reader}
         except IOError:
             print("The file does not exist")
+
+        # self.processData = DataProcessing()
+        self.dataAnalysis = DataAnalysis("")
+        self.dataAnalysis.setDataset(self.df)
 
     def getPatientHeadList(self):
         array = []
@@ -85,9 +94,31 @@ class Service:
 
         return result
 
+    def getStatistics1(self):
+        dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")
+        filename = "statistics1\\ageGroup_" + dt_string
+
+        image = self.dataAnalysis.groupAge(filename)
+        return image
+
+    def getStatistics2(self):
+        dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")
+        filename = "statistics2\\ageDistribution_" + dt_string
+
+        image = self.dataAnalysis.pltReleaseState(filename)
+        return image
+
+    def getStatistics3(self, age, gender):
+        dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")
+        filename = "statistics3\\clusterData_" + dt_string
+
+        image = self.dataAnalysis.clusteringData(filename, age, gender)
+        return image
+
 
 if __name__ == '__main__':
-    s = Service("csv_dataset.csv")
+    s = Service("csv_processedDataset.csv")
     s.getPatientHeadList()
     s.getPatientById(19904)
+    s.getStatistics3(53, 1)
     # d.pltReleaseState()

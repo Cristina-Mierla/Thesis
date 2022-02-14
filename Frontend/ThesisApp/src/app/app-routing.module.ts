@@ -4,12 +4,18 @@ import { PatientFormComponent } from './patient-form/patient-form.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
 import { query } from '@angular/animations';
+import { StatisticsPanelComponent } from './statistics-panel/statistics-panel.component';
+import { ClusterStatisticsPanelComponent } from './cluster-statistics-panel/cluster-statistics-panel.component';
 
 const routes: Routes = [
   { path: '', component: PatientListComponent },
   { path: 'asses-new-patient', component: PatientFormComponent },
   { path: 'patient/:id', component: PatientDetailsComponent},
   { path: `patient`, component: PatientDetailsComponent},
+  { path: 'stat1', component: StatisticsPanelComponent},
+  { path: 'stat2', component: StatisticsPanelComponent},
+  { path: 'stat3', component: ClusterStatisticsPanelComponent}
+
 ];
 
 @NgModule({

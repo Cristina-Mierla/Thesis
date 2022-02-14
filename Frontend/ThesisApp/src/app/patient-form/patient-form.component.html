@@ -19,7 +19,14 @@
         </div>
         <div class="col">
           <label for="genderLabel">Gender</label>
-          <input type="gender" class="form-control custom-input" id="genderInput" aria-describedby="gender" placeholder="Gender">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active custom-button">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Male
+            </label>
+            <label class="btn btn-secondary custom-button">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Female
+            </label>
+          </div>
         </div>
       </div>
       <div class="row align-items-center form-group custom-margin">

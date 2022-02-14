@@ -25,6 +25,10 @@ class DataAnalysis:
         except IOError:
             print("The file does not exist")
 
+    def setDataset(self, dataset):
+        print("Setting the dataset")
+        self.df = dataset
+
     def describe(self):
         """
         Important information about the data:
@@ -158,7 +162,7 @@ class DataAnalysis:
         g.add_legend(title="", adjust_subtitles=True)
         plt.show()
 
-    def pltReleaseState(self):
+    def pltReleaseState(self, filename):
         sns.set_palette("Purples_r")
 
         data_vindecat = self.df[self.df["stare_externare"] == 0]
@@ -190,6 +194,7 @@ class DataAnalysis:
         plt.ylabel('ICU days')
         plt.title("ICU days per age based on release state")
         plt.legend(["Cured", "Improved", "Deceased"])
+        plt.savefig(filename)
         plt.show()
 
         fig = plt.figure(figsize=(9, 6))
@@ -205,13 +210,17 @@ class DataAnalysis:
         plt.title("Hospitalization days per age based on release state")
         plt.show()
 
-    def groupAge(self):
+        filename += ".png"
+
+        return filename
+
+    def groupAge(self, filename):
         ageFreq = self.df.groupby(pd.Grouper(key="Varsta"))["Sex"].count().sort_index(ascending=True)
-        print(ageFreq)
+        # print(ageFreq)
         n = (10 / 3) * np.log10(self.df["Varsta"].count()) + 1
-        print("Number of groups: " + str(n))
+        # print("Number of groups: " + str(n))
         grLen = (self.df["Varsta"].max() - self.df["Varsta"].min())/n
-        print("Length of the groups: " + str(grLen))
+        # print("Length of the groups: " + str(grLen))
 
         x1 = self.df["Varsta"].min()
         x2 = x1 + grLen
@@ -228,7 +237,7 @@ class DataAnalysis:
             x1 = x2
             x2 = x2 + grLen
             newColumn[newrange] = newfreq
-            print(newrange + "\t" + str(newfreq))
+            # print(newrange + "\t" + str(newfreq))
 
         groupedAge = pd.DataFrame(newColumn, {"Freq"}).transpose()
 
@@ -237,10 +246,39 @@ class DataAnalysis:
         ax.tick_params(axis='x', which='major', labelsize=8)
         plt.ylabel("Count of ages in each group")
         plt.tight_layout()
+        plt.savefig(filename)
         plt.show()
+
+        filename += ".png"
+
+        return filename
+
+    def clusteringData(self, filename, age, gender):
+        # sns.set_palette("Purples_r")
+
+        clusterData = self.df[self.df["Varsta"] == age]
+        clusterData = clusterData[clusterData["Sex"] == gender]
+        clusterData["forma_boala"] = clusterData["forma_boala"].astype(int)
+        cols = ["Zile_spitalizare", "zile_ATI", "Comorbiditati", "stare_externare", 'forma_boala']
+        print(clusterData.columns.get_loc("forma_boala"))
+        print(clusterData.columns.tolist())
+        print(clusterData.get("forma_boala", default="Name is not present"))
+
+        pp = sns.pairplot(self.df[cols], palette="Set2",
+                          diag_kind="kde", hue='forma_boala', markers=["s", "D", "^"])
+        fig = pp.fig
+        fig.subplots_adjust(top=0.93, wspace=0.3)
+        t = fig.suptitle('Clustered data based on a given age and gender', fontsize=14)
+        plt.savefig(filename)
+        plt.show()
+
+        filename += ".png"
+
+        return filename
 
 
 if __name__ == '__main__':
     d = DataAnalysis("csv_dataset.csv")
+    d.clusteringData("", 53, 1)
     d.describe()
     # d.pltReleaseState()

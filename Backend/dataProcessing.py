@@ -57,7 +57,7 @@ class DataProcessing:
             self.dataset = dataset
             self.df = pd.DataFrame(self.dataset)
 
-            self.boala = None
+            self.comorbidityCounts = None
 
             self.comorbiditati = self.changeComorbiditati()
             self.changeDiagnos()
@@ -168,11 +168,11 @@ class DataProcessing:
 
     def changeComorbiditati(self):
         """
-        Mambo Jumbo <- TO BE CHANGED, WE DON'T KNOW WHAT IS THIS FOR NOW
+        Calculating the weight for each Illness
         :returns: Dictionary[illness code: weight]
         """
-        self.boala = pd.DataFrame()
-        self.boala = self.boalaDataset()
+        self.comorbidityCounts = pd.DataFrame()
+        self.comorbidityCounts = self.comorbidityCountsDataset()
 
         weight = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0}
 
@@ -182,13 +182,13 @@ class DataProcessing:
         for i in range(0, 5):
             weight[i] = forma_weight[i] * (1 - count_forma[i] / total_count)
 
-        col_names = self.boala.index
+        col_names = self.comorbidityCounts.index
         forma = {0: 'Vindecat', 1: 'Ameliorat', 2: 'Stationar', 3: 'Agravat', 4: 'Decedat'}
-        d = {}
+        comorbidityWeights = {}
         for names in col_names:
-            d[names] = 0
+            comorbidityWeights[names] = 0
             for i in range(0, 5):
-                d[names] += self.boala[forma[i]][names] * weight[i]
+                comorbidityWeights[names] += self.comorbidityCounts[forma[i]][names] * weight[i]
 
         indx = 0
         self.comorb = dict()
@@ -202,8 +202,8 @@ class DataProcessing:
                 self.comorb[indx] = regspt
                 for comb in comb_list:
                     comb = comb.split(" ", 1)[0]
-                    if comb in d:
-                        comb_weight += d[comb]
+                    if comb in comorbidityWeights:
+                        comb_weight += comorbidityWeights[comb]
                 self.df["Comorbiditati"][indx] = float(comb_weight)
             else:
                 self.df["Comorbiditati"][indx] = 0
@@ -217,8 +217,8 @@ class DataProcessing:
         csv_file = "csv_comorb_weight.csv"
         try:
             with open(csv_file, 'w') as f:
-                for key in d.keys():
-                    f.write("%s,%s\n" % (key, d[key]))
+                for key in comorbidityWeights.keys():
+                    f.write("%s,%s\n" % (key, comorbidityWeights[key]))
         except IOError:
             print("I/O error")
         csv_filecm = "csv_comorbiditati.csv"
@@ -228,7 +228,7 @@ class DataProcessing:
                     f.write("%s,%s\n" % (key, self.comorb[key]))
         except IOError:
             print("I/O error")
-        return d
+        return comorbidityWeights
 
     def changeDiagnos(self):
         """
@@ -259,39 +259,39 @@ class DataProcessing:
         self.df["Diag_pr_ext"] = self.df["Diag_pr_ext"].fillna(method='bfill')
         self.df["Diag_pr_ext"] = self.df["Diag_pr_ext"].astype(float)
 
-    def boalaDataset(self):
+    def comorbidityCountsDataset(self):
         """
         Creates a dictionary with every illness and how many people had each type of severity.
         :returns: DataFrame
         """
         try:
             self.com_ext = self.df[["Comorbiditati", "stare_externare"]]
-            db = {}
-            g = open("text-comorbiditati.txt", "r")
-            r = csv.reader(g)
-            for row in r:
+            comorbidityCountMatrix = {}
+            comorbidityFile = open("text-comorbiditati.txt", "r")
+            comorbidityNames = csv.reader(comorbidityFile)
+            for row in comorbidityNames:
                 # count, vindecat, ameliorat, stationar, agravat, decedat
-                ds = row[0].split(" ", 1)[0]
-                db[ds] = [0, 0, 0, 0, 0, 0]
-                for cr, ext in self.com_ext.itertuples(index=False):
-                    if type(cr) is str and row[0] in cr:
-                        db[ds][0] = db[ds][0] + 1
-                        db[ds][int(ext) + 1] = db[ds][int(ext) + 1] + 1
+                identifierUniqueCode = row[0].split(" ", 1)[0]
+                comorbidityCountMatrix[identifierUniqueCode] = [0, 0, 0, 0, 0, 0]
+                for comorbidityColumn, outcome in self.com_ext.itertuples(index=False):
+                    if type(comorbidityColumn) is str and row[0] in comorbidityColumn:
+                        comorbidityCountMatrix[identifierUniqueCode][0] = comorbidityCountMatrix[identifierUniqueCode][0] + 1
+                        comorbidityCountMatrix[identifierUniqueCode][int(outcome) + 1] = comorbidityCountMatrix[identifierUniqueCode][int(outcome) + 1] + 1
             dictr = {}
-            for key, value in db.items():
+            for key, value in comorbidityCountMatrix.items():
                 dis = key.split(" ", 1)
                 dictr[dis[0]] = value[5]
-            g.close()
+            comorbidityFile.close()
 
-            self.boala = pd.DataFrame(db)
-            self.boala = self.boala.transpose()
-            self.boala.rename(
+            self.comorbidityCounts = pd.DataFrame(comorbidityCountMatrix)
+            self.comorbidityCounts = self.comorbidityCounts.transpose()
+            self.comorbidityCounts.rename(
                 columns={0: 'Count', 1: 'Vindecat', 2: 'Ameliorat', 3: 'Stationar', 4: 'Agravat', 5: 'Decedat'},
                 inplace=True, errors="raise")
         except IOError:
-            self.boala = pd.DataFrame()
+            self.comorbidityCounts = pd.DataFrame()
 
-        return self.boala
+        return self.comorbidityCounts
 
     def featureCross(self):
         '''

@@ -22,6 +22,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { StatisticsPanelComponent } from './statistics-panel/statistics-panel.component';
+import { ClusterStatisticsPanelComponent } from './cluster-statistics-panel/cluster-statistics-panel.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
     NavbarComponent,
     PatientListComponent,
     PatientFormComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    StatisticsPanelComponent,
+    ClusterStatisticsPanelComponent
   ],
   imports: [
     BrowserModule,

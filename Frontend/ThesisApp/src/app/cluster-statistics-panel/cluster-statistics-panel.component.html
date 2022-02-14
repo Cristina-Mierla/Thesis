@@ -1,0 +1,33 @@
+<div class="container col-sm-8">
+  <div class="row align-items-center form-group order-1 p-4">
+    <h1>Clustering base on age and gender</h1>
+  </div>
+  <div class="row align-items-center form-group">
+    <div class="col">
+      <label for="ageLabel">Age</label>
+      <input type="age" class="form-control custom-input" id="ageInput" aria-describedby="age" placeholder="Age" [(ngModel)]="age" #ctrl="ngModel">
+    </div>
+    <div class="col">
+    </div>
+    <div class="col">
+      <label for="genderLabel">Gender</label>
+      <br>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active custom-button">
+          <input type="radio" name="options" id="option1" autocomplete="off" checked>
+           <button class="clear-button" (click)="setMaleGender()">Male</button>
+        </label>
+        <label class="btn btn-secondary custom-button">
+          <input type="radio" name="options" id="option2" autocomplete="off">
+          <button class="clear-button" (click)="setFemaleGender()">Female</button>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-row-reverse">
+    <button type="submit" class="btn btn-primary custom-button p-2" (click)="this.getStatistic()">Submit</button>
+  </div>
+  <div class="row align-items-center form-group"  *ngIf="showImage">
+    <img [src]=imageUrl>
+  </div>
+</div>

@@ -32,6 +32,14 @@ export class PatientsService {
     return await firstValueFrom(this.http.get<Patient>(`${this.patientsUrl}patientId?patient_id=${id}`));
   }
 
+  public async getStatistics(url: string): Promise<Blob> {
+    return await firstValueFrom(this.http.get(`${this.patientsUrl}${url}`, { responseType: 'blob' }));
+  }
+
+  public async getClusterStatistics(url: string, age: number, gender: number): Promise<Blob> {
+    return await firstValueFrom(this.http.get(`${this.patientsUrl}${url}?age=${age}&gender=${gender}`, { responseType: 'blob' }));
+  }
+
   public setPatientIdData(data: number){
     this.patientIdData = data;
   }

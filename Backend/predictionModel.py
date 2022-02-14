@@ -88,6 +88,8 @@ class PredictionModel:
         # self.X_test = sc_X.transform(self.X_test)
         # self.X_valid = sc_X.transform(self.X_valid)
 
+        self.my_model = None
+
         ds = tf.data.Dataset.from_tensor_slices((dict(self.X), self.X))
         ds = ds.shuffle(buffer_size=len(self.X))
 
@@ -247,25 +249,30 @@ class PredictionModel:
         batch_size = 100
 
         # Establish the model's topography.
-        my_model = self.createANNModel()
+        self.my_model = self.createANNModel()
 
         # Train the model on the normalized training set.
-        epochs, mse = self.trainANNModel(my_model, epochs, batch_size)
+        epochs, mse = self.trainANNModel(self.my_model, epochs, batch_size)
         plot_the_loss_curve(epochs, mse)
 
         sc_X = MinMaxScaler()
         print("\n Evaluate the linear regression model against the test set:")
         features_test = {name: np.array(value) for name, value in self.X_test.items()}
         label_test = np.array(self.Y_test)
-        my_model.evaluate(x=features_test, y=label_test, batch_size=batch_size)
+        self.my_model.evaluate(x=features_test, y=label_test, batch_size=batch_size)
 
         validation = {name: np.array(value) for name, value in self.X_valid.items()}
         validation_labels = np.array(self.Y_valid).transpose()
-        prediction = my_model.predict(validation)
+        prediction = self.my_model.predict(validation)
         predicted_vals = np.array(prediction)
         # print(predicted_vals, '\n', validation_labels)
         # print(validation)
         visualize_data(validation, validation_labels, validation, predicted_vals)
+
+    def predict(self, values):
+
+        prediction = self.my_model.predict(values)
+        predicted_vals = np.array(prediction)
 
 
 if __name__ == '__main__':
