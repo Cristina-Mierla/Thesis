@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="p-2"></div>
-  <ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" list-group ">
+  <!-- <ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" list-group ">
     <li class="list-group-item d-flex justify-content-between custom-font">
       Patient Id:{{patient.Id}} Age: {{patient.Age}} Gender: {{genderMap[patient.Gender]}}
       <span></span>
@@ -23,7 +23,41 @@
       <span class="badge rounded-pill {{colorMap[patient.Outcome]}}" style="font-family: Arial, Helvetica, sans-serif;">{{release[patient.Outcome]}}</span>
       <span type="button" (click)="loadPatientId(patient.Id)" routerLink="/patient/{{patient.Id}}" class="btn badge rounded-pill bg-secondary" style="font-family: Arial, Helvetica, sans-serif;" >view</span>
     </li>
-  </ul>
+  </ul> -->
+  <table class="table table-hover">
+    <caption>List of patients</caption>
+    <thead>
+      <tr>
+        <th scope="col">Patient Id</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+
+        <th scope="col"><a class="float-right">Outcome</a></th>
+        <th scope="col"><a class="float-right">Raport</a></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" ">
+      <tr>
+        <th scope="row">{{patient.Id}}</th>
+        <td>{{patient.Age}}</td>
+        <td>{{genderMap[patient.Gender]}}</td>
+
+        <td>
+          <span class="badge rounded-pill {{colorMap[patient.Outcome]}} float-right"
+          style="font-family: Arial, Helvetica, sans-serif;">{{release[patient.Outcome]}}
+        </span>
+        </td>
+        <td>
+          <span type="button"
+          (click)="loadPatientId(patient.Id)"
+          routerLink="/patient/{{patient.Id}}"
+          class="btn badge rounded-pill bg-secondary float-right"
+          style="font-family: Arial, Helvetica, sans-serif;">view
+        </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <div class="p-2"></div>
   <pagination-controls class="pagination-select pagination" (pageChange)="p = $event"></pagination-controls>
 </div>
