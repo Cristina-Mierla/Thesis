@@ -4,7 +4,7 @@
     <fieldset disabled>
       <div class="mb-3">
         <h2 for="idLabel">Patient Id: {{ patient?.Id }}</h2>
-        <small id="idHelp" class="form-text text-muted">This is the unique identifier of the patient.</small>
+        <small id="idHelp" class="form-text text-muted custom-small">This is the unique identifier of the patient.</small>
       </div>
     </fieldset>
     <div>
@@ -15,7 +15,7 @@
           </div>
           <div class="col"></div>
           <div class="col">
-            <h2 for="genderLabel">Gender: {{ patient?.Gender }}</h2>
+            <h2 for="genderLabel">Gender: {{ genderMap[patient.Gender] }}</h2>
           </div>
         </div>
         <div class="p-1"></div>

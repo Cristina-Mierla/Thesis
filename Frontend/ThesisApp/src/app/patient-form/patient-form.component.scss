@@ -20,6 +20,18 @@
   margin-top: 1rem;
 }
 
+.clear-button {
+  background-color: transparent;
+  border-color: transparent;
+  color: inherit;
+}
+
+::ng-deep {
+  .mat-simple-snackbar-action, .mat-button {
+    color: var(--button-focus);
+  }
+}
+
 ::ng-deep {
   .mat-chip.mat-standard-chip {
     border-color: var(--button-focus);

@@ -4,8 +4,8 @@
   <fieldset disabled>
     <div class="mb-3">
       <label for="idLabel">Patient Id</label>
-      <input type="id" class="form-control custom-input disabled-input" id="idInput" aria-describedby="id" placeholder="Id">
-      <small id="idHelp" class="form-text text-muted">This is the unique identifier of the patient.</small>
+      <input type="id" class="form-control custom-input disabled-input col" id="idInput" aria-describedby="id" placeholder="Id">
+      <small id="idHelp" class="form-text text-muted col">This is the unique identifier of the patient.</small>
     </div>
   </fieldset>
   <div>
@@ -13,18 +13,21 @@
       <div class="row align-items-center form-group">
         <div class="col">
           <label for="ageLabel">Age</label>
-          <input type="age" class="form-control custom-input" id="ageInput" aria-describedby="age" placeholder="Age">
+          <input type="age" class="form-control custom-input" id="ageInput" aria-describedby="age" placeholder="Age" name="agetag" [(ngModel)]="age" #ctrl="ngModel">
         </div>
         <div class="col">
         </div>
         <div class="col">
-          <label for="genderLabel">Gender</label> <br>
+          <label for="genderLabel">Gender</label>
+          <br>
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary active custom-button">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked> Male
+              <input type="radio" name="options" id="option1" autocomplete="off" checked>
+              <button class="clear-button" (click)="setMaleGender()">Male</button>
             </label>
             <label class="btn btn-secondary custom-button">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Female
+              <input type="radio" name="options" id="option2" autocomplete="off">
+              <button class="clear-button" (click)="setFemaleGender()">Female</button>
             </label>
           </div>
         </div>
@@ -32,13 +35,13 @@
       <div class="row align-items-center form-group custom-margin">
         <div class="col">
           <label for="hospLabel">Days spent in hospitalization</label>
-          <input type="hosp" class="form-control custom-input" id="hospInput" aria-describedby="hosp" placeholder="Hospitalization">
+          <input type="hosp" class="form-control custom-input" id="hospInput" aria-describedby="hosp" placeholder="Hospitalization" name="spitaltag" [(ngModel)]="zspital" #ctrl="ngModel">
         </div>
         <div class="col">
         </div>
         <div class="col">
           <label for="icuLabel">Days spent in ICU</label>
-          <input type="icu" class="form-control custom-input" id="icuInput" aria-describedby="icu" placeholder="ICU">
+          <input type="icu" class="form-control custom-input" id="icuInput" aria-describedby="icu" placeholder="ICU" name="icutag" [(ngModel)]="zicu" #ctrl="ngModel">
         </div>
       </div>
       <div class="row align-items-center form-group custom-margin">

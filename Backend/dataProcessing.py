@@ -298,8 +298,10 @@ class DataProcessing:
                 comorbidityCountMatrix[identifierUniqueCode] = [0, 0, 0, 0, 0, 0]
                 for comorbidityColumn, outcome in self.com_ext.itertuples(index=False):
                     if type(comorbidityColumn) is str and row[0] in comorbidityColumn:
-                        comorbidityCountMatrix[identifierUniqueCode][0] = comorbidityCountMatrix[identifierUniqueCode][0] + 1
-                        comorbidityCountMatrix[identifierUniqueCode][int(outcome) + 1] = comorbidityCountMatrix[identifierUniqueCode][int(outcome) + 1] + 1
+                        comorbidityCountMatrix[identifierUniqueCode][0] = comorbidityCountMatrix[identifierUniqueCode][
+                                                                              0] + 1
+                        comorbidityCountMatrix[identifierUniqueCode][int(outcome) + 1] = \
+                            comorbidityCountMatrix[identifierUniqueCode][int(outcome) + 1] + 1
             dictr = {}
             for key, value in comorbidityCountMatrix.items():
                 dis = key.split(" ", 1)
@@ -323,6 +325,72 @@ class DataProcessing:
         '''
         self.df["DiagExt-Int"] = self.df["Diag_pr_ext"] - self.df["Diag_pr_int"]
         self.df["ZileMed"] = self.df["zile_ATI"] / self.df["Zile_spitalizare"]
+
+    def prediction(self, prediction_data):
+        # prediction_data = [age, sex, diagnos_int, spitalizare, ati, analize, id]
+
+        age = prediction_data[0]
+        sex = prediction_data[1]
+        diag_init = prediction_data[2]
+        zile_spit = prediction_data[3]
+        zile_ati = prediction_data[4]
+        analize = prediction_data[5]
+        comorb = prediction_data[6]
+
+        print("\n\tPREDICTION\n")
+        # newdataset = self.df.drop(["Sex", "Varsta", "Zile_spitalizare", "zile_ATI", "Diag_pr_int", 'Analize_prim_set', "Comorbiditati", "Diag_pr_ext", "stare_externare", "forma_boala"], axis=0, inplace=False)
+        newdataset = self.df.drop(
+            range(1, self.df.shape[0]), axis=0, inplace=False)
+        newdataset = newdataset.drop(["stare_externare", "forma_boala"], axis='columns')
+        for column in newdataset.columns:
+            newdataset[column] = 0
+
+        newsex = 0
+        if sex == 'Female':
+            newsex = 0
+        else:
+            newsex = 1
+        try:
+            diag = self.comorbiditati[diag_init]
+        except KeyError:
+            diag = 0
+
+        analize_list = analize.split(" || ")
+        for analiza in analize_list:
+            try:
+                analiza_name, rest = analiza.split(" - ", 1)
+                result, ignore = rest.split(" ", 1)
+                result = result.replace("<", "")
+                analiza_name = analiza_name.replace(" ", "")
+                result_int = float(result)
+                try:
+                    newdataset[analiza_name][0] = result_int
+                except:
+                    newdataset[analiza_name] = np.zeros(self.df.shape[0], dtype=int)
+                    newdataset[analiza_name][0] = result_int
+                    pd.to_numeric(newdataset[analiza_name])
+            except:
+                pass
+
+        newcomorb = 0
+        comorb_list = comorb.split(",")
+        for comb in comorb_list:
+            try:
+                newcomorb += float(self.comorbiditati[comb])
+            except KeyError:
+                newcomorb += 0
+
+        newdataset["Comorbiditati"][0] = newcomorb
+        newdataset["Varsta"][0] = age
+        newdataset["Sex"][0] = newsex
+        newdataset["Diag_pr_int"][0] = diag
+        newdataset["Diag_pr_ext"][0] = 0
+        newdataset["Zile_spitalizare"][0] = zile_spit
+        newdataset["zile_ATI"][0] = zile_ati
+
+        print(newdataset)
+
+        return newdataset
 
 
 if __name__ == '__main__':

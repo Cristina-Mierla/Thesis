@@ -1,6 +1,7 @@
 from __future__ import division
 from Backend import dataProcessing as dp, dataAnalysis as da
 import pandas as pd
+import pickle
 import re
 import numpy as np
 import matplotlib.pyplot as plt
@@ -270,9 +271,17 @@ class PredictionModel:
         visualize_data(validation, validation_labels, validation, predicted_vals)
 
     def predict(self, values):
+        # self.my_model = pickle.load(open('model.pkl', 'rb'))
 
         prediction = self.my_model.predict(values)
         predicted_vals = np.array(prediction)
+        print(predicted_vals)
+        predicted_vals_proba = self.my_model.predict_proba(values)
+        print(predicted_vals_proba)
+
+        # pickle.dump(self.model, open('model.pkl', 'wb'))
+
+        return predicted_vals, predicted_vals_proba
 
 
 if __name__ == '__main__':

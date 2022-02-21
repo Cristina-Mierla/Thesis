@@ -68,19 +68,37 @@ def getStatistic3():
         return "Invalid request", 400
 
 
-# @app.route('/prediction', methods=['PUT'])
-# def getPredict():
-#     if request:
-#         form = request.form
-#
-#         age = json.loads(form["RiskPred"])["Age"]
-#         sex = json.loads(form["RiskPred"])["Gender"]
-#         diagnos_int = json.loads(form["RiskPred"])["Admission_diagnostic"]
-#         spitalizare = json.loads(form["RiskPred"])["Hospitalization"]
-#         ati = json.loads(form["RiskPred"])["ATI"]
-#         analize = json.loads(form['RiskPred'])['Analyzes']
-#         comorb = json.loads(form['RiskPred'])['Comorbidities']
-#         id = json.loads(form['RiskPred'])['Id']
+@app.route('/prediction', methods=['PUT'])
+def getPredict():
+    if request:
+        age = int(request.args.get("Age"))
+        sex = int(request.args.get("Gender"))
+        diagnos_int = request.args.get("Admission_diagnostic")
+        spitalizare = int(request.args.get("Hospitalization"))
+        ati = int(request.args.get("ATI"))
+        analize = request.args.get('Analyzes')
+        comorb = request.args.get('Comorbidities')
+        id = int(request.args.get('Id'))
+
+        prediction_data = [age, sex, diagnos_int, spitalizare, ati, analize, comorb, id]
+
+        prediction_result, prediction_percentage = service.makePrediction(prediction_data)
+
+        label = {0: 'Cured', 1: 'Improved', 2: 'Stationary', 3: 'Worsened', 4: 'Deceased'}
+
+        result = "The patient has a high chance to be release as: {}\n\n".format(label[prediction_result[0]])
+
+        for i in range(0, 5):
+            aux = "\t{:20} -> {}%\n".format(label[i], round(prediction_percentage[0][i] * 100, 0))
+            result = result + aux
+
+        print(result)
+
+        return result, 200
+
+    else:
+
+        return "Invalid request", 400
 
 
 if __name__ == '__main__':

@@ -1,3 +1,4 @@
+import pickle
 import numpy as np
 import pandas as pd
 import csv
@@ -5,6 +6,7 @@ from datetime import date, datetime
 
 from Backend.dataAnalysis import DataAnalysis
 from Backend.dataProcessing import DataProcessing
+from Backend.predictionModel import PredictionModel
 
 
 class Service:
@@ -48,6 +50,8 @@ class Service:
         #     print("The file does not exist")
 
         self.dataAnalysis.setDataset(self.df)
+
+        #self.modelClass = PredictionModel(self.df)
 
     def getPatientHeadList(self):
         array = []
@@ -103,6 +107,12 @@ class Service:
             }
 
         return result
+
+    def makePrediction(self, prediction_data):
+        # self.model = pickle.load(open('model.pkl', 'rb'))
+        prediction_set = self.processData.predict(prediction_data)
+
+        pass
 
     def getStatistics1(self):
         dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")

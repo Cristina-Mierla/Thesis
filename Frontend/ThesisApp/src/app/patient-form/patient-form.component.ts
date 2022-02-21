@@ -9,6 +9,7 @@ import { map, startWith } from 'rxjs/operators';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { comorbiditiList } from '../constants/constants';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-patient-form',
   templateUrl: './patient-form.component.html',
@@ -25,11 +26,19 @@ export class PatientFormComponent implements OnInit {
 
   chosenComorbidities: string[] = [];
   initialDiagnosis?: string = undefined;
+  age!: number;
+  zspital!: number;
+  zicu!: number;
+  gender!: number;
+
+  newPatient?: Patient;
 
   @ViewChild('comorbInput') comorbInput!: ElementRef<HTMLInputElement>;
   @ViewChild('diagnosInput') diagnosInput!: ElementRef<HTMLInputElement>;
 
-  constructor(private patientsService: PatientsService, private route: ActivatedRoute) {
+  constructor(private patientsService: PatientsService,
+    private route: ActivatedRoute,
+    private _snackBar: MatSnackBar) {
     this.filteredComorbidities = this.comorbiditiesCtrl.valueChanges.pipe(
       startWith(null),
       map((comorb: string | null) => (comorb ? this._filter(comorb) : this.allComorbidities.slice())),
@@ -107,6 +116,33 @@ export class PatientFormComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.allComorbidities.filter(comorb => comorb.toLowerCase().includes(filterValue));
+  }
+
+  setMaleGender() {this.gender = 1;}
+
+  setFemaleGender() {this.gender = 0;}
+
+  submitData(): Patient | undefined {
+    if (!(this.age && this.gender && this.zspital && this.zicu && this.initialDiagnosis && this.chosenComorbidities)){
+      let snackBarRef = this._snackBar.open('Please input a valid age', 'Ok', {
+        horizontalPosition: 'center', verticalPosition: 'bottom',
+      });
+    } else {
+      this.newPatient = {
+        Id: 0,
+        Age: this.age,
+        Gender: this.gender,
+        Hosp: this.zspital,
+        Icu: this.zicu,
+        Diag: this.initialDiagnosis,
+        Comb: [''],
+        Med: [""],
+        Anlz: [""],
+        Release: 0
+      };
+    }
+
+    return this.newPatient;
   }
 
 }

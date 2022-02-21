@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Gender } from '../enums/gender';
 import { Patient } from '../models/patient';
 import { PatientsService } from '../services/patients.service';
 
@@ -10,6 +11,7 @@ import { PatientsService } from '../services/patients.service';
 })
 export class PatientDetailsComponent implements OnInit {
 
+  genderMap = Gender;
   patient!: Patient;
   public id: number = 0;
 
