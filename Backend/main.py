@@ -68,19 +68,22 @@ def getStatistic3():
         return "Invalid request", 400
 
 
-@app.route('/prediction', methods=['PUT'])
+@app.route('/prediction', methods=['POST'])
 def getPredict():
     if request:
-        age = int(request.args.get("Age"))
-        sex = int(request.args.get("Gender"))
-        diagnos_int = request.args.get("Admission_diagnostic")
-        spitalizare = int(request.args.get("Hospitalization"))
-        ati = int(request.args.get("ATI"))
-        analize = request.args.get('Analyzes')
-        comorb = request.args.get('Comorbidities')
-        id = int(request.args.get('Id'))
+        json = request.get_json(force=True)
+        print(json)
+        age = int(json["Age"])
+        sex = json["Gender"]
+        diagnos_int = json["Diag"]
+        spitalizare = int(json["Hosp"])
+        ati = int(json["Icu"])
+        medication = json['Med'][0]
+        analize = json['Anlz'][0]
+        comorb = json['Comb']
+        id = json['Id']
 
-        prediction_data = [age, sex, diagnos_int, spitalizare, ati, analize, comorb, id]
+        prediction_data = [age, sex, diagnos_int, spitalizare, ati, analize, medication, comorb, id]
 
         prediction_result, prediction_percentage = service.makePrediction(prediction_data)
 

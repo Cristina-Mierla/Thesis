@@ -3,9 +3,11 @@
   <div class="col order-1 p-4"></div>
   <fieldset disabled>
     <div class="mb-3">
-      <label for="idLabel">Patient Id</label>
-      <input type="id" class="form-control custom-input disabled-input col" id="idInput" aria-describedby="id" placeholder="Id">
-      <small id="idHelp" class="form-text text-muted col">This is the unique identifier of the patient.</small>
+      <div class="col">
+        <label for="idLabel">Patient Id</label>
+        <input type="id" class="form-control custom-input disabled-input col" id="idInput" aria-describedby="id" placeholder="Id">
+        <small id="idHelp" class="form-text text-muted col">This is the unique identifier of the patient.</small>
+      </div>
     </div>
   </fieldset>
   <div>
@@ -42,6 +44,20 @@
         <div class="col">
           <label for="icuLabel">Days spent in ICU</label>
           <input type="icu" class="form-control custom-input" id="icuInput" aria-describedby="icu" placeholder="ICU" name="icutag" [(ngModel)]="zicu" #ctrl="ngModel">
+        </div>
+      </div>
+      <div class="row align-items-center form-group custom-margin mb-3">
+        <div class="col">
+          <label>Tests run during their stay</label>
+          <input type="tests" class="form-control custom-input" id="testsInput" aria-describedby="tests" placeholder="Tests and analysis" name="testtag" [(ngModel)]="tests" #ctrl="ngModel">
+          <small id="testsHelp" class="form-text text-muted col">Example: UREA - 20 mg/dl) (13 - 43) || GLICEMIE - 121 mg/dl) (70 - 110 ) || ASAT/GOT - 79 U/l) (0 - 35) || ALAT/GPT - 61 U/L) (0 - 45) || Creatinina - 1.07 mg/dl) (0.67 - 1.17) || LDH - 750 U/L) (0 - 450) || Proteina C reactiva - 61 mg/L) (0 - 10) || Timp de protrombina - 17.8 sec) (13 - 18) || AP (%) - 93.9 %) (80 - 130 ) || INR - 1.12 ) (0.8 - 1.2 ) || APTT (sec) - 26.8 sec) (20 - 38) || APTT-ratio - 0.94 ) (0.7 - 1.3) || FIB (mg/dl) - 671.7 mg/dl) (180 - 450 ) || D dimeri  * - 86.1 ng/ml) (0 - 500) || Troponina T - HS * - &lt;40 ng/L) (0 - 14 ) || Leucocite - 4.88 *10³/µL) (4 - 11) || BAS# - 0.01 *10³/µL) (0.00 - 0.13) || BAS% - 0.2 %) (0 - 1) || NEU# - 4.29 *10³/µL) (1.8 - 7.4) || NEU% - 87.9 %) (30 - 75) || EOS# - 0.00 *10³/µL) (0.02 - 0.67) || EOS% - 0.0 %) (0 - 6) || LY# - 0.37 *10³/µL) (1.5 - 3.5) || LY% - 7.5 %) (20 - 40) || MO# - 0.21 *10³/µL) (0.2 - 1) || MO% - 4.4 %) (2 - 10) || Hematii - 4.87 10³*10³/µl) (4.5 - 6.0) || Hemoglobina - 12.9 g/dl) (13.5 - 17) || Volum eritrocitar mediu - 79.8 fL) (78 - 100) || Hemoglobina eritrocitara medie - 26.5 pg/cel) (27 - 32) || Conc. medie de hemoglobina/eritrocit - 33.2 g/dl) (32 - 36) || RDW-CV - 14.2 %) (9 - 15) || RDW-SD - 41.6 fL) (38.2 - 49.2) || Hematocrit - 38.9 %) (40 - 54) || Trombocite - 203 *10³/µL) (150 - 400) || MPV - 8.1 fL) (9.1 - 12) || PDW - 16.3 fL) (11 - 18) || PCT - 0.165 fL) (0.15 - 0.5) </small>
+        </div>
+      </div>
+      <div class="row align-items-center form-group custom-margin mb-3">
+        <div class="col">
+          <label>Medication they received during their stay</label>
+          <input type="medication" class="form-control custom-input" id="medicationInput" aria-describedby="medication" placeholder="Medication received" name="medicationtag" [(ngModel)]="medication" #ctrl="ngModel">
+          <small id="medicationHelp" class="form-text text-muted col">Example: algocalmin sol inj 1 g/2 ml || azitrox (r) 500 || cefort 1 g || clorura de sodiu 0,9% pl 500 ml || clorura de sodiu 0.9%-250 ml || codeina fosforica  eel 15 mg || dexametazona rompharm 4 mg/ml || digoxin 0.25 tb || enterolactis plus 3 g || fraxiparine 5700 ui anti-factor xa/0,6 ml || furosemid 40mg cpr. || furosemid sol inj 20 mg/2 ml || hydroxychloroquine sulphate tablets, 200 mg || lopinavir and ritonavir tablets  200 mg/50mg || pantoprazol sun 40 mg || paracetamol b.braun 10 mg/ml || plaquenil 200mg || quamatel 20mg/5ml f || sintrom 4mg cpr || spironolactona bioeel 25 mg || vitamina b1 sol inj 100 mg/2 ml || vitamina b6 sol inj 50 mg/2 ml </small>
         </div>
       </div>
       <div class="row align-items-center form-group custom-margin">
@@ -109,6 +125,6 @@
     </div>
   </div>
   <div class="col order-1 p-4"></div>
-  <button type="submit" class="btn btn-primary custom-button">Submit</button>
+  <button type="submit" class="btn btn-primary custom-button" (click)="submitData()" >Submit</button>
 </form>
 </div>

@@ -110,9 +110,10 @@ class Service:
 
     def makePrediction(self, prediction_data):
         # self.model = pickle.load(open('model.pkl', 'rb'))
-        prediction_set = self.processData.predict(prediction_data)
+        print(prediction_data)
+        prediction_set = self.processData.prediction(prediction_data)
 
-        pass
+        return [1], 'maca'
 
     def getStatistics1(self):
         dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")

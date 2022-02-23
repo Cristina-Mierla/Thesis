@@ -55,7 +55,7 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
   color: var(--button-font);
 }
 
-.custom-button:focus {
+.custom-button:focus, .custom-button:active {
   box-shadow: 0 0 0 0.15rem var(--button-focus);
   border-color: var(--button-focus);
   background-color: var(--button-focus);
@@ -64,10 +64,12 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
 
 .custom-button:not(:disabled):not(.disabled).active,
 .custom-button .active,
-.custom-button:hover {
-  border-color: var(--button-focus);
-  background-color: var(--button-focus);
-  color: var(--button-font2);
+.custom-button:hover,
+.custom-button:active {
+  box-shadow: 0 0 0 0.15rem var(--button-focus) !important;
+  border-color: var(--button-focus) !important;
+  background-color: var(--button-focus) !important;
+  color: var(--button-font2) !important;
 }
 
 .custom-input {

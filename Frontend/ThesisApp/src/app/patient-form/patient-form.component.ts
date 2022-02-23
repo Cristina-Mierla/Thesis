@@ -29,9 +29,12 @@ export class PatientFormComponent implements OnInit {
   age!: number;
   zspital!: number;
   zicu!: number;
-  gender!: number;
+  gender: number = 1;
+  tests!: string;
+  medication!: string;
 
   newPatient?: Patient;
+  result!: string;
 
   @ViewChild('comorbInput') comorbInput!: ElementRef<HTMLInputElement>;
   @ViewChild('diagnosInput') diagnosInput!: ElementRef<HTMLInputElement>;
@@ -122,27 +125,52 @@ export class PatientFormComponent implements OnInit {
 
   setFemaleGender() {this.gender = 0;}
 
-  submitData(): Patient | undefined {
-    if (!(this.age && this.gender && this.zspital && this.zicu && this.initialDiagnosis && this.chosenComorbidities)){
-      let snackBarRef = this._snackBar.open('Please input a valid age', 'Ok', {
-        horizontalPosition: 'center', verticalPosition: 'bottom',
-      });
-    } else {
+  async submitData(): Promise<Patient | undefined> {
+    console.log(this.age)
+    console.log(this.gender)
+    console.log(this.zicu)
+    console.log(this.zspital)
+    console.log(this.initialDiagnosis)
+    console.log(this.medication)
+    console.log(this.tests)
+    if (this.verifiyFields()){
       this.newPatient = {
         Id: 0,
         Age: this.age,
         Gender: this.gender,
         Hosp: this.zspital,
         Icu: this.zicu,
-        Diag: this.initialDiagnosis,
-        Comb: [''],
-        Med: [""],
-        Anlz: [""],
+        Diag: this.initialDiagnosis as string,
+        Comb: this.chosenComorbidities,
+        Med: [this.medication],
+        Anlz: [this.tests],
         Release: 0
       };
+      this.result = await this.patientsService.makePrediction(this.newPatient);
+    } else {
+      this._snackBar.open('The values you submmited are incorect. Please try again!', 'Ok', {
+        horizontalPosition: 'center', verticalPosition: 'bottom',
+      });
     }
 
     return this.newPatient;
   }
 
+  private verifiyFields(): boolean {
+    if (this.age != undefined &&
+      this.gender != undefined &&
+      this.zspital != undefined &&
+      this.zicu != undefined &&
+      this.chosenComorbidities != undefined &&
+      this.initialDiagnosis != undefined &&
+      this.medication != undefined &&
+      this.tests != undefined) {
+        return true
+      } else {
+        return false;
+      }
+  }
+
 }
+
+

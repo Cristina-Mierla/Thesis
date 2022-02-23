@@ -330,28 +330,24 @@ class DataProcessing:
         # prediction_data = [age, sex, diagnos_int, spitalizare, ati, analize, id]
 
         age = prediction_data[0]
-        sex = prediction_data[1]
+        gender = prediction_data[1]
         diag_init = prediction_data[2]
         zile_spit = prediction_data[3]
         zile_ati = prediction_data[4]
         analize = prediction_data[5]
-        comorb = prediction_data[6]
+        medication = prediction_data[6]
+        comorb = prediction_data[7]
 
         print("\n\tPREDICTION\n")
         # newdataset = self.df.drop(["Sex", "Varsta", "Zile_spitalizare", "zile_ATI", "Diag_pr_int", 'Analize_prim_set', "Comorbiditati", "Diag_pr_ext", "stare_externare", "forma_boala"], axis=0, inplace=False)
         newdataset = self.df.drop(
             range(1, self.df.shape[0]), axis=0, inplace=False)
-        newdataset = newdataset.drop(["stare_externare", "forma_boala"], axis='columns')
+        newdataset = newdataset.drop(["stare_externare", "forma_boala", "DiagExt-Int", "ZileMed"], axis='columns')
         for column in newdataset.columns:
             newdataset[column] = 0
 
-        newsex = 0
-        if sex == 'Female':
-            newsex = 0
-        else:
-            newsex = 1
         try:
-            diag = self.comorbiditati[diag_init]
+            diag = self.comorbiditati[diag_init.split(" ")[0]]
         except KeyError:
             diag = 0
 
@@ -364,32 +360,41 @@ class DataProcessing:
                 analiza_name = analiza_name.replace(" ", "")
                 result_int = float(result)
                 try:
-                    newdataset[analiza_name][0] = result_int
+                    newdataset[analiza_name, 0] = result_int
                 except:
-                    newdataset[analiza_name] = np.zeros(self.df.shape[0], dtype=int)
-                    newdataset[analiza_name][0] = result_int
+                    newdataset[analiza_name] = np.zeros(newdataset.shape[0], dtype=int)
+                    newdataset[analiza_name, 0] = result_int
                     pd.to_numeric(newdataset[analiza_name])
             except:
                 pass
 
+        med_list = medication.split("|| ")
+        for med in med_list:
+            med = med.replace(" ", "")
+            try:
+                newdataset[med, 0] = 1
+            except:
+                newdataset[med] = np.zeros(newdataset.shape[0], dtype=int)
+                newdataset[med, 0] = 1
+                pd.to_numeric(newdataset[med])
+
         newcomorb = 0
-        comorb_list = comorb.split(",")
+        comorb_list = comorb
         for comb in comorb_list:
             try:
-                newcomorb += float(self.comorbiditati[comb])
+                newcomorb += float(self.comorbiditati[comb.split(" ")[0]])
             except KeyError:
                 newcomorb += 0
 
-        newdataset["Comorbiditati"][0] = newcomorb
-        newdataset["Varsta"][0] = age
-        newdataset["Sex"][0] = newsex
-        newdataset["Diag_pr_int"][0] = diag
-        newdataset["Diag_pr_ext"][0] = 0
-        newdataset["Zile_spitalizare"][0] = zile_spit
-        newdataset["zile_ATI"][0] = zile_ati
+        newdataset["Comorbiditati", 0] = newcomorb
+        newdataset["Varsta", 0] = age
+        newdataset["Sex", 0] = gender
+        newdataset["Diag_pr_int", 0] = diag
+        newdataset["Diag_pr_ext", 0] = 0
+        newdataset["Zile_spitalizare", 0] = zile_spit
+        newdataset["zile_ATI", 0] = zile_ati
 
         print(newdataset)
-
         return newdataset
 
 
