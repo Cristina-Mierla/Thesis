@@ -5,6 +5,7 @@ import { BehaviorSubject, firstValueFrom, Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { PatientItem } from '../models/patientItem';
 import { Patient } from '../models/patient';
+import { Prediction } from '../models/predictionResult';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +33,8 @@ export class PatientsService {
     return await firstValueFrom(this.http.get<Patient>(`${this.patientsUrl}patientId?patient_id=${id}`));
   }
 
-  public async makePrediction(patient: Patient): Promise<string> {
-    return await firstValueFrom(this.http.post<string>(`${this.patientsUrl}prediction`, patient));
+  public async makePrediction(patient: Patient): Promise<Prediction> {
+    return await firstValueFrom(this.http.post<Prediction>(`${this.patientsUrl}prediction`, patient));
   }
 
   public async getStatistics(url: string): Promise<Blob> {

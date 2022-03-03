@@ -10,6 +10,9 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { comorbiditiList } from '../constants/constants';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { PredictionResultComponent } from '../prediction-result/prediction-result.component';
+import { Prediction } from '../models/predictionResult';
 @Component({
   selector: 'app-patient-form',
   templateUrl: './patient-form.component.html',
@@ -34,14 +37,15 @@ export class PatientFormComponent implements OnInit {
   medication!: string;
 
   newPatient?: Patient;
-  result!: string;
+  result!: Prediction;
 
   @ViewChild('comorbInput') comorbInput!: ElementRef<HTMLInputElement>;
   @ViewChild('diagnosInput') diagnosInput!: ElementRef<HTMLInputElement>;
 
   constructor(private patientsService: PatientsService,
     private route: ActivatedRoute,
-    private _snackBar: MatSnackBar) {
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog) {
     this.filteredComorbidities = this.comorbiditiesCtrl.valueChanges.pipe(
       startWith(null),
       map((comorb: string | null) => (comorb ? this._filter(comorb) : this.allComorbidities.slice())),
@@ -126,13 +130,6 @@ export class PatientFormComponent implements OnInit {
   setFemaleGender() {this.gender = 0;}
 
   async submitData(): Promise<Patient | undefined> {
-    console.log(this.age)
-    console.log(this.gender)
-    console.log(this.zicu)
-    console.log(this.zspital)
-    console.log(this.initialDiagnosis)
-    console.log(this.medication)
-    console.log(this.tests)
     if (this.verifiyFields()){
       this.newPatient = {
         Id: 0,
@@ -147,6 +144,7 @@ export class PatientFormComponent implements OnInit {
         Release: 0
       };
       this.result = await this.patientsService.makePrediction(this.newPatient);
+      this.openDialog(this.result);
     } else {
       this._snackBar.open('The values you submmited are incorect. Please try again!', 'Ok', {
         horizontalPosition: 'center', verticalPosition: 'bottom',
@@ -169,6 +167,20 @@ export class PatientFormComponent implements OnInit {
       } else {
         return false;
       }
+  }
+
+  private openDialog(prediction : Prediction): void {
+    const dialogRef = this.dialog.open(PredictionResultComponent, {
+      width: '250px',
+      // data: {name: this.name, animal: this.animal},
+      data: prediction
+    });
+
+    this.newPatient!.Release = prediction.outcome;
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

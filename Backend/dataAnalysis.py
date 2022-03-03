@@ -4,7 +4,10 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import seaborn as sns
 from scipy.stats import pearsonr, spearmanr
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from imblearn.over_sampling import SMOTE
 import csv
 import pickle
 
@@ -255,10 +258,12 @@ class DataAnalysis:
 
         return filename
 
-    def clusteringData(self, filename, age, gender):
+    def categorizeData(self, filename, age, gender):
         # sns.set_palette("Purples_r")
 
-        clusterData = self.df[self.df["Varsta"] == int(age)]
+        oversample = SMOTE()
+        df = oversample.fit_resample(self.df)
+        clusterData = df[df["Varsta"] == int(age)]
         clusterData = clusterData[clusterData["Sex"] == int(gender)]
         cols = ["Zile_spitalizare", "zile_ATI", "Comorbiditati", "stare_externare", 'forma_boala']
 
@@ -282,9 +287,40 @@ class DataAnalysis:
 
         return filename
 
+    def clusteringData(self, filename):
+
+        data = self.df.drop(['forma_boala', "stare_externare"], axis='columns').to_numpy()
+        data = StandardScaler().fit_transform(data)
+        target = self.df['forma_boala', "stare_externare"].to_numpy()
+
+        pca = PCA(n_components=2)
+        principalComponents = pca.fit_transform(data)
+        principalDf = pd.DataFrame(data=principalComponents,
+                                   columns=['principal component 1',
+                                            'principal component 2'])
+        finalDf = pd.concat([principalDf, self.df[["stare_externare"]]], axis=1)
+
+        fig = plt.figure(figsize=(8, 8))
+        ax = fig.add_subplot(1, 1, 1)
+        ax.set_xlabel('Principal Component 1', fontsize=15)
+        ax.set_ylabel('Principal Component 2', fontsize=15)
+        ax.set_title('2 component PCA', fontsize=20)
+        targets = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
+        colors = ['r', 'g', 'b']
+        for target, color in zip(targets, colors):
+            indicesToKeep = finalDf['target'] == target
+            ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1']
+                       , finalDf.loc[indicesToKeep, 'principal component 2']
+                       , c=color
+                       , s=50)
+        ax.legend(targets)
+        ax.grid()
+
+        # plt.scatter(data)
+
 
 if __name__ == '__main__':
     d = DataAnalysis("csv_dataset.csv")
-    d.clusteringData("", 53, 1)
+    d.clusteringData("")
     d.describe()
     # d.pltReleaseState()

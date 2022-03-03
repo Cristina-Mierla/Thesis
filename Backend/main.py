@@ -86,6 +86,7 @@ def getPredict():
         prediction_data = [age, sex, diagnos_int, spitalizare, ati, analize, medication, comorb, id]
 
         prediction_result, prediction_percentage = service.makePrediction(prediction_data)
+        prediction_percentage[0] = round(prediction_percentage[0] * 100, 0)
 
         label = {0: 'Cured', 1: 'Improved', 2: 'Stationary', 3: 'Worsened', 4: 'Deceased'}
 

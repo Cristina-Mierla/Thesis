@@ -25,6 +25,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { StatisticsPanelComponent } from './statistics-panel/statistics-panel.component';
 import { ClusterStatisticsPanelComponent } from './cluster-statistics-panel/cluster-statistics-panel.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PredictionResultComponent } from './prediction-result/prediction-result.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     PatientFormComponent,
     PatientDetailsComponent,
     StatisticsPanelComponent,
-    ClusterStatisticsPanelComponent
+    ClusterStatisticsPanelComponent,
+    PredictionResultComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     OverlayModule,
     MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

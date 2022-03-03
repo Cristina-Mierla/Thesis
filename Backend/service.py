@@ -51,7 +51,7 @@ class Service:
 
         self.dataAnalysis.setDataset(self.df)
 
-        #self.modelClass = PredictionModel(self.df)
+        self.modelClass = PredictionModel(self.df)
 
     def getPatientHeadList(self):
         array = []
@@ -112,8 +112,9 @@ class Service:
         # self.model = pickle.load(open('model.pkl', 'rb'))
         print(prediction_data)
         prediction_set = self.processData.prediction(prediction_data)
+        prediction_result, prediction_percentage = self.modelClass.predict(prediction_set)
 
-        return [1], 'maca'
+        return prediction_result, prediction_percentage
 
     def getStatistics1(self):
         dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")
@@ -133,8 +134,15 @@ class Service:
         dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")
         filename = "statistics3\\clusterData_" + dt_string
 
-        image = self.dataAnalysis.clusteringData(filename, age, gender)
+        image = self.dataAnalysis.categorizeData(filename, age, gender)
         return image
+
+    def getStatistics4(self):
+        dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")
+        filename = "statistics4\\computedClusteres_" + dt_string
+
+        image1, image2 = self.modelClass.clusteringData(filename)
+        return image1, image2
 
 
 if __name__ == '__main__':
