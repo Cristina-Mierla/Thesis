@@ -24,6 +24,7 @@ from sklearn.metrics import *
 from sklearn.preprocessing import *
 from imblearn.over_sampling import SMOTE, BorderlineSMOTE, SMOTENC, ADASYN
 from imblearn.under_sampling import RandomUnderSampler
+from keras.models import model_from_json
 from mlxtend.plotting import plot_decision_regions
 
 pd.options.display.max_rows = 10
@@ -72,6 +73,27 @@ def visualize_data(x, y, addn_x=None, addn_y=None, reg_line=False):
     plt.gcf().subplots_adjust(left=margin, right=1. - margin)
     plt.gcf().set_size_inches(s, plt.gcf().get_size_inches()[1])
     plt.show()
+
+
+def save_obj(model, name):
+    # with open('obj/' + name + '.pkl', 'wb') as f:
+    #     pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
+    model_json = model.to_json()
+    with open('obj/' + name + ".json", "w") as json_file:
+        json_file.write(model_json)
+    model.save_weights("obj/" + name + ".h5")
+    print("Saved model to disk")
+
+
+def load_obj(name):
+    # with open('obj/' + name + '.pkl', 'rb') as f:
+    #     return pickle.load(f)
+    json_file = open('obj/' + name + ".json", 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+    loaded_model = model_from_json(loaded_model_json)
+    loaded_model.load_weights('obj/' + name + ".h5")
+    print("Loaded model from disk")
 
 
 def sigmoid(x):
@@ -139,10 +161,14 @@ class PredictionModel:
 
         self.my_feature_layer = tf.keras.layers.DenseFeatures(feature_columns)
 
-        # self.testSimpleModels()
+        # self.testSimpleModels()model.summary()
         # odel = self.createANNModel()
         # self.trainANNModel(model, 15, 100)
-        self.testANNModel()
+
+        # try:
+        #     load_obj("Trained model")
+        # except FileNotFoundError:
+        #     self.testANNModel()
 
     def getFeatures(self):
         return self.X
@@ -311,6 +337,10 @@ class PredictionModel:
         predicted_vals = np.array(prediction)
         valid_data_array = self.X_valid.to_numpy()
         visualize_data(valid_data_array, validation_labels, valid_data_array, predicted_vals)
+
+        self.my_model.summary()
+        print(self.X)
+        # save_obj(self.my_model, "Trained model")
 
     def predict(self, values):
         # self.my_model = pickle.load(open('model.pkl', 'rb'))

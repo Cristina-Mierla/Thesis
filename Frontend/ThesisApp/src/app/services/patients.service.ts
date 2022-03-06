@@ -33,12 +33,23 @@ export class PatientsService {
     return await firstValueFrom(this.http.get<Patient>(`${this.patientsUrl}patientId?patient_id=${id}`));
   }
 
+  public async trainModel(){
+    return await firstValueFrom(this.http.get(`${this.patientsUrl}train`));
+  }
+
   public async makePrediction(patient: Patient): Promise<Prediction> {
     return await firstValueFrom(this.http.post<Prediction>(`${this.patientsUrl}prediction`, patient));
   }
 
   public async getStatistics(url: string): Promise<Blob> {
     return await firstValueFrom(this.http.get(`${this.patientsUrl}${url}`, { responseType: 'blob' }));
+  }
+
+  public async getStatisticsMultiple(url: string): Promise<Blob[]> {
+    let img1 =  await firstValueFrom(this.http.get(`${this.patientsUrl}${url}.1`, { responseType: 'blob' }));
+    let img2 =  await firstValueFrom(this.http.get(`${this.patientsUrl}${url}.2`, { responseType: 'blob' }));
+    let result = []; result.push(img1); result.push(img2);
+    return result;
   }
 
   public async getClusterStatistics(url: string, age: number, gender: number): Promise<Blob> {

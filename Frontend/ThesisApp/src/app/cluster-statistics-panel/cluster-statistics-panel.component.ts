@@ -14,11 +14,12 @@ import {
 })
 export class ClusterStatisticsPanelComponent implements OnInit {
 
-  image?: Blob;
+  image!: Blob;
   imageUrl?: Object;
   showImage: boolean = false;
   age!: string;
   gender: number = 1;
+  loaded = true;
 
   constructor(private patientsService: PatientsService,
               private sanitizer: DomSanitizer,
@@ -33,7 +34,9 @@ export class ClusterStatisticsPanelComponent implements OnInit {
              horizontalPosition: 'center', verticalPosition: 'bottom',
            });
     } else {
-      this.image = await this.patientsService.getClusterStatistics('/stat3', Number(this.age), this.gender)
+      this.loaded = false;
+      await this.patientsService.getClusterStatistics('/stat3', Number(this.age), this.gender)
+        .then((x) => {this.image = x; this.loaded = true;})
 
       let unsafeImageUrl = URL.createObjectURL(this.image);
       this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(unsafeImageUrl);

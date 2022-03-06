@@ -33,6 +33,15 @@ def getPatientById():
         return "Invalid request", 400
 
 
+@app.route('/train', methods=['GET'])
+def trainModel():
+    if request:
+        service.trainModel()
+        return 200
+    else:
+        return 'Invalid request', 400
+
+
 @app.route('/stat1', methods=['GET'])
 def getStatistic1():
     if request:
@@ -63,6 +72,30 @@ def getStatistic3():
         image = service.getStatistics3(age, gender)
 
         return send_file(image, mimetype='image/png'), 200
+    else:
+
+        return "Invalid request", 400
+
+
+@app.route('/stat4.1', methods=['GET'])
+def getStatisticsMultiple1():
+    if request:
+
+        image1, image2 = service.getStatistics4()
+
+        return send_file(image1, mimetype='image/png'), 200
+    else:
+
+        return "Invalid request", 400
+
+
+@app.route('/stat4.2', methods=['GET'])
+def getStatisticsMultiple2():
+    if request:
+
+        image1, image2 = service.getStatistics4()
+
+        return send_file(image2, mimetype='image/png'), 200
     else:
 
         return "Invalid request", 400

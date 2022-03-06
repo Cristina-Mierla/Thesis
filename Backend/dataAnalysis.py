@@ -261,22 +261,27 @@ class DataAnalysis:
     def categorizeData(self, filename, age, gender):
         # sns.set_palette("Purples_r")
 
+        Y = self.df["stare_externare"]
+        X = self.df.drop(["stare_externare", 'forma_boala'], inplace=False, axis='columns')
         oversample = SMOTE()
-        df = oversample.fit_resample(self.df)
+        df = oversample.fit_resample(X, Y)
+        df = pd.concat([df[0], df[1]], axis=1)
         clusterData = df[df["Varsta"] == int(age)]
         clusterData = clusterData[clusterData["Sex"] == int(gender)]
-        cols = ["Zile_spitalizare", "zile_ATI", "Comorbiditati", "stare_externare", 'forma_boala']
+        cols = ["Zile_spitalizare", "zile_ATI", "Comorbiditati", "stare_externare"]
 
-        try:
-            pp = sns.pairplot(clusterData[cols], palette="Set2",
-                              diag_kind="kde", hue='forma_boala', markers=["s", "D", "^"])
-        except ValueError:
-            try:
-                pp = sns.pairplot(clusterData[cols], palette="Set2",
-                              diag_kind="kde", hue='forma_boala', markers=["s", "D"])
-            except ValueError:
-                pp = sns.pairplot(clusterData[cols], palette="Set2",
-                                diag_kind="kde", hue='forma_boala', markers=["D"])
+        l1 = ["D"]
+        l2 = ["s", "D"]
+        l3 = ["s", "D", "^"]
+        l4 = ["s", "D", "^", "H"]
+        l5 = ["s", "D", "^", "H", "X"]
+        markerList = [l1, l2, l3, l4, l5]
+        ind = len(clusterData['stare_externare'].unique())
+        mark = markerList[ind-1]
+
+        pp = sns.pairplot(clusterData[cols], palette="Set2",
+                        diag_kind="kde", hue='stare_externare', markers=mark)
+
         fig = pp.fig
         fig.subplots_adjust(top=0.93, wspace=0.3)
         t = fig.suptitle('Clustered data based on a given age and gender', fontsize=14)
@@ -315,8 +320,6 @@ class DataAnalysis:
                        , s=50)
         ax.legend(targets)
         ax.grid()
-
-        # plt.scatter(data)
 
 
 if __name__ == '__main__':

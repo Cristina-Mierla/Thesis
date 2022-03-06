@@ -54,6 +54,7 @@ export class PatientFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.patientsService.trainModel()
   }
 
   addComorbidity(event: MatChipInputEvent): void {

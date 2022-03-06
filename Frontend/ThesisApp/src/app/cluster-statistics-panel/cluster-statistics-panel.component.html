@@ -27,7 +27,13 @@
   <div class="d-flex flex-row-reverse">
     <button type="submit" class="btn btn-primary custom-button p-2" (click)="this.getStatistic()">Submit</button>
   </div>
-  <div class="row align-items-center form-group"  *ngIf="showImage">
-    <img [src]=imageUrl>
+  <div class="row align-items-center form-group order-1 p-4" [ngClass]="{'show-element' : this.loaded && this.showImage }" [ngClass]="{'hide-element' : !(this.loaded && this.showImage) }">
+    <figure class="figure">
+      <img [src]=imageUrl class="figure-img img-fluid rounded">
+      <figcaption class="figure-caption">Figure caption.</figcaption>
+    </figure>
+  </div>
+  <div class="row align-items-center form-group d-flex justify-content-center" [ngClass]="{'show-element' : !this.loaded }" [ngClass]="{'hide-element' : this.loaded }">
+    <mat-spinner class="spinner align-self-center centered-elem" ></mat-spinner>
   </div>
 </div>

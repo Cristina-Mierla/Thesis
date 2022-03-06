@@ -27,6 +27,8 @@ import { ClusterStatisticsPanelComponent } from './cluster-statistics-panel/clus
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PredictionResultComponent } from './prediction-result/prediction-result.component';
+import { StatisticsMultiplePanelComponent } from './statistics-multiple-panel/statistics-multiple-panel.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { PredictionResultComponent } from './prediction-result/prediction-result
     PatientDetailsComponent,
     StatisticsPanelComponent,
     ClusterStatisticsPanelComponent,
-    PredictionResultComponent
+    PredictionResultComponent,
+    StatisticsMultiplePanelComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { PredictionResultComponent } from './prediction-result/prediction-result
     OverlayModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

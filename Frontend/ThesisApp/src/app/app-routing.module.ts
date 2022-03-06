@@ -6,6 +6,7 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
 import { query } from '@angular/animations';
 import { StatisticsPanelComponent } from './statistics-panel/statistics-panel.component';
 import { ClusterStatisticsPanelComponent } from './cluster-statistics-panel/cluster-statistics-panel.component';
+import { StatisticsMultiplePanelComponent } from './statistics-multiple-panel/statistics-multiple-panel.component';
 
 const routes: Routes = [
   { path: '', component: PatientListComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: `patient`, component: PatientDetailsComponent},
   { path: 'stat1', component: StatisticsPanelComponent},
   { path: 'stat2', component: StatisticsPanelComponent},
-  { path: 'stat3', component: ClusterStatisticsPanelComponent}
+  { path: 'stat3', component: ClusterStatisticsPanelComponent},
+  { path: 'stat4', component: StatisticsMultiplePanelComponent}
 
 ];
 

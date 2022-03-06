@@ -1,3 +1,5 @@
+from matplotlib import pyplot as plt
+
 from Backend import dataAnalysis as da
 import numpy as np
 import pandas as pd
@@ -105,6 +107,32 @@ class DataProcessing:
 
     def getReadComorbiditati(self):
         return self.comorb
+
+    def compareTestResults(self):
+        print(self.df)
+        # leukocytes/Leucocite, UREA, Albuminum, Calcium, Creatinine/ProteinaCreactiva, AST,
+        # Glucose/GLU, Neutrophils, Total protein
+
+        leucocite = self.df["Leucocite"]
+        urea = self.df["UREA"]
+        proteinaCreactiva = self.df["ProteinaCreactiva"]
+        glucose = self.df["GLU"]
+        list = [leucocite, urea, proteinaCreactiva, glucose]
+        a = 0
+        i = j = 0
+
+        fig, axs = plt.subplots(2, 2, constrained_layout=True)
+        for x in list:
+            axs[i, j].scatter(x, self.df['stare_externare'])
+            axs[i, j].set_title(str(x.name))
+            axs[i, j].set(ylabel="Release state")
+            # plt.xlim([-2, 40])
+            a += 1
+            i = j = 1 if a == 3 else 0
+            j = 1 if a == 1 else j
+            i = 1 if a == 2 else i
+
+        plt.show()
 
     def changeMedicatie(self):
         """
@@ -399,6 +427,5 @@ class DataProcessing:
 
 
 if __name__ == '__main__':
-    d = da.DataAnalysis("csv_dataset.csv")
-    pr = DataProcessing(d.getDataset())
-    print(pr.getDataset().head())
+    pr = DataProcessing()
+    pr.compareTestResults()

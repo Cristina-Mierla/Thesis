@@ -4,7 +4,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 
-html, body { height: 100%; }
+html, body { height: 105%; background-color: #FCF5F1;}
 body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
 
 :root{
@@ -93,6 +93,19 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
   color: #171710
 }
 
+.centered-elem {
+  margin: auto;
+  width: 50%;
+}
+
+.show-element {
+  display: inherit;
+}
+
+.hide-element {
+  display: none !important;
+}
+
 // Overwritten elements
 
 .dropdown-menu, .dropdown-menu.show {
@@ -107,4 +120,12 @@ body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
 .dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active, .dropdown-item.active {
   background-color: var(--button-focus);
   color: var(--button-font2);
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: var(--outcome-improved)
+}
+
+.figure, .figure-img {
+  width: 100%;
 }

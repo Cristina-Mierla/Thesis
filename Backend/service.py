@@ -108,6 +108,9 @@ class Service:
 
         return result
 
+    def trainModel(self):
+        self.modelClass.testANNModel()
+
     def makePrediction(self, prediction_data):
         # self.model = pickle.load(open('model.pkl', 'rb'))
         print(prediction_data)
