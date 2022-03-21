@@ -9,8 +9,8 @@
     </div>
     <div class="col-3">
       <form class="d-flex">
-        <input class="form-control custom-input" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary custom-button" type="submit">Search</button>
+        <input class="form-control custom-input" type="search" placeholder="Search for an Id" aria-label="Search" [(ngModel)]="searchId" #ctrl="ngModel" [ngModelOptions]="{standalone: true}">
+        <button class="btn btn-outline-primary custom-button" type="submit" (click)="filterById(searchId)">Search</button>
       </form>
     </div>
   </div>

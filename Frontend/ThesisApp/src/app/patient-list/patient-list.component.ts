@@ -22,6 +22,8 @@ export class PatientListComponent implements OnInit {
   genderMap = Gender;
   release = ReleaseState;
   patientList: PatientItem[] = [];
+  initialList: PatientItem[] = [];
+  searchId!: number;
   p: number = 1;
 
   constructor(private patientsService: PatientsService) {}
@@ -40,12 +42,22 @@ export class PatientListComponent implements OnInit {
 
   async loadPatients() {
     this.patientList = await this.patientsService.getPatients();
+    this.initialList = this.patientList;
     this.dataSource = new MatTableDataSource<PatientItem>(this.patientList);
     this.dataSource.paginator = this.paginator;
   }
 
   async loadPatientId(id: number) {
     this.patientsService.setPatientIdData(id);
+  }
+
+  filterById(id: number): void {
+    console.log(id);
+    if (id) {
+      this.patientList = this.initialList.filter(x => x.Id.toString().match(id.toString()));
+    } else {
+      this.patientList = this.initialList;
+    }
   }
 
  }

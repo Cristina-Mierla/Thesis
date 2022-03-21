@@ -1,31 +1,29 @@
 from __future__ import division
-
+import itertools
+from csv import writer
+from datetime import datetime
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
+from mlxtend.evaluate import proportion_difference
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import *
+from sklearn.model_selection import *
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.preprocessing import *
+from sklearn.svm import LinearSVC
+from sklearn.tree import DecisionTreeClassifier
 
 from Backend import dataProcessing as dp, dataAnalysis as da
-import pandas as pd
-import pickle
-import re
-import numpy as np
-import matplotlib.pyplot as plt
-import tensorflow as tf
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import *
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.gaussian_process import GaussianProcessClassifier
-from sklearn.linear_model import LinearRegression, ElasticNet, Lasso, Ridge, LogisticRegression
-from sklearn.svm import SVR, SVC
-from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.neighbors import KNeighborsRegressor, KNeighborsClassifier
-from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import *
-from sklearn.preprocessing import *
-from imblearn.over_sampling import SMOTE, BorderlineSMOTE, SMOTENC, ADASYN
-from imblearn.under_sampling import RandomUnderSampler
-from keras.models import model_from_json
-from mlxtend.plotting import plot_decision_regions
 
 pd.options.display.max_rows = 10
 pd.set_option('display.max_rows', 500)
@@ -33,82 +31,64 @@ pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
 
 
-def plot_the_loss_curve(epochs, mse):
+def plot_the_loss_curve(epochs, mse, fct1, fct2):
     """Plot a curve of loss vs. epoch."""
+    filename = 'modelPlots\\TrainingLoss'
+    filename += datetime.now().strftime("_%Y-%m-%d_%H-%M")
+    filename += '_' + fct1 + '_' + fct2 + '.png'
 
     plt.figure()
+    plt.title(fct1 + ' - ' + fct2)
     plt.xlabel("Epoch")
     plt.ylabel("Mean Squared Error")
 
     plt.plot(epochs, mse, label="Loss")
     plt.legend()
     plt.ylim([mse.min() * 0.95, mse.max() * 1.03])
+    plt.savefig(filename)
     plt.show()
 
 
-def visualize_data(x, y, addn_x=None, addn_y=None, reg_line=False):
-    """Red dots for each point"""
-    f, ax = plt.subplots(figsize=(16, 8))
-    plt.plot(x, y, '.r', markersize=0.3)
-    '''Green triangles for additional data points'''
-    if addn_x.any() and addn_y.any() is not None:
-        plt.plot(addn_x, addn_y, 'xg', markersize=0.3)
-        '''Blue regression line'''
-        if reg_line:
-            x_min_i = addn_x.argmin()
-            x_max_i = addn_x.argmax()
-            print(x_min_i, [addn_x[x_min_i], addn_y[x_min_i]])
-            print(x_max_i, [addn_x[x_max_i], addn_y[x_max_i]])
-            plt.plot([addn_x[x_min_i], addn_y[x_min_i]],
-                     [addn_x[x_max_i], addn_y[x_max_i]], 'b-')
-    plt.xticks(range(len(x[0])))
-    plt.gca().margins(x=0)
-    plt.gcf().canvas.draw()
-    tl = plt.gca().get_xticklabels()
-    maxsize = max([t.get_window_extent().width for t in tl])
-    m = 0.2  # inch margin
-    s = maxsize / plt.gcf().dpi * len(x[0]) + 2 * m
-    margin = m / plt.gcf().get_size_inches()[0]
+def visualize_data(y, pred_y):
+    y = y.idxmax(axis=1).str.split('_', expand=True)[1].to_numpy()
+    y = list(map(int, y))
 
-    plt.gcf().subplots_adjust(left=margin, right=1. - margin)
-    plt.gcf().set_size_inches(s, plt.gcf().get_size_inches()[1])
+    f, ax = plt.subplots(figsize=(5, 5))
+    plt.plot(y, pred_y, 'Dr')
+    plt.xlabel("True")
+    plt.ylabel("Predicted")
+    plt.tight_layout()
     plt.show()
 
+    filename = 'modelPlots\\PredictionComparison'
+    filename += datetime.now().strftime("_%Y-%m-%d_%H-%M")
+    filename += '.png'
 
-def save_obj(model, name):
-    # with open('obj/' + name + '.pkl', 'wb') as f:
-    #     pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
-    model_json = model.to_json()
-    with open('obj/' + name + ".json", "w") as json_file:
-        json_file.write(model_json)
-    model.save_weights("obj/" + name + ".h5")
-    print("Saved model to disk")
-
-
-def load_obj(name):
-    # with open('obj/' + name + '.pkl', 'rb') as f:
-    #     return pickle.load(f)
-    json_file = open('obj/' + name + ".json", 'r')
-    loaded_model_json = json_file.read()
-    json_file.close()
-    loaded_model = model_from_json(loaded_model_json)
-    loaded_model.load_weights('obj/' + name + ".h5")
-    print("Loaded model from disk")
-
-
-def sigmoid(x):
-    return 1/(1+np.exp(-x))
-
-
-def sigmoid_derivation(x):
-    # return sigmoid(x)*(1-sigmoid(x))
-    return x*(1-x)
+    f, ax = plt.subplots(figsize=(20, 5))
+    plt.plot(range(len(y)), y, 'pb')
+    plt.plot(range(len(pred_y)), pred_y, 'dg')
+    plt.tight_layout()
+    plt.legend(['True', 'Predicted'], prop={'size': 10})
+    plt.savefig(filename)
+    plt.show()
 
 
 class PredictionModel:
     def __init__(self, dataset):
-        self.df = dataset.drop(["Unnamed: 0"], axis=1)
-        self.df.rename(columns=lambda s: s.replace("*", "A").replace("(", "").replace(")", "").replace("%", "B").replace("#", "C").replace("/", "").replace(",", ''), inplace=True)
+        self.df = dataset
+
+        self.X = self.Y = self.X_train = self.X_test = self.X_valid = self.Y_train = self.Y_test = self.Y_valid = self.Y_test_array = self.Y_train_array = None
+        self.my_model = self.my_feature_layer = None
+
+        self.activations = ["relu", "sigmoid", "softmax", "softplus", "softsign", "tanh", "selu", "elu", "exponential"]
+
+        self.initializeSets()
+
+    def initializeSets(self):
+        self.df = self.df.drop(["Unnamed: 0"], axis=1)
+        self.df = self.df.drop(["FO"], axis=1)
+        self.df.rename(columns=lambda s: s.replace("*", "A").replace("(", "").replace(")", "").replace("%", "B")
+                       .replace("#", "C").replace("/", "").replace(",", ''), inplace=True)
 
         '''Features and labels'''
         sc_X = MinMaxScaler()
@@ -118,7 +98,7 @@ class PredictionModel:
         features_std = features.std()
         features_mean = features.mean()
         self.X = (features - features_mean) / features_std
-        self.X = pd.DataFrame(sc_X.fit_transform(self.X, ), columns=self.X.columns)
+        self.X = pd.DataFrame(sc_X.fit_transform(self.X), columns=self.X.columns)
         normalize(self.X)
 
         oversample = SMOTE()
@@ -127,48 +107,33 @@ class PredictionModel:
         rus = RandomUnderSampler(random_state=0)
         rus.fit(self.X, self.Y)
 
+        # self.X = self.X.sample(frac=1)
+        idx = np.random.permutation(self.X.index)
+        self.X = self.X.reindex(idx)
+        self.Y = self.Y.reindex(idx)
+
+        print(self.X.head())
+        print(self.X.shape)
+
+        self.Y = pd.get_dummies(self.Y["stare_externare"], prefix="Outcome")
+        print(self.Y)
+
         self.X_train, X_rem, self.Y_train, Y_rem = train_test_split(self.X, self.Y, train_size=4 / 5, random_state=42)
         self.X_valid, self.X_test, self.Y_valid, self.Y_test = train_test_split(X_rem, Y_rem, test_size=1 / 2,
                                                                                 random_state=42)
+
         # self.X_train = sc_X.fit_transform(self.X_train)
         # self.X_test = sc_X.transform(self.X_test)
         # self.X_valid = sc_X.transform(self.X_valid)
 
-        '''Define model'''
-        self.my_model = None
-
-        self.w1 = np.zeros((20, self.X_train.shape[1]))
-        # self.w1 = np.zeros(self.X_train.shape[1])
-        self.w2 = np.zeros((20, 12))
-        self.w3 = np.zeros((12, 1))
-        self.output = np.zeros(self.Y_train.shape)
-
-        self.learning_rate = 0.3
-        self.epochs = 1000
-        self.batch_size = 20
-
-        ds = tf.data.Dataset.from_tensor_slices((dict(self.X), self.X))
-        ds = ds.shuffle(buffer_size=len(self.X))
-
         feature_columns = []
         for column in self.X:
-            feat = self.X[column]
-            # feat_bound = list(np.arange(int(min(feat)), int(max(feat)), resolutionZ))
             feature_bound = tf.feature_column.numeric_column(key=column, dtype=tf.float64)
             feature_columns.append(feature_bound)
 
         print(feature_columns)
 
         self.my_feature_layer = tf.keras.layers.DenseFeatures(feature_columns)
-
-        # self.testSimpleModels()model.summary()
-        # odel = self.createANNModel()
-        # self.trainANNModel(model, 15, 100)
-
-        # try:
-        #     load_obj("Trained model")
-        # except FileNotFoundError:
-        #     self.testANNModel()
 
     def getFeatures(self):
         return self.X
@@ -177,28 +142,36 @@ class PredictionModel:
         return self.Y
 
     def testSimpleModels(self):
+        """Testing simple models"""
         dfs = []
+        kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=90210)
 
-        models = [('LOGREG', LogisticRegression()), ('RF', RandomForestClassifier()), ('KNN', KNeighborsClassifier()),
-                  ('SVM', SVC()), ('TREECLASS', DecisionTreeClassifier()), ('ADA', AdaBoostClassifier()),
-                  ('GNB', GaussianProcessClassifier()), ('MLP', MLPClassifier())]
+        models = [
+            ('LOGREG', LogisticRegression()),
+            ('RF', RandomForestClassifier()), ('KNN', KNeighborsClassifier()),
+            ('SVM', LinearSVC()), ('TREECLASS', DecisionTreeClassifier()),
+            ('BAYES', GaussianNB()), ('MLP', MLPClassifier())]
+
+        # reverse one hot encoding
+        self.Y_test_array = self.Y_test.idxmax(axis=1).str.split('_', expand=True)[1]
+        self.Y_train_array = self.Y_train.idxmax(axis=1).str.split('_', expand=True)[1]
 
         # training and testing the above models
         results = []
         names = []
+        accuray_list = {}
         scoring = ['accuracy', 'precision_weighted', 'recall_weighted', 'f1_weighted']
 
-        # target_names = ['Usor', 'Moderat', 'Sever'] # forma boala
-        # target_names = ['Vindecat', 'Ameliorat', 'Stationar', 'Decedat']
         target_names = ['Vindecat', 'Ameliorat', 'Stationar', 'Agravat', 'Decedat']  # stare externare
 
         for name, model in models:
-            kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=90210)
-            cv_results = cross_validate(model, self.X_train, self.Y_train, cv=kfold, scoring=scoring)
-            clf = model.fit(self.X_train, self.Y_train)
+            cv_results = cross_validate(model, self.X_train, self.Y_train_array, cv=kfold, scoring=scoring)
+            clf = model.fit(self.X_train, self.Y_train_array)
             y_pred = clf.predict(self.X_test)
+            acc = accuracy_score(self.Y_test_array, y_pred)
+            accuray_list[name] = acc
             print(name)
-            print(classification_report(self.Y_valid, y_pred, target_names=target_names))
+            print(classification_report(self.Y_test_array, y_pred, target_names=target_names))
 
             results.append(cv_results)
             names.append(name)
@@ -209,99 +182,65 @@ class PredictionModel:
 
         final = pd.concat(dfs, ignore_index=True)
 
-    def createANNModel(self, epochs, batch_size, learning_rate):
-        """Create and compile a simple linear regression model."""
-        # The following variables are the hyperparameters.
-        # learning_rate = 0.01
-        # epochs = 20
-        # batch_size = 100
+        for m1, m2 in itertools.product(accuray_list, repeat=2):
+            if m1 != m2:
+                acc1 = accuray_list[m1]
+                acc2 = accuray_list[m2]
+                z, p = proportion_difference(acc1, acc2, n_1=len(self.Y_test_array))
+                print(f"models: {m1}-{m2}\nz statistic: {z}, p-value: {p}")
 
+    def createANNModel(self, learning_rate, n1=20, n2=12, activation_fct1="relu", activation_fct2="sigmoid"):
+        """Create and compile a simple linear regression model."""
         # Most simple tf.keras models are sequential.
         model = tf.keras.models.Sequential()
-
-        # define 10-fold cross validation test harness
-        # kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
-        # cvscores = []
-        # testno = 0
-        # for train, test in kfold.split(self.X_train, self.Y_train):
-        # testno += 1
-        # model = tf.keras.models.Sequential()
 
         # Add the layer containing the feature columns to the model.
         model.add(self.my_feature_layer)
 
-        # Describe the topography of the model by calling the tf.keras.layers.Dense
-        # method once for each layer. We've specified the following arguments:
-        #   * units specifies the number of nodes in this layer.
-        #   * activation specifies the activation function (Rectified Linear Unit).
-        #   * name is just a string that can be useful when debugging.
-
-        # Define the first hidden layer with 20 nodes.
-        model.add(tf.keras.layers.Dense(units=20,
-                                        activation='relu',
+        # Define the first hidden layer with n1 nodes.
+        model.add(tf.keras.layers.Dense(units=n1,
+                                        activation=activation_fct1,
                                         kernel_initializer='he_normal',
                                         kernel_regularizer=tf.keras.regularizers.l2(0.04),
                                         name='Hidden1'))
 
         model.add(tf.keras.layers.Dropout(rate=0.2))
 
-        # Define the second hidden layer with 12 nodes.
-        model.add(tf.keras.layers.Dense(units=12,
-                                        activation='sigmoid',
+        # Define the second hidden layer with n2 nodes.
+        model.add(tf.keras.layers.Dense(units=n2,
+                                        activation=activation_fct2,
                                         kernel_regularizer=tf.keras.regularizers.l2(l=0.01),
                                         name='Hidden2'))
 
         # Define the output layer.
-        model.add(tf.keras.layers.Dense(units=1,
+        model.add(tf.keras.layers.Dense(units=5,
                                         activation='sigmoid',
+                                        # activation='softmax',
                                         name='Output'))
 
-        # model.compile(loss='binary_crossentropy',
-        # optimizer='adam', metrics=['accuracy'])
-        model.compile(optimizer=tf.keras.optimizers.Adam(lr=learning_rate),
-                      loss="mean_squared_error",
-                      metrics=[tf.keras.metrics.MeanSquaredError(), tf.keras.metrics.BinaryAccuracy(),
-                               tf.keras.metrics.Precision()])
-
-        # Split the dataset into features and label.
-        features = {name: np.array(value) for name, value in self.X_train.items()}
-        label = np.array(self.Y_train)
-        history = model.fit(x=features, y=label,
-                            batch_size=batch_size,
-                            epochs=epochs)
-
-        # Get details that will be useful for plotting the loss curve.
-        return_epochs = history.epoch
-        hist = pd.DataFrame(history.history)
-        rmse = hist["mean_squared_error"]
-        # Plot the number of epoch and the mean squared error.
-        plot_the_loss_curve(return_epochs, rmse)
-
-        # Evaluate the model using the test data.
-        sc_X = MinMaxScaler()
-        print("\n Evaluate the linear regression model against the test set:")
-        features_test = {name: np.array(value) for name, value in self.X_test.items()}
-        label_test = np.array(self.Y_test)
-        score = model.evaluate(x=features_test, y=label_test,
-                               batch_size=batch_size, verbose=0)
-        for i in range(0, 4):
-            print("%s: %.2f%%" % (model.metrics_names[i], score[i] * 100))
-        # cvscores.append(score[1] * 100)
-
-        # print("%.2f%% (+/- %.2f%%)" % (np.float(np.mean(cvscores)), np.float(np.std(cvscores))))
+        model.compile(
+            # optimizer=tf.keras.optimizers.Adam(lr=learning_rate),
+            optimizer=tf.keras.optimizers.SGD(lr=learning_rate),
+            # loss='binary_crossentropy',
+            loss='categorical_crossentropy',
+            metrics=[tf.keras.metrics.MeanSquaredError(), tf.keras.metrics.BinaryAccuracy(),
+                     tf.keras.metrics.Precision()])
 
         return model
 
-    def trainANNModel(self, model, epochs, batch_size):
+    def trainANNModel(self, model, epochs, batch_size, function1, function2):
         """Feed a dataset into the model in order to train it."""
 
         # Split the dataset into features and label.
+        print("Training %s - %s" % (function1, function2))
         features = {name: np.array(value) for name, value in self.X_train.items()}
         label = np.array(self.Y_train)
         X_valid_array = {name: np.array(value) for name, value in self.X_valid.items()}
         Y_valid_array = np.array(self.Y_valid)
-        history = model.fit(x=features,  y=label,
+        history = model.fit(x=features, y=label,
+                            steps_per_epoch=len(features) // batch_size + 1,
                             validation_data=(X_valid_array, Y_valid_array),
+                            validation_steps=len(X_valid_array) // batch_size + 1,
                             batch_size=batch_size,
                             epochs=epochs)
 
@@ -309,90 +248,71 @@ class PredictionModel:
         return_epochs = history.epoch
         hist = pd.DataFrame(history.history)
         rmse = hist["mean_squared_error"]
+        plot_the_loss_curve(return_epochs, rmse, function1, function2)
 
         return return_epochs, rmse
 
-    def testANNModel(self):
+    def testANNModel(self, new_epochs=200, new_batch_size=100, n1=20, n2=12, activation_fct1="relu",
+                     activation_fct2="sigmoid"):
+        """After creating and training the model, it is evaluated using the testing set."""
+
         # The following variables are the hyperparameters.
-        learning_rate = 0.05
-        epochs = 20
-        batch_size = 100
+        learning_rate = 0.01
+        epochs = new_epochs
+        batch_size = new_batch_size
 
         # Establish the model's topography.
-        self.my_model = self.createANNModel(epochs, batch_size, learning_rate)
+        self.my_model = self.createANNModel(learning_rate, n1, n2, activation_fct1, activation_fct2)
 
         # Train the model on the normalized training set.
-        return_epochs, mse = self.trainANNModel(self.my_model, epochs, batch_size)
-        plot_the_loss_curve(return_epochs, mse)
+        print("\nTraininng the model")
+        self.trainANNModel(self.my_model, epochs, batch_size, activation_fct1, activation_fct2)
 
-        sc_X = MinMaxScaler()
-        print("\n Evaluate the linear regression model against the test set:")
+        print("\nEvaluate the linear regression model against the test set:")
         features_test = {name: np.array(value) for name, value in self.X_test.items()}
-        label_test = np.array(self.Y_test)
-        self.my_model.evaluate(x=features_test, y=label_test, batch_size=batch_size)
+        label_test = self.Y_test
+        evaluation = self.my_model.evaluate(x=features_test, y=label_test, batch_size=batch_size, verbose=0)
 
         validation = {name: np.array(value) for name, value in self.X_valid.items()}
-        validation_labels = np.array(self.Y_valid).transpose()[0]
+        validation_labels = self.Y_valid
         prediction = self.my_model.predict(validation)
-        predicted_vals = np.array(prediction)
-        valid_data_array = self.X_valid.to_numpy()
-        visualize_data(valid_data_array, validation_labels, valid_data_array, predicted_vals)
+        final_prediction = []
+        for line in prediction:
+            index = np.where(line == line.max())[0][0]
+            final_prediction.append(index)
+        visualize_data(validation_labels, final_prediction)
 
+        print("-------------------------------------------------------------------------------------------------------")
+        print(prediction)
+        err_list = validation_labels - prediction
+        validation_error = err_list.mean()
+        print("\nValidation mean error:\n" + str(validation_error))
+
+        evaluation.append(validation_error.mean())
+
+        print("\nModel summary:")
         self.my_model.summary()
-        print(self.X)
-        # save_obj(self.my_model, "Trained model")
+        for i in range(0, 4):
+            print("%s: %.2f%%" % (self.my_model.metrics_names[i], evaluation[i] * 100))
+
+        return evaluation
 
     def predict(self, values):
         # self.my_model = pickle.load(open('model.pkl', 'rb'))
+        # {name: np.array(value) for name, value in self.X_train.items()}
 
-        prediction = self.my_model.predict(values)
+        array_vals = {name: np.array(value) for name, value in values.items()}
+        prediction = self.my_model.predict(array_vals)
         predicted_vals = np.array(prediction)
         print(predicted_vals)
-        predicted_vals_proba = self.my_model.predict_proba(values)
+        predicted_vals_proba = self.my_model.predict_proba(array_vals)
         print(predicted_vals_proba)
 
         # pickle.dump(self.model, open('model.pkl', 'wb'))
 
         return predicted_vals, predicted_vals_proba
 
-    def feedForward(self, input):
-        self.layer1 = sigmoid(np.dot(input, self.w1))
-        self.layer2 = sigmoid(np.dot(self.layer1, self.w2))
-        self.output = sigmoid(np.dot(self.layer2, self.w3))
-        return self.output
-
-    def backprop(self, input, output):
-        # find derivative of the loss function with respect to the weights
-        d_w3 = np.dot(self.layer2.T, (2*(output - self.output)*sigmoid_derivation(self.output)*self.learning_rate))
-        d_w2 = np.dot(self.layer1.T, (np.dot(2*(output - self.output)*sigmoid_derivation(self.output)*self.learning_rate, self.w3)*sigmoid_derivation(self.layer2)))
-        d_w1 = np.dot(input.T, (np.dot(np.dot(2*(output - self.output)*sigmoid_derivation(self.output)*self.learning_rate, self.w3)*sigmoid_derivation(self.layer2), self.w2.T)*sigmoid_derivation(self.layer1)))
-
-        # update weights
-        self.w1 += d_w1
-        self.w2 += d_w2
-        self.w3 += d_w3
-
-    def trainOnce(self, input, output):
-        self.output = self.feedForward(input)
-        self.backprop(input, output)
-
-    def train(self):
-        low_bound = 0
-        high_bound = self.batch_size
-        for epoch in range(self.epochs):
-            batched_data = self.X_train[:][low_bound: high_bound]
-            while high_bound <= self.X_train.shape[1]:
-                batched_data = self.X_train[:][low_bound: high_bound]
-                batched_output = self.Y_train[:][low_bound: high_bound]
-                for row in range(batched_data):
-                    self.trainOnce(batched_data[row], batched_output[row])
-                low_bound = high_bound
-                high_bound = high_bound + self.batch_size
-                if high_bound < self.X_train.shape[1]:
-                    for row in range(batched_data):
-                        self.trainOnce(batched_data[row], batched_output[row])
-
-    def clusteringData(self, filename):
+    def clusteringDataWithPCA(self, filename):
 
         filename1 = filename + '_PCA'
         filename2 = filename + '_KMeans'
@@ -469,4 +389,31 @@ if __name__ == '__main__':
     d = da.DataAnalysis("csv_dataset.csv")
     pr = dp.DataProcessing()
     m = PredictionModel(pr.getDataset())
-    m.clusteringData('')
+
+    testingFile = pd.read_csv("csv_ANN_testing.csv")
+    last_ind = testingFile["ind"].iloc[-1] + 1
+
+    x = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    hyper_batch_size = 100
+    hyper_epochs = 4000
+    hyper_n1 = 100
+    hyper_n2 = 30
+    for p in itertools.product(x, repeat=2):
+        fct1 = m.activations[p[0]]
+        fct2 = m.activations[p[1]]
+        row = [last_ind, hyper_batch_size, hyper_n1, hyper_n2, hyper_epochs, fct1, fct2]
+        try:
+            evaluation_result = m.testANNModel(hyper_epochs, hyper_batch_size, hyper_n1, hyper_n2, fct1, fct2)
+            row = row + evaluation_result
+
+            with open("csv_ANN_testing.csv", 'a', newline='') as f_object:
+                print("New row:" + str(row))
+                writer_object = writer(f_object)
+                writer_object.writerow(row)
+
+            last_ind += 1
+        except:
+            row = []
+
+    f_object.close()
+    # m.testSimpleModels()

@@ -21,3 +21,16 @@ table {
 ::ng-deep ul > li.current {
   background-color: var(--button-theme) !important;
 }
+
+.table tbody+tbody {
+  border-top: 2px solid #F0E5DE;
+}
+
+.table {
+  border-color: #F0E5DE;
+}
+
+.thead {
+  border-color: var(--button-theme);
+  border-bottom: 2px solid var(--button-theme);
+}

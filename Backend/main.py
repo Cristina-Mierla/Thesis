@@ -37,7 +37,7 @@ def getPatientById():
 def trainModel():
     if request:
         service.trainModel()
-        return 200
+        return '', 200
     else:
         return 'Invalid request', 400
 

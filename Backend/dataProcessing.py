@@ -388,10 +388,10 @@ class DataProcessing:
                 analiza_name = analiza_name.replace(" ", "")
                 result_int = float(result)
                 try:
-                    newdataset[analiza_name, 0] = result_int
+                    newdataset[analiza_name] = result_int
                 except:
                     newdataset[analiza_name] = np.zeros(newdataset.shape[0], dtype=int)
-                    newdataset[analiza_name, 0] = result_int
+                    newdataset[analiza_name] = result_int
                     pd.to_numeric(newdataset[analiza_name])
             except:
                 pass
@@ -400,10 +400,10 @@ class DataProcessing:
         for med in med_list:
             med = med.replace(" ", "")
             try:
-                newdataset[med, 0] = 1
+                newdataset[med] = 1
             except:
                 newdataset[med] = np.zeros(newdataset.shape[0], dtype=int)
-                newdataset[med, 0] = 1
+                newdataset[med] = 1
                 pd.to_numeric(newdataset[med])
 
         newcomorb = 0
@@ -414,13 +414,13 @@ class DataProcessing:
             except KeyError:
                 newcomorb += 0
 
-        newdataset["Comorbiditati", 0] = newcomorb
-        newdataset["Varsta", 0] = age
-        newdataset["Sex", 0] = gender
-        newdataset["Diag_pr_int", 0] = diag
-        newdataset["Diag_pr_ext", 0] = 0
-        newdataset["Zile_spitalizare", 0] = zile_spit
-        newdataset["zile_ATI", 0] = zile_ati
+        newdataset["Comorbiditati"] = newcomorb
+        newdataset["Varsta"] = age
+        newdataset["Sex"] = gender
+        newdataset["Diag_pr_int"] = diag
+        newdataset["Diag_pr_ext"] = 0
+        newdataset["Zile_spitalizare"] = zile_spit
+        newdataset["zile_ATI"] = zile_ati
 
         print(newdataset)
         return newdataset

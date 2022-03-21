@@ -144,7 +144,7 @@ class Service:
         dt_string = datetime.now().strftime("_%Y-%m-%d_%H-%M")
         filename = "statistics4\\computedClusteres_" + dt_string
 
-        image1, image2 = self.modelClass.clusteringData(filename)
+        image1, image2 = self.modelClass.clusteringDataWithPCA(filename)
         return image1, image2
 
 
