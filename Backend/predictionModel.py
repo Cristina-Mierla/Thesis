@@ -80,7 +80,7 @@ class PredictionModel:
         self.X = self.Y = self.X_train = self.X_test = self.X_valid = self.Y_train = self.Y_test = self.Y_valid = self.Y_test_array = self.Y_train_array = None
         self.my_model = self.my_feature_layer = None
 
-        self.activations = ["relu", "sigmoid", "softmax", "softplus", "softsign", "tanh", "selu", "elu", "exponential"]
+        self.activations = ["elu", "exponential", "relu", "sigmoid", "softmax", "softplus", "softsign", "tanh", "selu"]
 
         self.initializeSets()
 
@@ -297,6 +297,34 @@ class PredictionModel:
 
         return evaluation
 
+    def runAllModels(self):
+        testingFile = pd.read_csv("csv_ANN_testing.csv")
+        last_ind = testingFile["ind"].iloc[-1] + 1
+
+        x = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        hyper_batch_size = 100
+        hyper_epochs = 4000
+        hyper_n1 = 100
+        hyper_n2 = 30
+        for p in itertools.product(x, repeat=2):
+            fct1 = self.activations[p[0]]
+            fct2 = self.activations[p[1]]
+            row = [last_ind, hyper_batch_size, hyper_n1, hyper_n2, hyper_epochs, fct1, fct2]
+            try:
+                evaluation_result = self.testANNModel(hyper_epochs, hyper_batch_size, hyper_n1, hyper_n2, fct1, fct2)
+                row = row + evaluation_result
+
+                with open("csv_ANN_testing.csv", 'a', newline='') as f_object:
+                    print("New row:" + str(row))
+                    writer_object = writer(f_object)
+                    writer_object.writerow(row)
+
+                last_ind += 1
+            except:
+                row = []
+
+        f_object.close()
+
     def predict(self, values):
         # self.my_model = pickle.load(open('model.pkl', 'rb'))
         # {name: np.array(value) for name, value in self.X_train.items()}
@@ -390,30 +418,5 @@ if __name__ == '__main__':
     pr = dp.DataProcessing()
     m = PredictionModel(pr.getDataset())
 
-    testingFile = pd.read_csv("csv_ANN_testing.csv")
-    last_ind = testingFile["ind"].iloc[-1] + 1
 
-    x = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    hyper_batch_size = 100
-    hyper_epochs = 4000
-    hyper_n1 = 100
-    hyper_n2 = 30
-    for p in itertools.product(x, repeat=2):
-        fct1 = m.activations[p[0]]
-        fct2 = m.activations[p[1]]
-        row = [last_ind, hyper_batch_size, hyper_n1, hyper_n2, hyper_epochs, fct1, fct2]
-        try:
-            evaluation_result = m.testANNModel(hyper_epochs, hyper_batch_size, hyper_n1, hyper_n2, fct1, fct2)
-            row = row + evaluation_result
-
-            with open("csv_ANN_testing.csv", 'a', newline='') as f_object:
-                print("New row:" + str(row))
-                writer_object = writer(f_object)
-                writer_object.writerow(row)
-
-            last_ind += 1
-        except:
-            row = []
-
-    f_object.close()
     # m.testSimpleModels()
