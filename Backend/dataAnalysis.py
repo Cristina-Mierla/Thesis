@@ -1,15 +1,4 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-import seaborn as sns
-from scipy.stats import pearsonr, spearmanr
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
-from imblearn.over_sampling import SMOTE
-import csv
-import pickle
+from imports import *
 
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
@@ -82,6 +71,7 @@ class DataAnalysis:
         self.df.forma_boala = self.df.forma_boala.fillna(self.df.forma_boala.median())
 
     def getDataset(self):
+        print(self.df)
         return self.df
 
     def pltColumnDistribution(self):

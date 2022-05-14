@@ -1,4 +1,4 @@
-export enum ReleaseState{
+export enum ReleaseState {
   cured,
   improved,
   stationary,

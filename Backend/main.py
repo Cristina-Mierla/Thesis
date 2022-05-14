@@ -33,15 +33,6 @@ def getPatientById():
         return "Invalid request", 400
 
 
-@app.route('/train', methods=['GET'])
-def trainModel():
-    if request:
-        service.trainModel()
-        return '', 200
-    else:
-        return 'Invalid request', 400
-
-
 @app.route('/stat1', methods=['GET'])
 def getStatistic1():
     if request:
@@ -104,34 +95,37 @@ def getStatisticsMultiple2():
 @app.route('/prediction', methods=['POST'])
 def getPredict():
     if request:
-        json = request.get_json(force=True)
-        print(json)
-        age = int(json["Age"])
-        sex = json["Gender"]
-        diagnos_int = json["Diag"]
-        spitalizare = int(json["Hosp"])
-        ati = int(json["Icu"])
-        medication = json['Med'][0]
-        analize = json['Anlz'][0]
-        comorb = json['Comb']
-        id = json['Id']
+        json_result = request.get_json(force=True)
+        print(json_result)
+        age = int(json_result["Age"])
+        sex = json_result["Gender"]
+        diagnos_int = json_result["Diag"]
+        spitalizare = int(json_result["Hosp"])
+        ati = int(json_result["Icu"])
+        medication = json_result['Med'][0]
+        analize = json_result['Anlz'][0]
+        comorb = json_result['Comb']
+        id = json_result['Id']
 
         prediction_data = [age, sex, diagnos_int, spitalizare, ati, analize, medication, comorb, id]
 
-        prediction_result, prediction_percentage = service.makePrediction(prediction_data)
-        prediction_percentage[0] = round(prediction_percentage[0] * 100, 0)
+        prediction_result = service.makePrediction(prediction_data)
 
         label = {0: 'Cured', 1: 'Improved', 2: 'Stationary', 3: 'Worsened', 4: 'Deceased'}
 
-        result = "The patient has a high chance to be release as: {}\n\n".format(label[prediction_result[0]])
+        pred = label[prediction_result.tolist().index(max(prediction_result))]
+        result = {0: 'Cured', 1: 'Improved', 2: 'Stationary', 3: 'Worsened', 4: 'Deceased'}
+        printed_result = "The patient has a high chance to be release as: {}\n\n".format(pred)
 
         for i in range(0, 5):
-            aux = "\t{:20} -> {}%\n".format(label[i], round(prediction_percentage[0][i] * 100, 0))
-            result = result + aux
+            aux = "\t{:20} -> {}%\n".format(label[i], round(prediction_result[i] * 100, 0))
+            printed_result = printed_result + aux
+            result[i] = prediction_result[i]
 
-        print(result)
+        print(printed_result)
+        result_json = json.dumps(str(printed_result))
 
-        return result, 200
+        return result_json, 200
 
     else:
 

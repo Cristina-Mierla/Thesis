@@ -11,7 +11,7 @@ import { Prediction } from '../models/predictionResult';
 export class PredictionResultComponent {
 
   constructor(public dialogRef: MatDialogRef<PatientFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Prediction,) { }
+    @Inject(MAT_DIALOG_DATA) public data: string,) { }
 
   onNoClick(): void {
     this.dialogRef.close();

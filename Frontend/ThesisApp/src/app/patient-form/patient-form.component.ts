@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PredictionResultComponent } from '../prediction-result/prediction-result.component';
 import { Prediction } from '../models/predictionResult';
+import { ReleaseState } from '../enums/releaseState'
 @Component({
   selector: 'app-patient-form',
   templateUrl: './patient-form.component.html',
@@ -36,8 +37,9 @@ export class PatientFormComponent implements OnInit {
   tests!: string;
   medication!: string;
 
+  releaseState!: ReleaseState;
   newPatient?: Patient;
-  result!: Prediction;
+  result!: string;
 
   @ViewChild('comorbInput') comorbInput!: ElementRef<HTMLInputElement>;
   @ViewChild('diagnosInput') diagnosInput!: ElementRef<HTMLInputElement>;
@@ -54,7 +56,6 @@ export class PatientFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.patientsService.trainModel()
   }
 
   addComorbidity(event: MatChipInputEvent): void {
@@ -170,14 +171,14 @@ export class PatientFormComponent implements OnInit {
       }
   }
 
-  private openDialog(prediction : Prediction): void {
+  private openDialog(prediction : string): void {
     const dialogRef = this.dialog.open(PredictionResultComponent, {
-      width: '250px',
-      // data: {name: this.name, animal: this.animal},
+      width: '450px',
       data: prediction
     });
 
-    this.newPatient!.Release = prediction.outcome;
+    let pred_val = prediction.split("\n")[0].split(": ")[1].toLowerCase() as unknown as ReleaseState;
+    this.newPatient!.Release = pred_val;
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

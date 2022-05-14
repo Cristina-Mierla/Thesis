@@ -1,11 +1,6 @@
-from matplotlib import pyplot as plt
-
-from Backend import dataAnalysis as da
 import numpy as np
-import pandas as pd
-import csv
-import re
 
+from imports import *
 from Backend.dataAnalysis import DataAnalysis
 
 pd.set_option('display.max_rows', 500)
@@ -24,7 +19,7 @@ class DataProcessing:
         self.analize = None
         self.comorb = None
 
-        filename_dataset = "csv_processedDataset.csv"
+        filename_dataset = "csv_NewProcessedDataset.csv"
         filename_comorb = "csv_comorb_weight.csv"
         filename_comrb = "csv_comorbiditati.csv"
         filename_analize = "csv_analize.csv"
@@ -69,32 +64,66 @@ class DataProcessing:
 
         except IOError and FileNotFoundError:
             print("Files " + filename_dataset + " " + filename_comorb + " not found from request in DataProcessing")
-            data = DataAnalysis("csv_dataset.csv")
-            self.dataset = data.getDataset()
-            self.df = pd.DataFrame(self.dataset)
+            try:
+                dataset = pd.read_csv("csv_dataset.csv")
+                self.df = pd.DataFrame(dataset)
+                print(self.df)
 
-            self.comorbidityCounts = None
+                self.replaceColumns()
 
-            self.comorbiditati = self.changeComorbiditati()
-            self.changeDiagnos()
-            self.featureCross()
-            self.medicatie = self.changeMedicatie()
-            self.analize = self.changeAnalize()
+                self.comorbidityCounts = None
 
-            self.comorb = self.df["Comorbiditati"]
-            self.exetern = self.df["stare_externare"]
-            self.varsta = self.df["Varsta"]
-            self.spitalizare = self.df["Zile_spitalizare"]
-            self.diagnos_int = self.df["Diag_pr_int"]
-            self.com_ext = self.df[["Comorbiditati", "stare_externare"]]
+                self.comorbiditati = self.changeComorbiditati()
+                self.changeDiagnos()
+                self.featureCross()
+                self.medicatie = self.changeMedicatie()
+                self.analize = self.changeAnalize()
 
-            self.df.to_csv(filename_dataset, header=True)
+                self.comorb = self.df["Comorbiditati"]
+                self.exetern = self.df["stare_externare"]
+                self.varsta = self.df["Varsta"]
+                self.spitalizare = self.df["Zile_spitalizare"]
+                self.diagnos_int = self.df["Diag_pr_int"]
+                self.com_ext = self.df[["Comorbiditati", "stare_externare"]]
+
+                self.df.to_csv(filename_dataset, header=True)
+            except IOError and FileNotFoundError:
+                print("The file cannot be find or read")
+
+        self.df.rename(columns=lambda s: s.replace("*", "A").replace("(", "").replace(")", "").replace("%", "B")
+                       .replace("#", "C").replace("/", "").replace(",", ''), inplace=True)
+
+    def replaceColumns(self):
+        """
+        Removing redundant information.
+        Replacing with Python NULL in the empty records.
+        Making categorical data numerical.
+        :return:
+        """
+        # print("\nDrop the columns that we are not going to use for the model")
+        self.df.drop(["AN", "precod", "Data_Examinare_Radiologie", "Radiologie", "rezultat_radiologie", "Proceduri",
+                      "Proceduri_Radiologie", "tip_externare", "unde_pleaca"], inplace=True, axis='columns')
+
+        self.df.replace("NULL", np.NAN, inplace=True)
+        self.df.replace("", np.NAN, inplace=True)
+        self.df.replace("_", np.NAN, inplace=True)
+
+        le = LabelEncoder()
+        self.df["Sex"] = le.fit_transform(self.df["Sex"])
+        self.df.stare_externare.replace(
+            ("Vindecat", "Ameliorat", "Stationar", "AGRAVAT                                           ", "Decedat"),
+            (0, 1, 2, 3, 4), inplace=True)
+        self.df.forma_boala.replace(('1.USOARA', '2. MODERATA', '3.SEVERA', 'PERICLITAT TRANSFUZIONAL'),
+                                    (1, 2, 3, np.NaN), inplace=True)
+
+        self.df.forma_boala = self.df.forma_boala.fillna(self.df.forma_boala.median())
 
     def getDataset(self):
         return self.df
 
     def setDataset(self, dataset):
-        self.df = dataset
+        self.df = pd.DataFrame(dataset, columns=self.df.columns)
+        print(self.df)
 
     def getMedicatie(self):
         return self.medicatie
@@ -196,7 +225,7 @@ class DataProcessing:
                         try:
                             self.df[analiza_name][indx] = result_int
                         except:
-                            self.df[analiza_name] = np.zeros(self.df.shape[0], dtype=int)
+                            self.df[analiza_name] = np.zeros(self.df.shape[0], dtype=float)
                             self.df[analiza_name][indx] = result_int
                             pd.to_numeric(self.df[analiza_name])
                     except:
@@ -283,7 +312,7 @@ class DataProcessing:
 
     def changeDiagnos(self):
         """
-        Tied to the function above => CASCADE ON EDIT ABOVE FUNCTION
+        Tied to the function above
         :return:
         """
         indx = 0
@@ -370,15 +399,17 @@ class DataProcessing:
         # newdataset = self.df.drop(["Sex", "Varsta", "Zile_spitalizare", "zile_ATI", "Diag_pr_int", 'Analize_prim_set', "Comorbiditati", "Diag_pr_ext", "stare_externare", "forma_boala"], axis=0, inplace=False)
         newdataset = self.df.drop(
             range(1, self.df.shape[0]), axis=0, inplace=False)
-        newdataset = newdataset.drop(["stare_externare", "forma_boala", "DiagExt-Int", "ZileMed"], axis='columns')
+        newdataset = newdataset.drop(["stare_externare", "forma_boala"], axis='columns')
         for column in newdataset.columns:
             newdataset[column] = 0
 
         try:
-            diag = self.comorbiditati[diag_init.split(" ")[0]]
+            diag = float(self.comorbiditati[diag_init.split(" ")[0]])
         except KeyError:
             diag = 0
 
+        dan = {}
+        analize = analize.replace("- HS * ", "")
         analize_list = analize.split(" || ")
         for analiza in analize_list:
             try:
@@ -388,21 +419,28 @@ class DataProcessing:
                 analiza_name = analiza_name.replace(" ", "")
                 result_int = float(result)
                 try:
-                    newdataset[analiza_name] = result_int
+                    analiza_name = analiza_name.replace("*", "A").replace("(", "").replace(")", "").replace("%", "B")
+                    analiza_name = analiza_name.replace("#", "C").replace("/", "").replace(",", '')
+                    newdataset[analiza_name] = float(result_int)
+                    dan[analiza_name] = 1
                 except:
-                    newdataset[analiza_name] = np.zeros(newdataset.shape[0], dtype=int)
+                    newdataset[analiza_name] = np.zeros(newdataset.shape[0], dtype=float)
                     newdataset[analiza_name] = result_int
                     pd.to_numeric(newdataset[analiza_name])
             except:
+                print("Vai vai")
                 pass
+
 
         med_list = medication.split("|| ")
         for med in med_list:
             med = med.replace(" ", "")
             try:
-                newdataset[med] = 1
+                med = med.replace("*", "A").replace("(", "").replace(")", "").replace("%", "B")
+                med = med.replace("#", "C").replace("/", "").replace(",", '')
+                newdataset[med] = float(1)
             except:
-                newdataset[med] = np.zeros(newdataset.shape[0], dtype=int)
+                newdataset[med] = np.zeros(newdataset.shape[0], dtype=float)
                 newdataset[med] = 1
                 pd.to_numeric(newdataset[med])
 
@@ -414,14 +452,22 @@ class DataProcessing:
             except KeyError:
                 newcomorb += 0
 
-        newdataset["Comorbiditati"] = newcomorb
-        newdataset["Varsta"] = age
-        newdataset["Sex"] = gender
-        newdataset["Diag_pr_int"] = diag
+        newdataset["Comorbiditati"] = float(newcomorb)
+        newdataset["Varsta"] = float(age)
+        newdataset["Sex"] = float(gender)
+        newdataset["Diag_pr_int"] = float(diag)
         newdataset["Diag_pr_ext"] = 0
-        newdataset["Zile_spitalizare"] = zile_spit
-        newdataset["zile_ATI"] = zile_ati
+        newdataset["Zile_spitalizare"] = float(zile_spit)
+        newdataset["zile_ATI"] = float(zile_ati)
 
+        newcols = [col for col in set(newdataset.columns).intersection(self.df.columns)]
+        newdataset = newdataset[newcols]
+
+        newdataset = newdataset.drop(["Unnamed: 0"], axis=1)
+        newdataset = newdataset.drop(["FO"], axis=1)
+        newdataset.rename(columns=lambda s: s.replace("*", "A").replace("(", "").replace(")", "").replace("%", "B")
+                       .replace("#", "C").replace("/", "").replace(",", ''), inplace=True)
+        newdataset.astype(np.float)
         print(newdataset)
         return newdataset
 

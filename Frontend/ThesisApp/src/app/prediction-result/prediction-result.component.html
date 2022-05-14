@@ -1,12 +1,12 @@
 <h1 mat-dialog-title>Prediction Result</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Favorite Animal</mat-label>
-    <!-- <input matInput [(ngModel)]="data.animal"> -->
-  </mat-form-field>
+  <p style="white-space: pre-line">{{data}}</p>
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>result</mat-label>
+    <input matInput [(ngModel)]="data">
+  </mat-form-field> -->
 </div>
 <div mat-dialog-actions>
-  <button mat-button cdkFocusInitial (click)="onNoClick()">Ok</button>
-  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+  <button mat-button cdkFocusInitial (click)="onNoClick()" class="btn btn-secondary custom-button">Close</button>
+  <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
 </div>
