@@ -1,7 +1,7 @@
 import numpy as np
 
 from imports import *
-from Backend.dataAnalysis import DataAnalysis
+from dataAnalysis import DataAnalysis
 
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)

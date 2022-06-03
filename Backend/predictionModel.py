@@ -1,9 +1,7 @@
-import pandas as pd
-
-from Backend.singleton import Singleton
+from singleton import Singleton
 from imports import *
 
-from Backend import dataProcessing as dp, dataAnalysis as da
+import dataProcessing as dp, dataAnalysis as da
 
 pd.options.display.max_rows = 10
 pd.set_option('display.max_rows', 500)
@@ -72,7 +70,9 @@ class PredictionModel(metaclass=Singleton):
 
         self.initializeSets()
         try:
-            modelName = "bestobj/trainedModel_05-09_22-44_0.78_1000_selu_relu_exponential"
+            # modelName = "allnewobj/trainedModel_05-20_17-43_0.95_1000_exponential_selu_selu"
+            # modelName1 = "allnewobj/trainedModel_05-20_17-39_0.9_1000_exponential_tanh_selu"
+            modelName = "bestnewobj/trainedModel_05-21_13-32_0.89_1000_exponential_selu_elu"
             self.my_model = tf.keras.models.load_model(modelName)
 
         except IOError or Exception:
@@ -89,31 +89,18 @@ class PredictionModel(metaclass=Singleton):
         self.Y = self.df[["stare_externare"]]
 
         features = self.X = self.df.drop(["stare_externare", "forma_boala"], axis=1, inplace=False)
-        self.primu = self.X.iloc[[0]]
-        print(self.primu)
 
-        # features = pd.DataFrame(features)
         self.features_std = features.std()
         self.feature_max = features.transpose().max(axis=1).sort_index(key=lambda x: x.str.lower())
         self.feature_min = features.transpose().min(axis=1).sort_index(key=lambda x: x.str.lower())
         self.features_mean = features.mean()
-        # self.X = (features - self.features_mean) / self.features_std
         self.X = pd.DataFrame(sc_X.fit_transform(self.X), columns=self.X.columns)
-        # normalize(self.X)
-        # newvalues = self.X.transpose().sort_index(key=lambda x: x.str.lower())
-        # numarator = newvalues.subtract(self.feature_min, axis=0)
-        # numitor = self.feature_max.subtract(self.feature_min, axis=0)
-        # X_std = numarator.div(numitor, axis=0)
-        # self.X = X_std.transpose()
 
-        # strategy = {0: 459, 1: 1224, 2: 306, 3: 153, 4: 918}
         strategy = {0: 816, 1: 1224, 2: 612, 3: 408, 4: 1020}
         # strategy = {0: .2, 1: .3, 2: .15, 3: .1, 4: .25}
-        oversample = SMOTE(sampling_strategy=strategy, random_state=42)
-        # oversample = ADASYN(sampling_strategy=strategy, random_state=42)
+        # oversample = SMOTE(sampling_strategy=strategy, random_state=42)
+        oversample = ADASYN(sampling_strategy=strategy, random_state=42)
         self.X, self.Y = oversample.fit_resample(self.X, self.Y)
-        self.primu_proc = self.X.iloc[[0]]
-        print(self.primu_proc)
 
         # rus = RandomUnderSampler(random_state=42)
         # self.X, self.Y = rus.fit_resample(self.X, self.Y)
@@ -132,10 +119,6 @@ class PredictionModel(metaclass=Singleton):
         self.X_train, X_rem, self.Y_train, Y_rem = train_test_split(self.X, self.Y, train_size=4 / 5, random_state=42)
         self.X_valid, self.X_test, self.Y_valid, self.Y_test = train_test_split(X_rem, Y_rem, test_size=1 / 3,
                                                                                 random_state=42)
-
-        # self.X_train = sc_X.fit_transform(self.X_train)
-        # self.X_test = sc_X.transform(self.X_test)
-        # self.X_valid = sc_X.transform(self.X_valid)
 
         feature_columns = []
         for column in self.X:
@@ -226,14 +209,6 @@ class PredictionModel(metaclass=Singleton):
             # model.add(tf.keras.layers.Dropout(rate=0.3))
             model.add(tf.keras.layers.GaussianNoise(0.3))
 
-        # # Define the second hidden layer with n2 nodes.
-        # model.add(tf.keras.layers.Dense(units=n[1],
-        #                                 activation=activation_fct[1],
-        #                                 kernel_initializer='he_normal',
-        #                                 kernel_regularizer=tf.keras.regularizers.l2(l=0.01),
-        #                                 name='Hidden2',
-        #                                 bias_initializer=tf.keras.initializers.Zeros()))
-
         # Define the output layer.
         model.add(tf.keras.layers.Dense(units=5,
                                         # activation='sigmoid',
@@ -308,14 +283,29 @@ class PredictionModel(metaclass=Singleton):
         real = tf.math.argmax(validation_labels, axis=-1)
         pred = tf.math.argmax(prediction, axis=-1)
         matrix = confusion_matrix(real, pred)
-        print(matrix)
         df_cm = pd.DataFrame(matrix, range(5), range(5))
         print(df_cm)
         plt.figure(figsize=(8, 8))
         sns.set(font_scale=1.4)  # for label size
         sns.heatmap(df_cm, annot=True, annot_kws={"size": 16}, fmt="d")
         date = datetime.now().strftime("%m-%d_%H-%M")
-        plt.savefig(f"modelPlots\\ConfusionMatrix_{date}")
+        plt.savefig(f"modelPlots\\ConfusionMatrix_{date}_{str(activation_fct)}")
+        plt.clf()
+
+        validation_y = self.Y
+        validation_x = {name: np.array(value) for name, value in self.X.items()}
+        prediction_x = self.my_model.predict(validation_x)
+
+        real_y = tf.math.argmax(validation_y, axis=-1)
+        pred_x = tf.math.argmax(prediction_x, axis=-1)
+
+        matrix_x = confusion_matrix(real_y, pred_x)
+        df_cm_x = pd.DataFrame(matrix_x, range(5), range(5))
+        print(df_cm_x)
+        plt.figure(figsize=(8, 8))
+        sns.set(font_scale=1.4)  # for label size
+        sns.heatmap(df_cm_x, annot=True, annot_kws={"size": 16}, fmt="d")
+        plt.savefig(f"modelPlots\\ConfusionMatrix_alldata_{date}_{str(activation_fct)}")
         plt.clf()
 
         precision = evaluation[3]
@@ -364,32 +354,36 @@ class PredictionModel(metaclass=Singleton):
         return evaluation
 
     def saveModel(self, name):
+        print(f"Saving model: {name}")
         date = datetime.now().strftime("%m-%d_%H-%M")
-        self.my_model.save(f'newnewobj/trainedModel_{date}_{name}')
+        self.my_model.save(f'bestnewobj/trainedModel_{date}_{name}')
 
     def runAllModels(self):
+        # 3 layers = 729 runs
         testingFile = pd.read_csv("csv_ANN_testing.csv")
         last_ind = int(testingFile["ind"].iloc[-1]) + 1
         print(last_ind)
 
         x = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        hyper_layers = 3
         hyper_batch_size = 100
-        hyper_epochs = 6000
-        hyper_layers = 2
-        hyper_n1 = 100
-        hyper_n2 = 30
-        hyper_n = [hyper_n1, hyper_n2]
-        for p in itertools.product(x, repeat=2):
+        hyper_epochs = 1000
+        hyper_n = [100, 70, 20]
+        for p in itertools.product(x, repeat=3):
             fct1 = self.activations[p[0]]
             fct2 = self.activations[p[1]]
-            fct = [fct1, fct2]
-            row = [last_ind, hyper_batch_size, hyper_n, hyper_epochs, fct]
+            fct3 = self.activations[p[2]]
+            fct = [fct1, fct2, fct3]
+            row = [last_ind, hyper_batch_size, hyper_layers, hyper_n, hyper_epochs, fct]
             try:
-                evaluation_result = self.runPipeline(hyper_epochs, hyper_batch_size, hyper_layers, hyper_n, fct)
+                evaluation_result = self.runPipeline(new_batch_size=hyper_batch_size,
+                                                     new_epochs=hyper_epochs,
+                                                     layers=hyper_layers, n=hyper_n,
+                                                     activation_fct=fct)
                 row = row + evaluation_result
 
                 with open("csv_ANN_testing.csv", 'a', newline='') as f_object:
-                    print("New row:" + str(row))
+                    print("New row: " + str(row))
                     writer_object = writer(f_object)
                     writer_object.writerow(row)
 
@@ -417,8 +411,9 @@ class PredictionModel(metaclass=Singleton):
 
         # hyper_fct = [["relu", "exponential"], ["relu", "selu"], ["selu", "exponential"], ["tanh", "exponential"],
         #              ["softsign", "exponential"], ["softplus", "elu"], ["elu", "sigmoid"]]
-        hyper_fct = [["relu", "relu", "exponential"], ["relu", "selu", "selu"], ["selu", "relu", "exponential"], ["tanh", "relu", "exponential"],
-                     ["softsign", "relu", "exponential"], ["softplus", "selu", "elu"], ["elu", "relu", "sigmoid"], ["softplus", "elu", "sigmoid"], ["softsign", "selu", "sigmoid"]]
+        # hyper_fct = [["relu", "relu", "exponential"], ["relu", "selu", "selu"], ["selu", "relu", "exponential"], ["tanh", "relu", "exponential"],
+        #              ["softsign", "relu", "exponential"], ["softplus", "selu", "elu"], ["elu", "relu", "sigmoid"], ["softplus", "elu", "sigmoid"], ["softsign", "selu", "sigmoid"]]
+        hyper_fct = [['exponential', 'tanh', 'selu'], ['exponential', 'selu', 'selu'], ['exponential', 'selu', 'tanh'], ['exponential', 'elu', 'selu'], ['exponential', 'selu', 'elu']]
 
         err = []
         for fct in hyper_fct:
@@ -429,14 +424,13 @@ class PredictionModel(metaclass=Singleton):
                                                      layers=hyper_layers, n=hyper_n,
                                                      activation_fct=fct)
 
-                self.saveModel(f"{hyper_batch_size}_{err[-1]}_{fct}")
+                # self.saveModel(f"{hyper_epochs}_{evaluation_result[-1]}_{fct}")
 
                 err.append(evaluation_result)
                 row = row + evaluation_result
-                print(row)
 
                 with open("csv_ANN_testing.csv", 'a', newline='') as f_object:
-                    print("New row:" + str(row))
+                    print("New row: " + str(row))
                     writer_object = writer(f_object)
                     writer_object.writerow(row)
 
@@ -452,35 +446,24 @@ class PredictionModel(metaclass=Singleton):
     def trainBestModel(self):
         hyper_layers = 3
         hyper_batch_size = 150
-        hyper_epochs = 2000
+        hyper_epochs = 1000
         hyper_n = [100, 70, 20]
-        hyper_functions = ["relu", "selu", "selu"]
+        # hyper_functions = ["relu", "selu", "selu"]
+        hyper_functions = ["selu", "relu", "exponential"]
         self.runPipeline(new_batch_size=hyper_batch_size,
                          new_epochs=hyper_epochs,
                          layers=hyper_layers, n=hyper_n,
                          activation_fct=hyper_functions)
-        self.saveModel(f"{hyper_batch_size}_{hyper_functions}")
+        # self.saveModel(f"{hyper_batch_size}_{hyper_functions}")
 
     def predict(self, values: pd.DataFrame):
-        pp1 = pd.DataFrame(values).sort_index(axis=1)
-        pp2 = self.primu.sort_index(axis=1)
-        print("compare input vals")
-        print(pp1.compare(pp2))
         newvalues = values.transpose().sort_index(key=lambda x: x.str.lower())
         numarator = newvalues.subtract(self.feature_min, axis=0)
         numitor = self.feature_max.subtract(self.feature_min, axis=0)
         X_std = numarator.div(numitor, axis=0)
-        # const = numitor.add(self.feature_min, axis=0)
-        # X_scaled = X_std.mul(numitor, axis=0)
-        # array_vals = X_scaled.add(self.feature_min, axis=0).transpose()
         array_vals = X_std.transpose()
+
         prediction_set = {name: np.array(value) for name, value in array_vals.items()}
-        pp = pd.DataFrame(prediction_set)
-        print("------------------")
-        p1 = pp.sort_index(axis=1)
-        p2 = self.primu.sort_index(axis=1)
-        print("compere preprocessed vals")
-        print(p1.compare(p2))
         prediction = self.my_model.predict(prediction_set)
         predicted_vals = np.array(prediction)
         print(predicted_vals)

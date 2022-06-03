@@ -1,8 +1,8 @@
 from imports import *
 
-from Backend.dataAnalysis import DataAnalysis
-from Backend.dataProcessing import DataProcessing
-from Backend.predictionModel import PredictionModel
+from dataAnalysis import DataAnalysis
+from dataProcessing import DataProcessing
+from predictionModel import PredictionModel
 
 
 class Service:
