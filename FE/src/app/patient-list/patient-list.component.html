@@ -1,0 +1,64 @@
+<div class="container ">
+  <div class="p-4"></div>
+  <div class="row align-items-center">
+    <div class="col-sm-9">
+      <h2>
+        List of admited patients
+        <small class="text-muted">Covid-19 departament</small>
+      </h2>
+    </div>
+    <div class="col-3">
+      <form class="d-flex">
+        <input class="form-control custom-input" type="search" placeholder="Search for an Id" aria-label="Search" [(ngModel)]="searchId" #ctrl="ngModel" [ngModelOptions]="{standalone: true}">
+        <button class="btn btn-outline-primary custom-button" type="submit" (click)="filterById(searchId)">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="p-2"></div>
+  <!-- <ul *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" list-group ">
+    <li class="list-group-item d-flex justify-content-between custom-font">
+      Patient Id:{{patient.Id}} Age: {{patient.Age}} Gender: {{genderMap[patient.Gender]}}
+      <span></span>
+      <span></span>
+      <span class="badge rounded-pill {{colorMap[patient.Outcome]}}" style="font-family: Arial, Helvetica, sans-serif;">{{release[patient.Outcome]}}</span>
+      <span type="button" (click)="loadPatientId(patient.Id)" routerLink="/patient/{{patient.Id}}" class="btn badge rounded-pill bg-secondary" style="font-family: Arial, Helvetica, sans-serif;" >view</span>
+    </li>
+  </ul> -->
+  <table class="table table-hover">
+    <caption>List of patients</caption>
+    <thead>
+      <tr>
+        <th scope="col">Patient Id</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+
+        <th scope="col"><a class="float-right">Outcome</a></th>
+        <th scope="col"><a class="float-right">Raport</a></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let patient of patientList | paginate: { itemsPerPage: 20, currentPage: p }" class=" ">
+      <tr>
+        <th scope="row">{{patient.Id}}</th>
+        <td>{{patient.Age}}</td>
+        <td>{{genderMap[patient.Gender]}}</td>
+
+        <td>
+          <span class="badge rounded-pill {{colorMap[patient.Outcome]}} float-right"
+          style="font-family: Arial, Helvetica, sans-serif;">{{release[patient.Outcome]}}
+        </span>
+        </td>
+        <td>
+          <span type="button"
+          (click)="loadPatientId(patient.Id)"
+          routerLink="/patient/{{patient.Id}}"
+          class="btn badge rounded-pill  float-right custom-button"
+          style="font-family: Arial, Helvetica, sans-serif;">view
+        </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="p-2"></div>
+  <pagination-controls class="pagination-select pagination" (pageChange)="p = $event"></pagination-controls>
+</div>
+

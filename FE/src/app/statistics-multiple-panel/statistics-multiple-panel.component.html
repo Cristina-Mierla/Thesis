@@ -1,0 +1,26 @@
+<div class="container col-sm-8">
+  <div class="row align-items-center form-group order-1 p-4">
+    <h1 class="align-items-center">Clustering data using Principal Component Analysis and K-Means</h1>
+    <p class="text-justify">This panel shows how multidimensional data can be reduced to 2, 3 readable dimensions. This technique can be useful in reducing the number of variables present in the
+      dataset. We aim to choose the fewest components from the dataset, while preserving as much of the original information as possible. K-means is an algorithm used to establish new, redefined,
+      clustered based on the distance of the points in the new 2D dataset. This is useful for better defining the outliers and how different the data points lie in the set.
+    </p>
+  </div>
+  <div class="row align-items-center form-group order-1">
+    <div class="col align-items-center form-group order-1 p-4" [ngClass]="{'show-element' : this.loaded}" [ngClass]="{'hide-element' : !this.loaded }">
+      <figure class="figure">
+        <img [src]=imageUrl1 class="figure-img img-fluid rounded">
+        <figcaption class="figure-caption">Data clustered into the initial 5 outcome categories, shown in 2 dimensions. This plot shows the regularity and how many ouliers are in the initial dataset.</figcaption>
+      </figure>
+    </div>
+    <div class="col align-items-center form-group order-1 p-4" [ngClass]="{'show-element' : this.loaded}" [ngClass]="{'hide-element' : !this.loaded }">
+      <figure class="figure">
+        <img [src]=imageUrl2 class="figure-img img-fluid rounded">
+        <figcaption class="figure-caption">After running a K-Means algorithm and by using the "elbow" method, we establish 3 distinct groups that are cluttered in this specific manner.</figcaption>
+      </figure>
+    </div>
+    <div class="row align-items-center form-group d-flex justify-content-center" [ngClass]="{'show-element' : !this.loaded }" [ngClass]="{'hide-element' : this.loaded }">
+      <mat-spinner class="spinner align-self-center centered-elem" ></mat-spinner>
+    </div>
+  </div>
+</div>

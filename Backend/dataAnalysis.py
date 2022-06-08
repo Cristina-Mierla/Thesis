@@ -16,6 +16,8 @@ class DataAnalysis:
             self.replaceColumns()
         except IOError:
             print("The file: " + file + " - requested in DataAnalysis does not exist")
+        except:
+            print(self.df.head)
 
     def setDataset(self, dataset):
         print("Setting the dataset in DataAnalysis")
@@ -180,7 +182,8 @@ class DataAnalysis:
         plt.ylabel('Hospitalization days')
         plt.legend(["Cured", "Improved", "Deceased"])
         plt.title('Hospitalization days per age based on release state')
-        plt.show()
+        # plt.show()
+        plt.clf()
 
         plt.plot(varsta_vindecat, ati_vindecat, ".")
         plt.plot(varsta_ameliorat, ati_ameliorat, ".")
@@ -190,7 +193,8 @@ class DataAnalysis:
         plt.title("ICU days per age based on release state")
         plt.legend(["Cured", "Improved", "Deceased"])
         plt.savefig(filename)
-        plt.show()
+        # plt.show()
+        plt.clf()
 
         fig = plt.figure(figsize=(9, 6))
         sns.histplot(data_decedat, x=data_decedat["Varsta"], y=data_decedat["Zile_spitalizare"], cmap='OrRd',
@@ -203,7 +207,8 @@ class DataAnalysis:
         patch2 = mpatches.Patch(color='orange', label='Deceased')
         plt.legend(handles=[patch1, patch2])
         plt.title("Hospitalization days per age based on release state")
-        plt.show()
+        # plt.show()
+        plt.clf()
 
         filename += ".png"
 
@@ -242,7 +247,8 @@ class DataAnalysis:
         plt.ylabel("Count of ages in each group")
         plt.tight_layout()
         plt.savefig(filename)
-        plt.show()
+        # plt.show()
+        plt.clf()
 
         filename += ".png"
 
@@ -276,7 +282,8 @@ class DataAnalysis:
         fig.subplots_adjust(top=0.93, wspace=0.3)
         t = fig.suptitle('Clustered data based on a given age and gender', fontsize=14)
         plt.savefig(filename)
-        plt.show()
+        # plt.show()
+        plt.clf()
 
         filename += ".png"
 
@@ -313,7 +320,10 @@ class DataAnalysis:
 
 
 if __name__ == '__main__':
-    d = DataAnalysis("csv_dataset.csv")
-    d.clusteringData("")
+    # d = DataAnalysis("csv_dataset.csv")
+    d = DataAnalysis("csv_NewProcessedDataset.csv")
+    # d.clusteringData("")
     d.describe()
     # d.pltReleaseState()
+
+

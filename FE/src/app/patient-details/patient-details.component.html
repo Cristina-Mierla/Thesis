@@ -1,0 +1,58 @@
+<div class="container col-sm-8">
+  <form>
+    <div class="col order-1 p-4"></div>
+    <fieldset disabled>
+      <div class="mb-3">
+        <h2 for="idLabel">Patient Id: {{ patient?.Id }}</h2>
+        <small id="idHelp" class="form-text text-muted custom-small">This is the unique identifier of the patient.</small>
+      </div>
+    </fieldset>
+    <div>
+      <div class="container">
+        <div class="row align-items-center form-group">
+          <div class="col">
+            <h2 for="ageLabel">Age: {{ patient?.Age }}</h2>
+          </div>
+          <div class="col"></div>
+          <div class="col">
+            <h2 for="genderLabel">Gender: {{ genderMap[patient.Gender] }}</h2>
+          </div>
+        </div>
+        <div class="p-1"></div>
+        <div class="row align-items-center form-group">
+          <div class="col">
+            <h2 for="hospLabel">Days spent in hospitalization: {{ patient?.Hosp }}</h2>
+          </div>
+          <div class="col"></div>
+          <div class="col">
+            <h2 for="icuLabel">Days spent in ICU: {{ patient?.Icu }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="p-4"></div>
+        <h2 for="combLabel">Comorbidities list:</h2>
+        <ul *ngFor="let comorb of patient?.Comb" class="list-group">
+          <li class="list-group-item text-muted">
+            {{ comorb }}
+          </li>
+        </ul>
+        <div class="p-4"></div>
+        <h2 for="anlzLabel">Tests run during their stay:</h2>
+        <ul *ngFor="let anlz of patient?.Anlz" class="list-group">
+          <li class="list-group-item text-muted">
+            {{ anlz }}
+          </li>
+        </ul>
+        <div class="p-4"></div>
+        <h2 for="medLabel">Medication they received during their stay:</h2>
+        <ul *ngFor="let med of patient?.Med" class="list-group">
+          <li class="list-group-item text-muted">
+            {{ med }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </form>
+  <div class="p-4"></div>
+</div>

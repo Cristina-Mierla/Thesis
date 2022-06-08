@@ -1,0 +1,14 @@
+<div class="container col-sm-8">
+  <div class="row align-items-center form-group order-1 p-4">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="row align-items-center form-group order-1 p-4" [ngClass]="{'show-element' : this.loaded }" [ngClass]="{'hide-element' : !this.loaded }">
+    <figure class="figure">
+      <img [src]=imageUrl class="figure-img img-fluid rounded">
+      <figcaption class="figure-caption">{{caption}}</figcaption>
+    </figure>
+  </div>
+  <div class="row align-items-center form-group d-flex justify-content-center" [ngClass]="{'show-element' : !this.loaded }" [ngClass]="{'hide-element' : this.loaded }">
+    <mat-spinner class="spinner align-self-center centered-elem" ></mat-spinner>
+  </div>
+</div>

@@ -501,7 +501,8 @@ class PredictionModel(metaclass=Singleton):
         ax.legend(targets)
         ax.grid()
         plt.savefig(filename1)
-        plt.show()
+        # plt.show()
+        plt.clf()
 
         filename1 += '.png'
 
@@ -521,7 +522,8 @@ class PredictionModel(metaclass=Singleton):
         plt.xlabel('number of clusters, k')
         plt.ylabel('inertia')
         plt.xticks(range(10))
-        plt.show()
+        # plt.show()
+        plt.clf()
 
         model = KMeans(n_clusters=3)
         model.fit(finalDf.iloc[:, :2])
@@ -535,7 +537,8 @@ class PredictionModel(metaclass=Singleton):
         ax.set_title("3-Means data clustering over PCA", fontsize=20)
         ax.grid()
         plt.savefig(filename2)
-        plt.show()
+        # plt.show()
+        plt.clf()
 
         filename2 += ".png"
 
